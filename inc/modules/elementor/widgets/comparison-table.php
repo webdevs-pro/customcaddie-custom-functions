@@ -365,7 +365,7 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 
 
 		// Buttons Style Section
-		$this->start_controls_section( 'section_features_style', [
+		$this->start_controls_section( 'section_button_style', [
 			'label' => 'Item button',
 			'tab'   => Controls_Manager::TAB_STYLE,
 		] );
