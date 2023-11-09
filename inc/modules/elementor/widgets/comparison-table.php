@@ -4,7 +4,7 @@ use Elementor\Controls_Manager as Controls_Manager;
 use Elementor\Group_Control_Typography as Group_Control_Typography;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors as Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography as Global_Typography;
-use Elementor\Group_Control_Border as Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow as Group_Control_Box_Shadow;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -224,6 +224,25 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 			],
 		] );
 
+		$this->add_group_control( Group_Control_Box_Shadow::get_type(), [
+			'name'           => 'item_box_shadow',
+			'label' => 'Box Shadow',
+			'fields_options' => [
+				'box_shadow_type' => [
+					'default' => 'yes',
+				],
+				'box_shadow'      => [
+					'default' => [
+						'horizontal' => 0,
+						'vertical'   => 4,
+						'blur'       => 20,
+						'spread'     => 0,
+						'color' => '#00000012',
+					],
+				],
+			],
+			'selector' => '{{WRAPPER}} .cc-table-item-column, {{WRAPPER}} .cc-comparison-table-mobile-wrapper',
+		] );
 
 		$this->end_controls_section();
 
@@ -232,13 +251,6 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 		$this->start_controls_section( 'section_item_header_style', [
 			'label' => 'Item Header',
 			'tab'   => Controls_Manager::TAB_STYLE,
-		] );
-
-
-		// Plan title
-		$this->add_control( 'item_header_title_styles_heading', [
-			'label' => '<br><br>Title',
-			'type'  => Controls_Manager::HEADING,
 		] );
 
 		$this->add_control( 'item_title_color', [
@@ -284,9 +296,7 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 				'default' => Global_Colors::COLOR_PRIMARY,
 			],
 			'selectors' => [
-				'{{WRAPPER}} .cc-item-feature-heading:after' => 'border-top-color: {{VALUE}};',
-				'{{WRAPPER}} .cc-item-feature-content:after' => 'border-top-color: {{VALUE}};',
-				'{{WRAPPER}} .cc-table-items-divider-column > div:after' => 'border-top-color: {{VALUE}};',
+				'{{WRAPPER}} ' => '--divider-color: {{VALUE}};',
 			],
 		] );
 
@@ -354,6 +364,41 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 		$this->end_controls_section();
 
 
+		// Buttons Style Section
+		$this->start_controls_section( 'section_features_style', [
+			'label' => 'Item button',
+			'tab'   => Controls_Manager::TAB_STYLE,
+		] );
+
+		$this->add_control( 'button_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'default' => '#FFF',
+			'selectors' => [
+				'{{WRAPPER}} .cc-item-button.elementor-button' => 'color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_control( 'button_background_color', [
+			'label'     => 'Color',
+			'type'      => Controls_Manager::COLOR,
+			'global'    => [
+				'default' => Global_Colors::COLOR_ACCENT,
+			],
+			'selectors' => [
+				'{{WRAPPER}} .cc-item-button.elementor-button' => 'background-color: {{VALUE}};',
+			],
+		] );
+
+		$this->add_group_control( Group_Control_Typography::get_type(), [
+			'name'     => 'button_typography',
+			'label'    => 'Typography',
+			'selector' => '{{WRAPPER}} .cc-item-button.elementor-button',
+		] );
+
+		$this->end_controls_section();
+
+
 	}
 
 	protected function render() {
@@ -378,7 +423,6 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 				echo '<div class="cc-item-title">' . ( $settings['items'][0]['title'] ?? '' ) . '</div>';
 				foreach ( $features as $feature ) {
 					echo '<div class="cc-item-feature-content">';
-						echo '<div class="cc-item-feature-heading">' . $feature['heading'] . '</div>';
 						echo '<div class="cc-item-feature-icon">';
 							\Elementor\Icons_Manager::render_icon( $feature['item_1_icon'], [ 'aria-hidden' => 'true' ] );
 						echo '</div>';
@@ -411,7 +455,6 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 				echo '<div class="cc-item-title">' . ( $settings['items'][1]['title'] ?? '' ) . '</div>';
 				foreach ( $features as $feature ) {
 					echo '<div class="cc-item-feature-content">';
-						echo '<div class="cc-item-feature-heading">' . $feature['heading'] . '</div>';
 						echo '<div class="cc-item-feature-icon">';
 							\Elementor\Icons_Manager::render_icon( $feature['item_2_icon'], [ 'aria-hidden' => 'true' ] );
 						echo '</div>';
@@ -429,6 +472,51 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 			echo '</div>';
 		echo '</div>';
 
+
+		// Mobile
+		echo '<div class="cc-comparison-table-mobile">';
+			echo '<div class="cc-comparison-table-mobile-wrapper">';
+				?>
+				<!-- Heading row -->
+				<div></div>
+				<div class="cc-item-title"><?php echo $settings['items'][0]['title'] ?? ''; ?></div>
+				<div class="cc-item-title"><?php echo $settings['items'][1]['title'] ?? ''; ?></div>
+
+				<!-- Features -->
+				<?php foreach ( $features as $feature ) { ?>
+					<div class="cc-item-feature-heading"><?php echo $feature['heading'] ?? ''; ?></div>
+					<div class="cc-item-feature-content">
+						<div class="cc-item-feature-icon">
+							<?php \Elementor\Icons_Manager::render_icon( $feature['item_1_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+						</div>
+						<div class="cc-item-feature-text"><?php echo $feature['item_1_text'] ?? ''; ?></div>
+					</div>
+					<div class="cc-item-feature-content">
+						<div class="cc-item-feature-icon">
+							<?php \Elementor\Icons_Manager::render_icon( $feature['item_2_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+						</div>
+						<div class="cc-item-feature-text"><?php echo $feature['item_2_text'] ?? ''; ?></div>
+					</div>
+				<?php }
+			echo '</div>';
+
+			
+			if ( isset( $settings['items'][0]['button_label'] ) && $settings['items'][0]['button_label'] ) {
+				?>
+				<div class="cc-comparison-table-mobile-button">
+					<a href="<?php echo $settings['items'][0]['button_link']['url'] ?? ''; ?>" class="cc-item-button elementor-button"><?php echo $settings['items'][0]['button_label'] ?? ''; ?></a>
+				</div>
+				<?php
+			}
+
+			if ( isset( $settings['items'][1]['button_label'] ) && $settings['items'][1]['button_label'] ) {
+				?>
+				<div class="cc-comparison-table-mobile-button">
+					<a href="<?php echo $settings['items'][1]['button_link']['url'] ?? ''; ?>" class="cc-item-button elementor-button"><?php echo $settings['items'][1]['button_label'] ?? ''; ?></a>
+				</div>
+				<?php
+			}
+		echo '</div>';
 	}
 
 }
