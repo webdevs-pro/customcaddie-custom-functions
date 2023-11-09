@@ -68,6 +68,14 @@
    left: 0;
    border-top: 1px solid var(--divider-color);
 }
+.cc-item-feature-heading:after {
+   content: '';
+   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   border-top: 1px solid var(--divider-color);
+}
 
 
 
@@ -162,7 +170,7 @@
       text-align: center;
    }
    .cc-item-feature-heading {
-      padding: 0 8px 5px 8px;
+      padding: 7px 11px;
       border-top: 1px solid var(--divider-color);
       display: flex;
       align-items: center;
