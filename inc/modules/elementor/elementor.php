@@ -130,8 +130,12 @@ class CC_Elementor {
     */
 	public function on_widgets_registered() {
 		require ( CC_PLUGIN_DIR . '/inc/modules/elementor/widgets/comparison-table.php' );
+		require ( CC_PLUGIN_DIR . '/inc/modules/elementor/widgets/popups-placeholder.php' );
+		require ( CC_PLUGIN_DIR . '/inc/modules/elementor/widgets/product-iframe.php' );
 
 		\Elementor\Plugin::instance()->widgets_manager->register( new CC_Comparison_Table() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new CC_Popups_Placeholder() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new CC_Product_Iframe() );
 	}
 
 
@@ -142,6 +146,7 @@ class CC_Elementor {
     * @return void
     */
    public function register_frontend_scripts() {
+		wp_register_script( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
 
    }
 
@@ -154,6 +159,7 @@ class CC_Elementor {
     */
    public function register_frontend_styles() {
       wp_register_style( 'cc-comparison-table', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/comparison-table.css', array(), CC_PLUGIN_VERSION ); 
+      wp_register_style( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.css', array(), CC_PLUGIN_VERSION ); 
    }
 }
 new CC_Elementor();
