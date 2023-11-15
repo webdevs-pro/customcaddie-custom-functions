@@ -31,4 +31,5 @@ body:not(.elementor-editor-active) .elementor-widget-cc-popups-placeholder > .el
 .elementor-widget-cc-popups-placeholder .dialog-message.dialog-lightbox-message {
    height: auto !important;
    max-height: unset !important;
+   max-width: 100%;
 }
