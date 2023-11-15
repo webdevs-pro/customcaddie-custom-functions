@@ -1,6 +1,5 @@
 .elementor-widget-cc-popups-placeholder {
    width: 100%;
-
 }
 .elementor-widget-cc-popups-placeholder .dialog-widget-content {
    position: relative;
@@ -13,9 +12,11 @@
 
 .elementor-widget-cc-popups-placeholder > .elementor-widget-container {
    overflow: hidden;
+   min-height: 150px;
+   display: none; /* initially hidden */
 }
 body:not(.elementor-editor-active) .elementor-widget-cc-popups-placeholder > .elementor-widget-container:empty {
-   display: none;
+   display: none !important;
 }
 
 .elementor-widget-cc-popups-placeholder .dialog-lightbox-widget {

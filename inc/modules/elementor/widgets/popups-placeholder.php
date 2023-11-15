@@ -1,6 +1,9 @@
 <?php
 
-use Elementor\Controls_Manager as Controls_Manager;
+use Elementor\Controls_Manager;
+use ElementorPro\Modules\QueryControl\Module as QueryControlModule;
+
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -42,72 +45,41 @@ class CC_Popups_Placeholder extends Elementor\Widget_Base {
 			'label' => 'Items',
 		] );
 
-			$features_repeater = new \Elementor\Repeater();
+			$repeater = new \Elementor\Repeater();
 
-			$features_repeater->add_control( 'heading', [
-				'label'       => 'Heading',
-				'type'        => \Elementor\Controls_Manager::TEXT,
-				'label_block' => true,
-				'ai' => [
-					'active' => false,
+			$repeater->add_control( 'popup', [
+				'label' => esc_html__( 'Popup', 'elementor-pro' ),
+				'type' => QueryControlModule::QUERY_CONTROL_ID,
+				'autocomplete' => [
+					'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
+					'query' => [
+						'posts_per_page' => 20,
+						'post_status' => [ 'publish', 'private' ],
+						'meta_query' => [
+							[
+								'key' => '_elementor_template_type',
+								'value' => 'popup',
+							],
+						],
+					],
 				],
-			] );
-
-
-			$features_repeater->add_control( 'item_1_heading', [
-				'label' => '<br><br>Plan 1',
-				'type'  => Controls_Manager::HEADING,
-			] );
-
-			$features_repeater->add_control( 'item_1_icon', [
-				'label' => 'Icon',
-				'type'  => Controls_Manager::ICONS,
-				'skin'  => 'inline',
-			] );
-
-			$features_repeater->add_control( 'item_1_text', [
-				'label'       => 'Text',
-				'type'        => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
-				'ai' => [
-					'active' => false,
-				],
 			] );
 
 
-			$features_repeater->add_control( 'item_2_heading', [
-				'label' => '<br><br>Plan 2',
-				'type'  => Controls_Manager::HEADING,
-			] );
-
-			$features_repeater->add_control( 'item_2_icon', [
-				'label' => 'Icon',
-				'type'  => Controls_Manager::ICONS,
-				'skin'  => 'inline',
-			] );
-
-			$features_repeater->add_control( 'item_2_text', [
-				'label'       => 'Text',
-				'type'        => \Elementor\Controls_Manager::TEXT,
-				'label_block' => true,
-				'ai' => [
-					'active' => false,
-				],
-			] );
-
-
-			$this->add_control( 'features', [
-				'label' => 'Features',
+			$this->add_control( 'popups', [
+				'label' => 'Popups',
 				'type'         => \Elementor\Controls_Manager::REPEATER,
-				'fields'       => $features_repeater->get_controls(),
+				'fields'       => $repeater->get_controls(),
 				'item_actions' => [
 					'add'       => true,
 					'duplicate' => true,
 					'remove'    => true,
 					'sort'      => true,
 				],
-				'title_field'  => '{{{heading}}}',
+				'title_field'  => 'Popup ID {{{popup}}}',
 				'show_label'   => true,
+				'frontend_available' => true,
 			] );
 
 		$this->end_controls_section();
@@ -116,9 +88,10 @@ class CC_Popups_Placeholder extends Elementor\Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		?>
-		<!-- Popup plaseholder -->
-		<?php
+		if ( ! \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+			echo '<!-- Popup plaseholder -->';
+		}
+		
 	}
 
 }
