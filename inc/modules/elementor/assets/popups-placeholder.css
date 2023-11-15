@@ -17,3 +17,17 @@
 body:not(.elementor-editor-active) .elementor-widget-cc-popups-placeholder > .elementor-widget-container:empty {
    display: none;
 }
+
+.elementor-widget-cc-popups-placeholder .dialog-lightbox-widget {
+   position: relative;
+   height: auto !important;
+   max-height: unset !important;
+}
+.elementor-widget-cc-popups-placeholder .dialog-lightbox-widget-content {
+   width: 100%;
+}
+
+.elementor-widget-cc-popups-placeholder .dialog-message.dialog-lightbox-message {
+   height: auto !important;
+   max-height: unset !important;
+}

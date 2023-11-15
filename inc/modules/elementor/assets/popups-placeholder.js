@@ -7,15 +7,19 @@ jQuery(window).on('elementor/frontend/init', function () {
       }
 
       $( document ).on( 'elementor/popup/show', function( event, id, instance ) {
-         $scope.find('.elementor-widget-container').html('');
-         $scope.find( '.elementor-widget-container' ).append( $( '#elementor-popup-modal-' + id + ' .dialog-widget-content' ) );
-         // var modal = instance.getModal();
-         // modal.destroy()
-         $( '#elementor-popup-modal-' + id ).remove();
+         $scope.find( '.elementor-widget-container .dialog-lightbox-widget' ).each( function() {
+            $( this ).hide();
+            $( 'body' ).append( $( this ) );
+         } );
+
+         $scope.find( '.elementor-widget-container' ).append( $( '#elementor-popup-modal-' + id ) );
       } );
       
       $( document ).on( 'elementor/popup/hide', function( event, id, instance ) {
-         alert();
+         $scope.find( '.elementor-widget-container .dialog-lightbox-widget' ).each( function() {
+            $( this ).hide();
+            $( 'body' ).append( $( this ) );
+         } );
       } );
    }
 
