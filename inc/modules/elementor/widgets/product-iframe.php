@@ -71,7 +71,7 @@ class CC_Product_Iframe extends Elementor\Widget_Base {
 
       $product_url = get_permalink( $settings['product_id'] );
 
-		echo '<iframe src="' . $product_url . '?admin-bar=false' . '" height="100%" width="100%" onload="this.style.height = this.contentWindow.document.body.scrollHeight + \'px\';"></iframe>';
+		echo '<iframe src="' . $product_url . '?admin-bar=false' . '" height="100%" width="100%" onload="this.style.height = this.contentWindow.document.body.scrollHeight + 5 + \'px\';"></iframe>';
 	}
 
 }
