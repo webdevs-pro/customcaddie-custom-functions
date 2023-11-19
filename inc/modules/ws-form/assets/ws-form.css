@@ -61,6 +61,64 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    font-family: 'Homemade Apple', cursive !important;
 }
 
-.cc-signature-preview label.wsf-label {
-   font-size: 40px !important;
+.cc-signature-preview label.wsf-label,
+.cc-icon-select label.wsf-label {
+   font-size: 35px !important;
+   background-color: transparent !important;
+   border: 1px solid #D7D7D7 !important;
+   border-radius: 8px !important;
+   color: #1A3050 !important;
+}
+.cc-signature-preview .wsf-field.wsf-button:checked + label.wsf-label,
+.cc-icon-select .wsf-field.wsf-button:checked + label.wsf-label {
+   border: 1px solid #86A232 !important;
+   color: #1A3050 !important;
+   box-shadow: 0 0 0 2px #86A232 !important;
+}
+.cc-signature-preview .wsf-field.wsf-button:checked:focus + label.wsf-label,
+.cc-icon-select .wsf-field.wsf-button:checked:focus + label.wsf-label {
+   box-shadow: 0 0 0 2px #86A232 !important;
+}
+
+.cc-icon-select .wsf-grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   gap: 20px;
+}
+.cc-icon-select .wsf-grid .wsf-tile {
+   max-width: unset !important;
+}
+
+
+.wsf-grid.wsf-sections fieldset {
+   border-bottom: 1px solid #D8D8D8;
+   padding-top: 16px;
+   padding-bottom: 8px;
+}
+.wsf-grid.wsf-sections fieldset h2 {
+   margin: 0;
+   font-size: 24px;
+}
+.wsf-grid.wsf-sections fieldset h3 {
+   margin: 0;
+   font-size: 16px;
+   line-height: 41px;
+}
+.wsf-grid.wsf-sections fieldset .wsf-field-wrapper {
+   margin-bottom: 0px;
+}
+
+
+.wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields,
+.wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields {
+   display: grid;
+   grid-template-columns: auto 1fr;
+}
+.wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields > div,
+.wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields > div {
+   max-width: unset !important;
+}
+.wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields .wsf-label-wrapper label,
+.wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields .wsf-label-wrapper label {
+   padding: 0 !important;
 }
