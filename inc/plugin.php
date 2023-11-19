@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once ( CC_PLUGIN_DIR . '/inc/modules/elementor/elementor.php' );
+require_once ( CC_PLUGIN_DIR . '/inc/modules/ws-form/ws-form.php' );
 
 
 

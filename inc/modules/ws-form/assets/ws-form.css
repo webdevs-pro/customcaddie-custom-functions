@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zeyada:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple:wght@400&display=swap');
+
+
+
+input[value="Dancing Script - Bold 700"] + label.wsf-label {
+   font-family: 'Dancing Script', cursive !important;
+}
+
+input[value="Caveat - Regular 400"] + label.wsf-label {
+   font-family: 'Caveat', cursive !important;
+}
+
+input[value="Shadows Into Light - Regular 400"] + label.wsf-label {
+   font-family: 'Shadows Into Light', cursive !important;
+}
+
+input[value="Satisfy - Regular 400"] + label.wsf-label {
+   font-family: 'Satisfy', cursive !important;
+}
+
+input[value="Indie Flower - Regular 400"] + label.wsf-label {
+   font-family: 'Indie Flower', cursive !important;
+}
+
+input[value="Great Vibes - Regular 400"] + label.wsf-label {
+   font-family: 'Great Vibes', cursive !important;
+}
+
+input[value="Zeyada - Regular 400"] + label.wsf-label {
+   font-family: 'Zeyada', cursive !important;
+}
+
+input[value="Sacramento - Regular 400"] + label.wsf-label {
+   font-family: 'Sacramento', cursive !important;
+}
+
+input[value="Cookie - Regular 400"] + label.wsf-label {
+   font-family: 'Cookie', cursive !important;
+}
+
+input[value="Allura - Regular 400"] + label.wsf-label {
+   font-family: 'Allura', cursive !important;
+}
+
+input[value="Alex Brush - Regular 400"] + label.wsf-label {
+   font-family: 'Alex Brush', cursive !important;
+}
+
+input[value="Homemade Apple - Regular 400"] + label.wsf-label {
+   font-family: 'Homemade Apple', cursive !important;
+}
+
+.cc-signature-preview label.wsf-label {
+   font-size: 40px !important;
+}
