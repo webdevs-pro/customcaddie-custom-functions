@@ -161,6 +161,7 @@ class CC_Elementor {
    public function register_frontend_styles() {
       wp_register_style( 'cc-comparison-table', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/comparison-table.css', array(), CC_PLUGIN_VERSION ); 
       wp_register_style( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.css', array(), CC_PLUGIN_VERSION ); 
+      wp_register_style( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.css', array(), CC_PLUGIN_VERSION ); 
    }
 }
 new CC_Elementor();

@@ -32,9 +32,9 @@ class CC_Product_Iframe extends Elementor\Widget_Base {
 		return ['product', 'iframe'];
 	}
 
-	// public function get_style_depends() {
-	// 	return ['cc-product-iframe'];
-	// }
+	public function get_style_depends() {
+		return ['cc-product-iframe'];
+	}
 
    public function get_script_depends() {
 		return [ 'cc-product-iframe' ];
