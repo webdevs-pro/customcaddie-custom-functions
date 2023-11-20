@@ -33,12 +33,12 @@ class CC_Product_Iframe extends Elementor\Widget_Base {
 	}
 
 	// public function get_style_depends() {
-	// 	return ['cc-popups-placeholder'];
+	// 	return ['cc-product-iframe'];
 	// }
 
-   // public function get_script_depends() {
-	// 	return [ 'cc-popups-placeholder' ];
-	// }
+   public function get_script_depends() {
+		return [ 'cc-product-iframe' ];
+	}
 
 	protected function register_controls() {
 		$this->start_controls_section( 'section_items', [
@@ -71,7 +71,7 @@ class CC_Product_Iframe extends Elementor\Widget_Base {
 
       $product_url = get_permalink( $settings['product_id'] );
 
-		echo '<iframe src="' . $product_url . '?admin-bar=false' . '" height="100%" width="100%" onload="this.style.height = this.contentWindow.document.body.scrollHeight + 5 + \'px\';"></iframe>';
+		echo '<iframe id="cc-product-iframe-' . $this->get_id() . '" src="' . $product_url . '?admin-bar=false' . '" height="100%" width="100%"></iframe>';
 	}
 
 }

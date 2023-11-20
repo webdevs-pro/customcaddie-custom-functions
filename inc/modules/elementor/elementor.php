@@ -147,6 +147,7 @@ class CC_Elementor {
     */
    public function register_frontend_scripts() {
 		wp_register_script( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
+		wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
 
    }
 
