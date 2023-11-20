@@ -172,11 +172,9 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    }
 
    .elementor-widget-woocommerce-product-add-to-cart .wsf-form {
-      min-height: 50vh;
       display: grid !important;
       grid-template-columns: 1fr;
       grid-template-rows: 54px auto 60px;
-      max-height: 100vh;
    }
 
 
