@@ -155,6 +155,10 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    align-items: center;
    padding: 20px !important;
 }
+.cc-icon-select .wsf-grid .wsf-tile label svg {
+   max-height: 100%;
+   max-width: 100%;
+}
 
 
 
