@@ -146,6 +146,7 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    height: 100%;
    display: flex !important;
    align-items: center;
+   padding: 20px !important;
 }
 
 
