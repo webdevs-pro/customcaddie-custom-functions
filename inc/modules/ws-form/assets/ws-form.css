@@ -13,6 +13,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 
 
@@ -131,8 +132,9 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    transition: opacity 200ms;
 }
 .cc-icon-select:not(.icons-type-selected) {
-   opacity: 0.3;
-   pointer-events: none;
+   /* opacity: 0.3; */
+   /* pointer-events: none; */
+   display: none;
 }
 .cc-icon-select .wsf-grid {
    display: grid;
