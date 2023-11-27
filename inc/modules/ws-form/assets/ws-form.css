@@ -116,6 +116,50 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Icons */
+.cc-icon-select {
+   transition: opacity 200ms;
+}
+.cc-icon-select:not(.icons-type-selected) {
+   opacity: 0.3;
+   pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields,
 .wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields {
    display: grid;
