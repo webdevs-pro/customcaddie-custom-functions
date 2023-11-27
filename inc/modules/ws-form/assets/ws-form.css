@@ -11,6 +11,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple:wght@400&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+
 
 
 input[value="Dancing Script - Bold 700"] + label.wsf-label {
@@ -80,14 +82,9 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    box-shadow: 0 0 0 2px #86A232 !important;
 }
 
-.cc-icon-select .wsf-grid {
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-   gap: 20px;
-}
-.cc-icon-select .wsf-grid .wsf-tile {
-   max-width: unset !important;
-}
+
+
+
 
 
 .wsf-grid.wsf-sections fieldset {
@@ -136,6 +133,16 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    opacity: 0.3;
    pointer-events: none;
 }
+.cc-icon-select .wsf-grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+   gap: 20px;
+}
+.cc-icon-select .wsf-grid .wsf-tile {
+   max-width: unset !important;
+}
+
+
 
 
 
