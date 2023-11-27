@@ -136,7 +136,7 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 }
 .cc-icon-select .wsf-grid {
    display: grid;
-   grid-template-columns: repeat(5, 1fr);
+   grid-template-columns: repeat(5, 20%);
    gap: 16px;
 }
 @media(min-width: 768px) {
@@ -146,6 +146,8 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 }
 .cc-icon-select .wsf-grid .wsf-tile {
    max-width: unset !important;
+   aspect-ratio: 1;
+   padding: 0;
 }
 .cc-icon-select .wsf-grid .wsf-tile label {
    height: 100%;
