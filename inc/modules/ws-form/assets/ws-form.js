@@ -33,9 +33,9 @@
 			console.log('middle_letter', middle_letter);
 			console.log('last_letter', last_letter);
 
-			$( 'text.cc-first-letter' ).text( first_letter );
-			$( 'text.cc-middle-letter' ).text( middle_letter );
-			$( 'text.cc-last-letter' ).text( last_letter );
+			$( '.cc-first-letter' ).text( first_letter );
+			$( '.cc-middle-letter' ).text( middle_letter );
+			$( '.cc-last-letter' ).text( last_letter );
 		} );
 
 
