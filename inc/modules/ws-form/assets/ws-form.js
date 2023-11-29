@@ -41,6 +41,25 @@
 
 
 
+		$( '.cc-icon-select input' ).on( 'change', function() {
+			var font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-letter' ).attr( 'font-size' );
+			console.log('font_size', font_size);
+
+			$( '.cc-icon-font-size' ).val( font_size );
+		} );
+
+
+
+
+
+		$( '.cc-icon-font-size' ).on( 'change', function() {
+			var value = $( this ).val();
+			var checked_input = $( '.cc-icon-select' ).find( 'input:checked' );
+			
+			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-first-letter' ).attr( 'font-size', value );
+			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-middle-letter' ).attr( 'font-size', value );
+			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-letter' ).attr( 'font-size', value );
+		})
 	} );
 
 } )( jQuery );
