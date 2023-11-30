@@ -2,7 +2,7 @@
 /**
  * Plugin Name: CustomCaddie Custom Functions
  * Plugin URI: https://github.com/webdevs-pro/customcaddie-custom-functions
- * Version: 1.4.3
+ * Version: 1.4.4
  * Description: A place for custom functions for customcaddie.co website
  * Author: Alex Ishchenko
  * Author URI: https://website.cv.ua
