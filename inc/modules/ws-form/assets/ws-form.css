@@ -163,6 +163,16 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 }
 
 
+.cc-icon-font-size {
+   max-width: 60px;
+   text-align: center;
+   height: 42px !important;
+}
+.cc-icon-font-size:focus {
+   border-color: #ceced2 !important;
+   box-shadow: none !important;
+}
+
 
 
 
