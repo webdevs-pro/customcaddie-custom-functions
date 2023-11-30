@@ -29,9 +29,6 @@
 				last_letter = value[2];
 			}
 
-			console.log('first_letter', first_letter);
-			console.log('middle_letter', middle_letter);
-			console.log('last_letter', last_letter);
 
 			$( '.cc-first-letter' ).text( first_letter );
 			$( '.cc-middle-letter' ).text( middle_letter );
@@ -43,7 +40,6 @@
 
 		$( '.cc-icon-select input' ).on( 'change', function() {
 			var font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-letter' ).attr( 'font-size' );
-			console.log('font_size', font_size);
 
 			$( '.cc-icon-font-size' ).val( font_size );
 		} );
@@ -61,7 +57,16 @@
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-letter' ).attr( 'font-size', value );
 		} );
 
-		
+
+
+		$( '.cc-icon-font-size-wrapper .wsf-input-group-prepend' ).on( 'click', function() {
+			var value = $( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val();
+			$( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val( parseInt( value ) - 1 ).trigger( 'change' );
+		} );
+		$( '.cc-icon-font-size-wrapper .wsf-input-group-append' ).on( 'click', function() {
+			var value = $( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val();
+			$( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val( parseInt( value ) + 1 ).trigger( 'change' );
+		} );
 	} );
 
 } )( jQuery );
