@@ -16,7 +16,7 @@
 
 
 
-		$( '.cc-initials-field input' ).on( 'input', function() {
+		$( 'input.cc-initials-field' ).on( 'input', function() {
 			var value = $( this ).val();
 			var first_letter = value.length > 0 ? value[0] : 'J';
 			var middle_letter = 'M'; // Default value
@@ -33,6 +33,28 @@
 			$( '.cc-first-letter' ).text( first_letter );
 			$( '.cc-middle-letter' ).text( middle_letter );
 			$( '.cc-last-letter' ).text( last_letter );
+		} );
+
+
+
+
+
+		$( 'input.cc-first-name-field' ).on( 'input', function() {
+			var value = $( this ).val();
+			var first_name = value ? value : 'JOHN';
+
+			$( '.cc-first-name-letters' ).text( first_name.toUpperCase() );
+		} );
+
+
+
+
+
+		$( 'input.cc-last-name-field' ).on( 'input', function() {
+			var value = $( this ).val();
+			var last_name = value ? value : 'DANIELS';
+
+			$( '.cc-last-name-letters' ).text( last_name.toUpperCase() );
 		} );
 
 

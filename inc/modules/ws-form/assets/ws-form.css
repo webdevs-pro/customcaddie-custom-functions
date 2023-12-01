@@ -194,6 +194,10 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 
 
 
+.cc-icon-select:not(.icons-type-selected) {
+   order: 99;
+}
+
 
 
 
