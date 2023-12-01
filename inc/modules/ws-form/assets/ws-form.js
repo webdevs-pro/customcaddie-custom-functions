@@ -97,6 +97,28 @@
 			var value = $( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val();
 			$( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val( parseInt( value ) + 1 ).trigger( 'change' );
 		} );
+
+
+
+
+		$('.cc-first-name-field, .cc-middle-name-field, .cc-last-name-field').on('input', function() {
+			// Initialize the initials as an empty string
+			var initials = '';
+ 
+			// Check each field and add its first letter to the initials if it's not empty
+			if ($('.cc-first-name-field').val()) {
+				 initials += $('.cc-first-name-field').val().charAt(0);
+			}
+			if ($('.cc-middle-name-field').val()) {
+				 initials += $('.cc-middle-name-field').val().charAt(0);
+			}
+			if ($('.cc-last-name-field').val()) {
+				 initials += $('.cc-last-name-field').val().charAt(0);
+			}
+ 
+			// Set the initials to the initials field and convert them to uppercase
+			$('.cc-initials-field').val(initials.toUpperCase()).trigger('input');
+	  });
 	} );
 
 } )( jQuery );
