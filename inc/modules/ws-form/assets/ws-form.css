@@ -84,8 +84,8 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    box-shadow: 0 0 0 2px #86A232 !important;
 }
 .cc-signature-preview > label {
-   font-weight: bold;
-   margin-bottom: 20px;
+   font-weight: bold !important;
+   margin-bottom: 15px !important;
 }
 
 
