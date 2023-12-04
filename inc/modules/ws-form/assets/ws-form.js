@@ -3,14 +3,32 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
-		$( 'input.cc-set-name-field' ).on( 'input', function() {
-			var value = $( this ).val();
-			if ( ! value ) {
-				value = 'James Marshall';
+		$( '.cc-first-name-field, .cc-middle-name-field, .cc-last-name-field' ).on( 'input', function() {
+			var first_name = $( '.cc-first-name-field' ).val();
+			var middle_name = $( '.cc-middle-name-field' ).val();
+			var last_name = $( '.cc-last-name-field' ).val();
+	
+			if ( ! first_name ) {
+				first_name = 'John';
 			}
-
-			$( '.cc-signature-preview label.wsf-label' ).text( value );
-		} );
+	
+			if ( ! last_name ) {
+				last_name = 'Daniels';
+			}
+	
+			// Initialize full_name with first_name
+			var full_name = first_name;
+	
+			// Only add middle name with preceding space if it's present
+			if ( middle_name ) {
+				full_name += ' ' + middle_name;
+			}
+	
+			// Add last name with preceding space
+			full_name += ' ' + last_name;
+	
+			$( '.cc-signature-preview .wsf-tile label.wsf-label' ).text( full_name );
+	} );
 
 
 
