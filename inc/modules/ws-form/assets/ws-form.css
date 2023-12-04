@@ -205,10 +205,14 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 }
 
 
-.cc-icon-font-size-wrapper .wsf-input-group-prepend,
-.cc-icon-font-size-wrapper .wsf-input-group-append {
+.cc-font-size-wrapper .wsf-input-group-prepend,
+.cc-font-size-wrapper .wsf-input-group-append {
    cursor: pointer;
    background-color: #f4f4f4 !important;
+}
+/* Disabled number input background color */
+input[type="number"].wsf-field:disabled {
+   background-color: #fbfbfb !important;
 }
 
 
@@ -216,8 +220,6 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 .cc-icon-select:not(.icons-type-selected) {
    order: 99;
 }
-
-
 
 
 
