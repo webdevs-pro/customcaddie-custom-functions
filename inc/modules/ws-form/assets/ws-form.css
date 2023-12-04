@@ -65,22 +65,22 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    font-family: 'Homemade Apple', cursive !important;
 }
 
-.cc-signature-preview label.wsf-label,
-.cc-icon-select label.wsf-label {
+.cc-signature-preview .wsf-grid label.wsf-label,
+.cc-icon-select .wsf-grid label.wsf-label {
    font-size: 35px !important;
    background-color: transparent !important;
    border: 1px solid #D7D7D7 !important;
    border-radius: 8px !important;
    color: #1A3050 !important;
 }
-.cc-signature-preview .wsf-field.wsf-button:checked + label.wsf-label,
-.cc-icon-select .wsf-field.wsf-button:checked + label.wsf-label {
+.cc-signature-preview .wsf-grid .wsf-field.wsf-button:checked + label.wsf-label,
+.cc-icon-select .wsf-grid .wsf-field.wsf-button:checked + label.wsf-label {
    border: 1px solid #86A232 !important;
    color: #1A3050 !important;
    box-shadow: 0 0 0 2px #86A232 !important;
 }
-.cc-signature-preview .wsf-field.wsf-button:checked:focus + label.wsf-label,
-.cc-icon-select .wsf-field.wsf-button:checked:focus + label.wsf-label {
+.cc-signature-preview .wsf-grid .wsf-field.wsf-button:checked:focus + label.wsf-label,
+.cc-icon-select .wsf-grid .wsf-field.wsf-button:checked:focus + label.wsf-label {
    box-shadow: 0 0 0 2px #86A232 !important;
 }
 
@@ -258,6 +258,12 @@ input[type="number"].wsf-field:disabled {
 .wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields .wsf-label-wrapper label {
    padding: 0 !important;
 }
+
+
+
+
+
+
 
 .cc-color-swatches input[type="radio"].wsf-field.wsf-color:checked + label.wsf-label > span {
    box-shadow: inset 0 0 0 3px #fff !important;
