@@ -101,7 +101,7 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    background-color: #D8D8D8;
    margin-top: 32px;
 }
-.wsf-grid.wsf-sections .section-no-divider fieldset:after {
+.wsf-grid.wsf-sections fieldset.section-no-divider:after {
    display: none;
 }
 .wsf-grid.wsf-sections fieldset h2 {
