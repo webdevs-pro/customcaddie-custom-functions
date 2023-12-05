@@ -259,6 +259,7 @@ input[type="number"].wsf-field:disabled {
    border: 1px solid #D7D7D7;
    border-radius: 8px;
    text-align: center;
+   overflow: hidden;
 }
 .cc-preview-texts {
    height: 50%;
