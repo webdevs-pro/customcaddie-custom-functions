@@ -268,13 +268,15 @@ input[type="number"].wsf-field:disabled {
    justify-content: center;
    border: 3px dotted red;
    border-radius: 50%;
-   white-space: nowrap;
+   flex-direction: column;
 }
 .cc-preview-name {
+   white-space: nowrap;
    text-transform: uppercase;
    font-size: 12px;
 }
 .cc-preview-signature {
+   white-space: nowrap;
    font-size: 22px;
 }
 
