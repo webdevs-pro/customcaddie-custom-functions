@@ -278,6 +278,7 @@ input[type="number"].wsf-field:disabled {
 .cc-preview-signature {
    white-space: nowrap;
    font-size: 22px;
+   line-height: 1em;
 }
 
 

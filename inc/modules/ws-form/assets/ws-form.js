@@ -114,16 +114,27 @@
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size', value );
 		} );
 
+		$( '.cc-name-font-size' ).on( 'change', function() {
+			var value = $( this ).val();
+			$( '.cc-preview-wrapper .cc-preview-name' ).css( 'font-size', value + 'px' );
+		} );
+
+		$( '.cc-signature-font-size' ).on( 'change', function() {
+			var value = $( this ).val();
+			$( '.cc-preview-wrapper .cc-preview-signature' ).css( 'font-size', value + 'px' );
+		} );
 
 
-		$( '.cc-icon-font-size-wrapper .wsf-input-group-prepend' ).on( 'click', function() {
-			var value = $( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val();
-			$( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val( parseInt( value ) - 1 ).trigger( 'change' );
+
+		$( '.cc-font-size-wrapper .wsf-input-group-prepend' ).on( 'click', function() {
+			var value = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val();
+			$( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val( parseInt( value ) - 1 ).trigger( 'change' );
 		} );
-		$( '.cc-icon-font-size-wrapper .wsf-input-group-append' ).on( 'click', function() {
-			var value = $( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val();
-			$( this ).closest( '.cc-icon-font-size-wrapper' ).find( '.cc-icon-font-size' ).val( parseInt( value ) + 1 ).trigger( 'change' );
+		$( '.cc-font-size-wrapper .wsf-input-group-append' ).on( 'click', function() {
+			var value = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val();
+			$( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val( parseInt( value ) + 1 ).trigger( 'change' );
 		} );
+
 
 
 
@@ -250,7 +261,7 @@
 					break;
 			}
 		}
-		
+
 		set_signature_font();
 		render_ball_preview();
 
