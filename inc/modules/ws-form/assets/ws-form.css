@@ -286,7 +286,18 @@ input[type="number"].wsf-field:disabled {
    font-size: 22px;
    line-height: 1em;
 }
-
+..cc-ball-preview-wrapper .cc-preview-texts > div {
+   display: none;
+}
+.cc-ball-preview-wrapper.cc-ball-preview-show-signature .cc-preview-signature {
+   display: block;
+}
+.cc-ball-preview-wrapper.cc-ball-preview-show-icon .cc-preview-icon {
+   display: block;
+}
+.cc-ball-preview-wrapper.cc-ball-preview-show-text .cc-preview-text {
+   display: block;
+}
 
 
 
