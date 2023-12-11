@@ -184,7 +184,7 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 }
 /*
 @media(max-width: 1200px) {
-   .cc-font-size-wrapper {
+   .cc-label-inline {
       position: sticky !important;
       top: 54px !important;
       width: 100% !important;
@@ -192,13 +192,13 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    }
 }
 */
-.cc-font-size-wrapper .wsf-label-wrapper {
+.cc-label-inline .wsf-label-wrapper {
    flex: unset !important;
    max-width: unset !important;
    width: unset !important;
    font-weight: bold;
 }
-.cc-font-size-wrapper .wsf-tile {
+.cc-label-inline .wsf-tile {
    flex: unset !important;
    max-width: unset !important;
    width: unset !important;
