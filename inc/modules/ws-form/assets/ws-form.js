@@ -3,6 +3,9 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
+		/**
+		 * This function populates the name placeholders and signature preview with the values ​​entered in the corresponding fields.. 
+		 */
 		function fill_name_placeholders() {
 			var first_name = $( '.cc-first-name-field' ).val();
 			var middle_name = $( '.cc-middle-name-field' ).val();
@@ -31,10 +34,16 @@
 			$( '.cc-preview-wrapper .cc-preview-name' ).text( full_name );
 			$( '.cc-preview-wrapper .cc-preview-signature' ).text( full_name );
 		}
+
+		/**
+		 * Populates the name placeholders and signature preview on load.
+		 */
 		fill_name_placeholders();
 
 
-
+		/**
+		 * Populates the name placeholders and signature preview on input.
+		 */
 		$( '.cc-first-name-field, .cc-middle-name-field, .cc-last-name-field' ).on( 'input', function() {
 			fill_name_placeholders();
 		} );
@@ -42,7 +51,9 @@
 
 
 
-
+		/**
+		 * Populate the initials placeholders on input.
+		 */
 		$( 'input.cc-initials-field' ).on( 'input', function() {
 			var value = $( this ).val();
 			var first_letter = value.length > 0 ? value[0] : 'J';
@@ -56,7 +67,6 @@
 				last_letter = value[2];
 			}
 
-
 			$( '.cc-first-letter' ).text( first_letter );
 			$( '.cc-middle-letter' ).text( middle_letter );
 			$( '.cc-last-letter' ).text( last_letter );
@@ -65,7 +75,9 @@
 
 
 
-
+		/**
+		 * Populate the first name placeholders on input.
+		 */
 		$( 'input.cc-first-name-field' ).on( 'input', function() {
 			var value = $( this ).val();
 			var first_name = value ? value : 'JOHN';
@@ -76,7 +88,9 @@
 
 
 
-
+		/**
+		 * Populate the last name placeholders on input.
+		 */
 		$( 'input.cc-last-name-field' ).on( 'input', function() {
 			var value = $( this ).val();
 			var last_name = value ? value : 'DANIELS';
@@ -86,8 +100,12 @@
 
 
 
-
+		/**
+		 * On icon select.
+		 */
 		$( '.cc-icon-select input' ).on( 'change', function() {
+
+			// Set font size input value from selected SVG icon
 			var font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-letter' ).attr( 'font-size' );
 			if ( typeof font_size === 'undefined' ) {
 				font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).attr( 'font-size' );
@@ -95,14 +113,35 @@
 			if ( typeof font_size === 'undefined' ) {
 				font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size' );
 			}
-
 			$( '.cc-icon-font-size' ).val( font_size );
+
+
+			// Set ball preview icon
+			// set_ball_icon();
+
+			var svg = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
+			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg );
+
 		} );
 
 
+		function set_ball_icon() {
+			var svg = $( '.cc-initials-icons-2-letters .wsf-grid .wsf-tile:first-child label svg' ).clone();
+			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg );
+		}
+		set_ball_icon();
 
 
 
+		$( '.cc-icon-size-wrapper input' ).on( 'change', function() {
+			var value = $( this ).val();
+			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css( 'width', value + '%' );
+		} )
+
+
+		/**
+		 * Change icon letters font size.
+		 */
 		$( '.cc-icon-font-size' ).on( 'change', function() {
 			var value = $( this ).val();
 			var checked_input = $( '.cc-icon-select' ).find( 'input:checked' );
@@ -125,7 +164,9 @@
 		} );
 
 
-
+		/**
+		 *  Makes + and - buttons works for size input.
+		 */
 		$( '.cc-font-size-wrapper .wsf-input-group-prepend' ).on( 'click', function() {
 			var value = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val();
 			$( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val( parseInt( value ) - 1 ).trigger( 'change' );
@@ -138,7 +179,9 @@
 
 
 
-
+		/**
+		 * Autopopulate initials field on enter first, middle and last names.
+		 */
 		$('.cc-first-name-field, .cc-middle-name-field, .cc-last-name-field').on('input', function() {
 			// Initialize the initials as an empty string
 			var initials = '';
@@ -163,26 +206,61 @@
 
 
 
-
+		/**
+		 * Function to render ball preview.
+		 */
 		function render_ball_preview() {
-			var type = $( '.cc-ball-print-type:checked' ).val();
-			console.log('type', type);
+			// var checkedValues = [];
 
-			if ( type == 'Signature Only') {
-				$( '.cc-preview-wrapper .cc-preview-name' ).hide();
-			} else {
-				$( '.cc-preview-wrapper .cc-preview-name' ).show();
-			}
+			// // Loop through checkboxes with the 'cc-ball-elements-select' class
+			// $( '.cc-ball-elements-select' ).each(function() {
+			// 	// Check if the checkbox is checked
+			// 	if ( $( this ).is( ':checked' ) ) {
+			// 		// Add the checked value to the array
+			// 		checkedValues.push( $( this ).val() );
+			// 	}
+			// });
 
-			if ( type == 'Name Only') {
-				$( '.cc-preview-wrapper .cc-preview-signature' ).hide();
-			} else {
-				$( '.cc-preview-wrapper .cc-preview-signature' ).show();
-			}
+			// // Display the checked values in the console (you can use them as needed)
+			// console.log(checkedValues);
+
+
+
+
+
+
+
+
+
+			// if ( type == 'Signature Only') {
+			// 	$( '.cc-preview-wrapper .cc-preview-name' ).hide();
+			// } else {
+			// 	$( '.cc-preview-wrapper .cc-preview-name' ).show();
+			// }
+
+			// if ( type == 'Name Only') {
+			// 	$( '.cc-preview-wrapper .cc-preview-signature' ).hide();
+			// } else {
+			// 	$( '.cc-preview-wrapper .cc-preview-signature' ).show();
+			// }
 		}
 
-		function set_signature_font() {
+		/**
+		 * Render ball preview on elements select.
+		 */
+		// $( '.cc-ball-elements-select' ).on( 'change', function() {
+		// 	render_ball_preview();
+		// } );
 
+
+
+
+
+
+		/**
+		 * Function to change signature preview font.
+		 */
+		function set_signature_font() {
 			var signature_design = $( '.cc-signature-preview input:checked' ).val();
 			console.log('signature_design', signature_design);
 
@@ -262,16 +340,19 @@
 			}
 		}
 
+		/**
+		 * Run on form load.
+		 */
 		set_signature_font();
 		render_ball_preview();
 
+		/**
+		 * Change signature preview font on option select.
+		 */
 		$( '.cc-signature-preview input' ).on( 'change', function() {
 			set_signature_font();
 		} );
 
-		$( '.cc-ball-print-type' ).on( 'change', function() {
-			render_ball_preview();
-		} );
 
 
 

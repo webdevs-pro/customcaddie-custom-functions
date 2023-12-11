@@ -275,6 +275,7 @@ input[type="number"].wsf-field:disabled {
    border: 3px dotted red;
    border-radius: 50%;
    flex-direction: column;
+   gap: 10px;
 }
 .cc-preview-name {
    white-space: nowrap;
@@ -293,14 +294,19 @@ input[type="number"].wsf-field:disabled {
    display: block;
 }
 .cc-ball-preview-wrapper.cc-ball-preview-show-icon .cc-preview-icon {
-   display: block;
+   display: flex;
 }
 .cc-ball-preview-wrapper.cc-ball-preview-show-text .cc-preview-text {
    display: block;
 }
-
-
-
+.cc-preview-icon {
+   max-width: 80%;
+   object-fit: contain;
+   justify-content: center;
+}
+.cc-preview-icon > svg {
+   height: auto;
+}
 
 
 
