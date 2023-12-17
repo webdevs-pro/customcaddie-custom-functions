@@ -355,6 +355,21 @@
 
 
 
+		/**
+		 * Set custom text on load
+		 */
+		function set_custom_text_to_ball() {
+			var text = $( '.cc-custom-text-input' ).val();
+			
+			console.log('text', text);
+
+			$( '.cc-preview-wrapper .cc-preview-text' ).text( text );
+		}
+		$( '.cc-custom-text-input' ).on( 'input change', function() {
+			set_custom_text_to_ball();
+		} );
+		set_custom_text_to_ball();
+
 
 
 

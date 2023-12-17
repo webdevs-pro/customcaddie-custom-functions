@@ -307,7 +307,9 @@ input[type="number"].wsf-field:disabled {
 .cc-preview-icon > svg {
    height: auto;
 }
-
+.cc-ball-preview-wrapper.cc-custom-text-top .cc-preview-text {
+   order: -1;
+}
 
 
 
