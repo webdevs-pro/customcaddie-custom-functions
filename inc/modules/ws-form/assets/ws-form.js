@@ -163,6 +163,11 @@
 			$( '.cc-preview-wrapper .cc-preview-signature' ).css( 'font-size', value + 'px' );
 		} );
 
+		$( '.cc-custom-text-font-size' ).on( 'change', function() {
+			var value = $( this ).val();
+			$( '.cc-preview-wrapper .cc-preview-text' ).css( 'font-size', value + 'px' );
+		} );
+
 
 		/**
 		 *  Makes + and - buttons works for size input.
@@ -360,8 +365,6 @@
 		 */
 		function set_custom_text_to_ball() {
 			var text = $( '.cc-custom-text-input' ).val();
-			
-			console.log('text', text);
 
 			$( '.cc-preview-wrapper .cc-preview-text' ).text( text );
 		}
