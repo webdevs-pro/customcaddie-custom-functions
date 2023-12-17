@@ -172,13 +172,43 @@
 		/**
 		 *  Makes + and - buttons works for size input.
 		 */
+		function updateButtonState( $input ) {
+			var value = parseInt( $input.val(), 10 );
+			var min = parseInt( $input.attr( 'min' ), 10 ) || 0;
+			var max = parseInt( $input.attr( 'max' ), 10 ) || Infinity;
+
+			$input.closest( '.cc-font-size-wrapper' ).find( '.wsf-input-group-prepend' ).toggleClass( 'disabled', value <= min );
+			$input.closest( '.cc-font-size-wrapper' ).find( '.wsf-input-group-append' ).toggleClass( 'disabled', value >= max );
+		}
+
 		$( '.cc-font-size-wrapper .wsf-input-group-prepend' ).on( 'click', function() {
-			var value = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val();
-			$( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val( parseInt( value ) - 1 ).trigger( 'change' );
+			var $input = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' );
+			var value = parseInt( $input.val(), 10 );
+			var min = parseInt( $input.attr( 'min' ), 10 ) || 0;
+
+			if ( value > min ) {
+					$input.val( value - 1 ).trigger( 'change' );
+			}
 		} );
+
 		$( '.cc-font-size-wrapper .wsf-input-group-append' ).on( 'click', function() {
-			var value = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val();
-			$( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' ).val( parseInt( value ) + 1 ).trigger( 'change' );
+			var $input = $( this ).closest( '.cc-font-size-wrapper' ).find( '.cc-font-size' );
+			var value = parseInt( $input.val(), 10 );
+			var max = parseInt( $input.attr( 'max' ), 10 ) || Infinity;
+
+			if ( value < max ) {
+					$input.val( value + 1 ).trigger( 'change' );
+			}
+		} );
+
+		// Event handler for direct input or scroll changes
+		$( '.cc-font-size-wrapper .cc-font-size' ).on( 'input change', function() {
+			updateButtonState( $( this ) );
+		});
+
+		// Initialize button state on page load
+		$( '.cc-font-size' ).each( function() {
+			updateButtonState( $( this ) );
 		} );
 
 

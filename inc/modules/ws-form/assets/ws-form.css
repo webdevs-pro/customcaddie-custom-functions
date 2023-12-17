@@ -221,6 +221,15 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    cursor: pointer;
    background-color: #f4f4f4 !important;
 }
+.cc-font-size-wrapper .wsf-input-group-prepend.disabled,
+.cc-font-size-wrapper .wsf-input-group-append.disabled {
+   cursor: default;
+}
+.cc-font-size-wrapper .wsf-input-group-prepend.disabled svg,
+.cc-font-size-wrapper .wsf-input-group-append.disabled svg {
+   opacity: 0.3;
+}
+
 /* Disabled number input background color */
 input[type="number"].wsf-field:disabled {
    background-color: #fbfbfb !important;
