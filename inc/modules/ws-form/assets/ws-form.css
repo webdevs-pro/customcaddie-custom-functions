@@ -339,12 +339,17 @@ input[type="number"].wsf-field:disabled {
    position: relative;
 }
 .cc-towel-preview .cc-towel-icon {
-   width: 30%;
    position: absolute;
-   bottom: 10%;
-   left: 35%;
+   bottom: 31%;
+   right: 33%;
    transform: rotate(45deg);
    display: flex;
+   height: 28%;
+   justify-content: flex-end;
+}
+.cc-towel-icon > svg {
+   height: 100%;
+   width: auto;
 }
 .cc-towel-preview .cc-towel-icon svg * {
    fill: var( --towel-icon-fill );   

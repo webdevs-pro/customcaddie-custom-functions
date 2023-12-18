@@ -121,6 +121,7 @@
 
 			var svg = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
 			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg );
+			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg );
 
 		} );
 
@@ -129,7 +130,9 @@
 			var svg = $( '.cc-initials-icons-2-letters .wsf-grid .wsf-tile:first-child label svg' ).clone();
 			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg );
 		}
+
 		set_ball_icon();
+
 
 
 
