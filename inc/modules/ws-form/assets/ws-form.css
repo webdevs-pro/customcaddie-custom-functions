@@ -328,6 +328,18 @@ input[type="number"].wsf-field:disabled {
 
 
 
+
+/* Towel preview */
+.cc-towel-preview {
+   aspect-ratio: 64 / 48;
+   border-radius: 8px;
+   max-width: 400px;
+   background-size: cover;
+   background-position: center;
+}
+
+
+
 .wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields,
 .wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields {
    display: grid;
