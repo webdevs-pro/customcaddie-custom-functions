@@ -344,10 +344,7 @@ input[type="number"].wsf-field:disabled {
    bottom: 10%;
    left: 35%;
    transform: rotate(45deg);
-}
-}
-.cc-towel-preview .cc-towel-icon svg {
-   width: 100% !important;
+   display: flex;
 }
 .cc-towel-preview .cc-towel-icon svg * {
    fill: var( --towel-icon-fill );   
