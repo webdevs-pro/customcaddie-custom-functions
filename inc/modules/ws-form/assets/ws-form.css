@@ -347,7 +347,7 @@ input[type="number"].wsf-field:disabled {
 }
 }
 .cc-towel-preview .cc-towel-icon svg {
-   width: 100%;
+   width: 100% !important;
 }
 .cc-towel-preview .cc-towel-icon svg * {
    fill: var( --towel-icon-fill );   
