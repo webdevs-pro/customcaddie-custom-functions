@@ -75,7 +75,7 @@ jQuery(window).on('elementor/frontend/init', function () {
                // return false;
 
 
-               Start timer to check iframe URL changes
+               // Start timer to check iframe URL changes
                var url = $( _this ).contents().get( 0 ).location.href;
                var timer = setInterval( function() {
                   var iframeUrl = $( _this ).contents().get( 0 ).location.href;
