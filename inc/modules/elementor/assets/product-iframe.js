@@ -7,7 +7,7 @@ jQuery(window).on('elementor/frontend/init', function () {
 
       // Function to resize the iframe
       var resizeIframe = function () {
-         if (window.innerWidth >= 767) {
+         if (window.innerWidth > 767) {
             // For devices wider than 767px, set height based on content
             iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 5 + 'px';
             $( iframe.contentWindow.document ).find( 'html' ).css( 'overflow', 'hidden' );
@@ -38,19 +38,49 @@ jQuery(window).on('elementor/frontend/init', function () {
          if ( add_to_cart_button.length > 0 ) {
             $( add_to_cart_button ).on( 'click', function() {
                setTimeout( function() {
-                  $( _this.contentDocument.body ).empty();
 
-                  var iframeTop = $( _this ).offset().top;
-                  $( 'html, body' ).animate({
-                      scrollTop: iframeTop - 100
-                  }, 200 );
+                  // $( _this.contentDocument.body ).empty();
+                  var iframe_body = $( _this.contentDocument.body );
+                  // iframe_body.empty();
+                  if (window.innerWidth > 767) {
+                     // Set iframe body height for desktop
+                     $( _this.contentDocument.documentElement ).css( {
+                        'height': '170px'
+                     } );
+
+                     // Scroll main window to iframe top
+                     var iframeTop = $( _this ).offset().top;
+                     $( 'html, body' ).animate({
+                         scrollTop: iframeTop - 100
+                     }, 200 );
+                  } else {
+                     // Set iframe body height for mobile
+                     $( _this.contentDocument.documentElement ).css( {
+                        'height': '100%'
+                     } );
+                  }
+
+                  iframe_body.css( {
+                     'display': 'flex',
+                     'height': '100%',
+                     'align-items': 'center',
+                     'justify-content': 'center',
+                     'flex-direction': 'column'
+                  } );
+                  iframe_body.html( '<img src="/wp-content/uploads/2023/11/spinner.gif" /><br>Redirect to checkout page' );
+
+
                }, 200 );
 
+               // return false;
 
+
+               Start timer to check iframe URL changes
                var url = $( _this ).contents().get( 0 ).location.href;
                var timer = setInterval( function() {
                   var iframeUrl = $( _this ).contents().get( 0 ).location.href;
 
+                  // Reload main page if iframe URL was chenged
                   if ( url != iframeUrl ) {
                      clearInterval( timer );
                      window.location.href = iframeUrl; 
