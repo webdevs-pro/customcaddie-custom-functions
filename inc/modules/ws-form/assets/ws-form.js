@@ -117,21 +117,20 @@
 
 
 			// Set ball preview icon
-			// set_ball_icon();
-
-			var svg = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
-			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg );
-			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg );
+			var svg_for_ball = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
+			var svg_for_towel = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
+			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
+			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg_for_towel );
 
 		} );
 
 
-		function set_ball_icon() {
-			var svg = $( '.cc-initials-icons-2-letters .wsf-grid .wsf-tile:first-child label svg' ).clone();
-			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg );
+		function set_ball_icon_on_load() {
+			var svg_for_ball = $( '.cc-initials-icons-2-letters .wsf-grid .wsf-tile:first-child label svg' ).clone();
+			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
 		}
 
-		set_ball_icon();
+		set_ball_icon_on_load();
 
 
 
@@ -300,8 +299,6 @@
 		 */
 		function set_signature_font() {
 			var signature_design = $( '.cc-signature-preview input:checked' ).val();
-			console.log('signature_design', signature_design);
-
 
 			switch ( signature_design ) {
 				case 'Dancing Script - Bold 700':
@@ -382,7 +379,7 @@
 		 * Run on form load.
 		 */
 		set_signature_font();
-		render_ball_preview();
+		// render_ball_preview();
 
 		/**
 		 * Change signature preview font on option select.
