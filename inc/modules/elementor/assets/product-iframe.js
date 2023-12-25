@@ -45,7 +45,7 @@ jQuery(window).on('elementor/frontend/init', function () {
                   if (window.innerWidth > 767) {
                      // Set iframe body height for desktop
                      $( _this.contentDocument.documentElement ).css( {
-                        'height': '170px'
+                        'height': '175px'
                      } );
 
                      // Scroll main window to iframe top
@@ -76,14 +76,18 @@ jQuery(window).on('elementor/frontend/init', function () {
 
 
                // Start timer to check iframe URL changes
-               var url = $( _this ).contents().get( 0 ).location.href;
+               var initial_iframe_url = $( _this ).contents().get( 0 ).location.href;
                var timer = setInterval( function() {
-                  var iframeUrl = $( _this ).contents().get( 0 ).location.href;
+                  var current_iframe_url = $( _this ).contents().get( 0 ).location.href;
 
                   // Reload main page if iframe URL was chenged
-                  if ( url != iframeUrl ) {
+                  if ( initial_iframe_url != current_iframe_url ) {
                      clearInterval( timer );
-                     window.location.href = iframeUrl; 
+                     window.location.href = current_iframe_url;
+
+                     // Stop loading iframe
+                     $( iframe ).attr( 'src', '' );
+                     $( 'body' ).fadeTo( 300, 0.5 );
                   }
                }, 100 )
 
