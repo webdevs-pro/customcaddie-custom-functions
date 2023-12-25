@@ -46,15 +46,26 @@ jQuery(window).on('elementor/frontend/init', function () {
                   }, 200 );
                }, 200 );
 
-               $( _this ).on( 'load', function() {
-                  try {
-                     var iframeUrl = $( this ).contents().get( 0 ).location.href;
+
+               var url = $( _this ).contents().get( 0 ).location.href;
+               var timer = setInterval( function() {
+                  var iframeUrl = $( _this ).contents().get( 0 ).location.href;
+
+                  if ( url != iframeUrl ) {
+                     clearInterval( timer );
                      window.location.href = iframeUrl; 
-                  } catch (error) {
-                     console.error("Error accessing iframe contents:", error);
-                     // Handle errors here (likely due to cross-origin restrictions)
                   }
-               } );
+               }, 100 )
+
+               // $( _this ).on( 'load', function() {
+               //    try {
+               //       var iframeUrl = $( this ).contents().get( 0 ).location.href;
+               //       window.location.href = iframeUrl; 
+               //    } catch (error) {
+               //       console.error("Error accessing iframe contents:", error);
+               //       // Handle errors here (likely due to cross-origin restrictions)
+               //    }
+               // } );
             } );
          }
 
