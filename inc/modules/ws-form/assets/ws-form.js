@@ -115,26 +115,36 @@
 			}
 			$( '.cc-icon-font-size' ).val( font_size );
 
-
 			// Set ball preview icon
-			var svg_for_ball = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
-			var svg_for_towel = $( this ).closest( '.wsf-tile' ).find( 'label svg' ).clone();
-			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
-			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg_for_towel );
-
+			set_ball_icon();
 		} );
 
 
-		function set_ball_icon_on_load() {
-			var svg_for_ball = $( '.cc-initials-icons-2-letters .wsf-grid .wsf-tile:first-child label svg' ).clone();
+
+
+
+
+		set_ball_icon();
+		function set_ball_icon() {
+			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
+			if ( checked_svg.length == 0 ) {
+				checked_svg = $( '.cc-initials-icons .wsf-grid .wsf-tile:first-child label svg' );
+			}
+			
+			var svg_for_ball = checked_svg.clone();
+			var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width');
 			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
+			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width', ball_icon_width);
+
+			var svg_for_towel = checked_svg.clone();
+			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg_for_towel );
 		}
 
-		set_ball_icon_on_load();
 
 
-
-
+		/**
+		 * Adjust ball icon width.
+		 */
 		$( '.cc-icon-size-wrapper input' ).on( 'change', function() {
 			var value = $( this ).val();
 			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css( 'width', value + '%' );
@@ -153,6 +163,9 @@
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-letter' ).attr( 'font-size', value );
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).attr( 'font-size', value );
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size', value );
+
+			// Set ball preview icon
+			set_ball_icon();
 		} );
 
 		$( '.cc-name-font-size' ).on( 'change', function() {
@@ -238,56 +251,6 @@
 		// 	$('.cc-initials-field').val(initials.toUpperCase()).trigger('input');
 		// } );
 
-
-
-
-
-
-		/**
-		 * Function to render ball preview.
-		 */
-		function render_ball_preview() {
-			// var checkedValues = [];
-
-			// // Loop through checkboxes with the 'cc-ball-elements-select' class
-			// $( '.cc-ball-elements-select' ).each(function() {
-			// 	// Check if the checkbox is checked
-			// 	if ( $( this ).is( ':checked' ) ) {
-			// 		// Add the checked value to the array
-			// 		checkedValues.push( $( this ).val() );
-			// 	}
-			// });
-
-			// // Display the checked values in the console (you can use them as needed)
-			// console.log(checkedValues);
-
-
-
-
-
-
-
-
-
-			// if ( type == 'Signature Only') {
-			// 	$( '.cc-preview-wrapper .cc-preview-name' ).hide();
-			// } else {
-			// 	$( '.cc-preview-wrapper .cc-preview-name' ).show();
-			// }
-
-			// if ( type == 'Name Only') {
-			// 	$( '.cc-preview-wrapper .cc-preview-signature' ).hide();
-			// } else {
-			// 	$( '.cc-preview-wrapper .cc-preview-signature' ).show();
-			// }
-		}
-
-		/**
-		 * Render ball preview on elements select.
-		 */
-		// $( '.cc-ball-elements-select' ).on( 'change', function() {
-		// 	render_ball_preview();
-		// } );
 
 
 
