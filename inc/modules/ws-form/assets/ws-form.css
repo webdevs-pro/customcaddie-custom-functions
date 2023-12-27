@@ -152,10 +152,7 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 .cc-icon-select {
    transition: opacity 200ms;
 }
-.cc-icon-select:not(.icons-type-selected) {
-   opacity: 0.3;
-   pointer-events: none;
-}
+
 .cc-icon-select .wsf-grid {
    display: grid;
    grid-template-columns: repeat(5, 20%);
@@ -237,9 +234,6 @@ input[type="number"].wsf-field:disabled {
 
 
 
-.cc-icon-select:not(.icons-type-selected) {
-   order: 99;
-}
 
 
 

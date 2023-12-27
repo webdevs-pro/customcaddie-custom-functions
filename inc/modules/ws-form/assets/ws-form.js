@@ -57,12 +57,12 @@
 		$( 'input.cc-initials-field' ).on( 'input', function() {
 			var value = $( this ).val();
 			var first_letter = value.length > 0 ? value[0] : 'J';
-			var middle_letter = 'M'; // Default value
+			var middle_letter = ''; // Default value
 			var last_letter = 'D';   // Default value
 
-			if (value.length == 2) {
+			if ( value.length == 2 ) {
 				last_letter = value[1];
-			} else if (value.length >= 3) {
+			} else if ( value.length >= 3 ) {
 				middle_letter = value[1];
 				last_letter = value[2];
 			}
@@ -216,27 +216,27 @@
 
 
 
-		/**
-		 * Autopopulate initials field on enter first, middle and last names.
-		 */
-		$('.cc-first-name-field, .cc-middle-name-field, .cc-last-name-field').on('input', function() {
-			// Initialize the initials as an empty string
-			var initials = '';
+		// /**
+		//  * Autopopulate initials field on enter first, middle and last names.
+		//  */
+		// $('.cc-first-name-field, .cc-middle-name-field, .cc-last-name-field').on('input', function() {
+		// 	// Initialize the initials as an empty string
+		// 	var initials = '';
 
-			// Check each field and add its first letter to the initials if it's not empty
-			if ($('.cc-first-name-field').val()) {
-				initials += $('.cc-first-name-field').val().charAt(0);
-			}
-			if ($('.cc-middle-name-field').val()) {
-				initials += $('.cc-middle-name-field').val().charAt(0);
-			}
-			if ($('.cc-last-name-field').val()) {
-				initials += $('.cc-last-name-field').val().charAt(0);
-			}
+		// 	// Check each field and add its first letter to the initials if it's not empty
+		// 	if ($('.cc-first-name-field').val()) {
+		// 		initials += $('.cc-first-name-field').val().charAt(0);
+		// 	}
+		// 	if ($('.cc-middle-name-field').val()) {
+		// 		initials += $('.cc-middle-name-field').val().charAt(0);
+		// 	}
+		// 	if ($('.cc-last-name-field').val()) {
+		// 		initials += $('.cc-last-name-field').val().charAt(0);
+		// 	}
 
-			// Set the initials to the initials field and convert them to uppercase
-			$('.cc-initials-field').val(initials.toUpperCase()).trigger('input');
-		} );
+		// 	// Set the initials to the initials field and convert them to uppercase
+		// 	$('.cc-initials-field').val(initials.toUpperCase()).trigger('input');
+		// } );
 
 
 
