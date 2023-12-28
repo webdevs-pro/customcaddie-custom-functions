@@ -498,6 +498,8 @@ input[type="number"].wsf-field:disabled {
    background-size: cover;
    background-position: center;
    position: relative;
+   background-color: #f7f7f7;
+   background-blend-mode: darken;
 }
 
 
