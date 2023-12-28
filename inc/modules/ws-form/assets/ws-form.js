@@ -116,7 +116,7 @@
 			$( '.cc-icon-font-size' ).val( font_size );
 
 			// Set ball preview icon
-			set_ball_icon();
+			set_ball_and_towel_icon();
 		} );
 
 
@@ -124,8 +124,8 @@
 
 
 
-		set_ball_icon();
-		function set_ball_icon() {
+		set_ball_and_towel_icon();
+		function set_ball_and_towel_icon() {
 			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
 			if ( checked_svg.length == 0 ) {
 				checked_svg = $( '.cc-initials-icons .wsf-grid .wsf-tile:first-child label svg' );
@@ -165,7 +165,7 @@
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size', value );
 
 			// Set ball preview icon
-			set_ball_icon();
+			set_ball_and_towel_icon();
 		} );
 
 		$( '.cc-name-font-size' ).on( 'change', function() {
@@ -365,6 +365,13 @@
 			set_custom_text_to_ball();
 		} );
 		set_custom_text_to_ball();
+
+
+
+
+
+
+		
 
 
 
