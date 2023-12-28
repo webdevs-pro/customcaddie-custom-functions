@@ -132,7 +132,8 @@
 			}
 			
 			var svg_for_ball = checked_svg.clone();
-			var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width');
+			var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width') || '80%';
+
 			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
 			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width', ball_icon_width);
 
