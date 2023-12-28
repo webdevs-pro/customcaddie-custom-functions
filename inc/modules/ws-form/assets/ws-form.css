@@ -488,3 +488,32 @@ input[type="number"].wsf-field:disabled {
 .cc-margin-top-35 {
    margin-top: 35px;
 }
+
+
+
+.cc-set-preview-item {
+   aspect-ratio: 1;
+   border-radius: 8px;
+   max-width: 400px;
+   background-size: cover;
+   background-position: center;
+   position: relative;
+}
+
+
+/* .cc-towel-preview .cc-towel-icon {
+   position: absolute;
+   bottom: 31%;
+   right: 33%;
+   transform: rotate(45deg);
+   display: flex;
+   height: 28%;
+   justify-content: flex-end;
+}
+.cc-towel-icon > svg {
+   height: 100%;
+   width: auto;
+}
+.cc-towel-preview .cc-towel-icon svg * {
+   fill: var( --towel-icon-fill );   
+} */
