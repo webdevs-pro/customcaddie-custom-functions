@@ -116,7 +116,7 @@
 			$( '.cc-icon-font-size' ).val( font_size );
 
 			// Set ball preview icon
-			set_ball_and_towel_icon();
+			update_preview_icons();
 		} );
 
 
@@ -124,21 +124,64 @@
 
 
 
-		set_ball_and_towel_icon();
-		function set_ball_and_towel_icon() {
+		update_preview_icons();
+		function update_preview_icons() {
+			// Get selected icon SVG
 			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
 			if ( checked_svg.length == 0 ) {
 				checked_svg = $( '.cc-initials-icons .wsf-grid .wsf-tile:first-child label svg' );
 			}
 			
 			var svg_for_ball = checked_svg.clone();
-			var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width') || '80%';
 
+			// Get ball preview icon width
+			var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width')|| '80%';
+
+			// Update ball preview icon
 			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
+
+			// Set ball preview icon width
 			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width', ball_icon_width);
 
+
+			// Set towel preview icon
 			var svg_for_towel = checked_svg.clone();
 			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg_for_towel );
+
+
+			// /**
+			//  * Set preview
+			//  */
+			// // Marker preview
+			// var svg_for_marker = checked_svg.clone();
+			// $( '.cc-set-preview-item.cc-marker-preview .cc-preview-icon' ).empty().append( svg_for_marker );
+
+			// // Ball preview
+			// // Setting up MutationObserver to observe changes in the iframe's content
+
+			// var observer = new MutationObserver( function( mutations ) {
+
+			// 	// console.log('mutations', mutations);
+
+			// 	var ball_preview_elements = $( '.cc-ball-preview-wrapper .cc-preview-texts' ).clone();
+			// 	var ball_preview_wrapper = $( '.cc-ball-preview-wrapper' );
+			// 	if ( ! $( ball_preview_wrapper ).hasClass( 'cc-ball-preview-show-icon' ) ) {
+			// 		$( ball_preview_elements ).find( '.cc-preview-icon' ).hide();
+			// 	}
+			// 	if ( ! $( ball_preview_wrapper ).hasClass( 'cc-ball-preview-show-signature' ) ) {
+			// 		$( ball_preview_elements ).find( '.cc-preview-signature' ).hide();
+			// 	}
+			// 	if ( ! $( ball_preview_wrapper ).hasClass( 'cc-ball-preview-show-text' ) ) {
+			// 		$( ball_preview_elements ).find( '.cc-preview-text' ).hide();
+			// 	}
+
+			// 	$( '.cc-set-preview-item.cc-ball-preview' ).empty().append( ball_preview_elements );
+			// });
+			// var config = { attributes: true, childList: true, characterData: true, subtree: true };
+			// observer.observe( $( '.cc-ball-preview-wrapper' )[0], config );
+
+
+
 		}
 
 
@@ -166,7 +209,7 @@
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size', value );
 
 			// Set ball preview icon
-			set_ball_and_towel_icon();
+			update_preview_icons();
 		} );
 
 		$( '.cc-name-font-size' ).on( 'change', function() {

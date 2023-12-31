@@ -33,7 +33,40 @@ function cc_custom_woocommerce_product_add_to_cart_text() {
 	return "Get my Customized Set for " . $plain_price_text;
 }
 
+
+
+
+
 add_action( 'woocommerce_before_add_to_cart_button', 'cc_add_set_name_before_ws_form', 5, 0 );
 function cc_add_set_name_before_ws_form() {
 	echo '<div class="cc-product-title"><h2>' . get_the_title( get_the_ID() ) . ' customization</h2></div>';
 }
+
+
+
+
+
+
+// add_filter( 'woocommerce_locate_template', 'cc_override_template', 10, 3 );
+// function cc_override_template( $template, $template_name, $template_path ) {
+// 	$basename = basename( $template );
+// 	error_log( "basename\n" . print_r( $basename, true ) . "\n" );
+// 	if( $basename == 'single-product.php' ) {
+// 		$template = CC_PLUGIN_DIR . '/inc/woocommerce/templates/single-product.php';
+// 	}
+// 	return $template;
+// }
+
+
+
+add_filter('wc_get_template_part', 'override_template_part', 10, 3);
+function override_template_part($template, $slug, $name) {
+
+	$template = CC_PLUGIN_DIR . '/inc/woocommerce/templates/single-product.php';
+	
+
+    // Return default template if conditions are not met
+    return $template;
+}
+
+

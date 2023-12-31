@@ -23,6 +23,7 @@ jQuery(window).on('elementor/frontend/init', function () {
 
          // Setting up MutationObserver to observe changes in the iframe's content
          var observer = new MutationObserver(function(mutations) {
+            console.log('mutations', mutations);
             resizeIframe();
          });
 

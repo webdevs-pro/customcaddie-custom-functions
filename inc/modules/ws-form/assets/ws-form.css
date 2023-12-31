@@ -502,6 +502,32 @@ input[type="number"].wsf-field:disabled {
    background-blend-mode: darken;
 }
 
+.cc-set-preview-item.cc-towel-preview .cc-towel-icon {
+   right: 26%;
+}
+.cc-set-preview-item.cc-marker-preview .cc-preview-icon {
+   position: absolute;
+   aspect-ratio: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 41%;
+   top: 27%;
+   left: 45%;
+}
+
+.cc-set-preview-item.cc-ball-preview .cc-preview-texts {
+   height: 50%;
+   width: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: none;
+   border-radius: 50%;
+   flex-direction: column;
+   gap: 10px;
+}
+
 
 /* .cc-towel-preview .cc-towel-icon {
    position: absolute;
