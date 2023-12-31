@@ -37,13 +37,6 @@ function cc_custom_woocommerce_product_add_to_cart_text() {
 
 
 
-add_action( 'woocommerce_before_add_to_cart_button', 'cc_add_set_name_before_ws_form', 5, 0 );
-function cc_add_set_name_before_ws_form() {
-	echo '<div class="cc-product-title"><h2>' . get_the_title( get_the_ID() ) . ' customization</h2></div>';
-}
-
-
-
 
 
 
