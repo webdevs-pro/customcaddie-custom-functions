@@ -267,9 +267,6 @@ class CC_Comparison_Table extends Elementor\Widget_Base {
 		$this->add_group_control( Group_Control_Typography::get_type(), [
 			'name'     => 'item_title_typography',
 			'label'    => 'Typography',
-			'global'   => [
-				'default' => Global_Typography::TYPOGRAPHY_PRIMARY,
-			],
 			'selector' => '{{WRAPPER}} .cc-item-title',
 		] );
 

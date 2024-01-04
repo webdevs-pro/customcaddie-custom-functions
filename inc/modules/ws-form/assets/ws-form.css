@@ -359,6 +359,16 @@ input[type="number"].wsf-field:disabled {
    background-position: center;
    position: relative;
 }
+.cc-tees-preview-wrapper:not(.cc-set-preview-item):after {
+   content: '';
+   position: absolute;
+   top: 36%;
+   bottom: 21%;
+   left: 0;
+   right: 0;
+   border-top: 3px dotted red;
+   border-bottom: 3px dotted red;
+}
 .cc-tees-preview-wrapper .cc-tees-preview-texts {
 
 }
