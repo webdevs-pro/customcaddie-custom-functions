@@ -369,8 +369,28 @@ input[type="number"].wsf-field:disabled {
    border-top: 3px dotted red;
    border-bottom: 3px dotted red;
 }
-.cc-tees-preview-wrapper .cc-tees-preview-texts {
+.cc-tees-name .cc-tees-preview-wrapper .cc-preview-text {
+   display: none;
+}
+.cc-tees-custom-text .cc-tees-preview-wrapper .cc-preview-name {
+   display: none;
+}
 
+.cc-tees-preview-wrapper .cc-tees-preview-texts {
+   position: absolute;
+   top: 58%;
+   transform: translate(-50%, -50%);
+   writing-mode: vertical-lr; 
+}
+
+.cc-tees-preview-wrapper .cc-tees-preview-texts:nth-child(1) {
+   left: 25%;
+}
+.cc-tees-preview-wrapper .cc-tees-preview-texts:nth-child(2) {
+   left: 49%;
+}
+.cc-tees-preview-wrapper .cc-tees-preview-texts:nth-child(3) {
+   left: 73.5%;
 }
 
 

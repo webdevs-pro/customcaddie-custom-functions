@@ -33,6 +33,8 @@
 			$( '.cc-signature-preview .wsf-tile label.wsf-label' ).text( full_name );
 			$( '.cc-preview-wrapper .cc-preview-name' ).text( full_name );
 			$( '.cc-preview-wrapper .cc-preview-signature' ).text( full_name );
+
+			$( '.cc-tees-preview-wrapper .cc-preview-name' ).text( first_name + ' ' + last_name );
 		}
 
 		/**
