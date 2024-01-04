@@ -419,6 +419,47 @@
 
 		
 
+		
+
+
+	
+
+
+		function update_set_preview() {
+			// Ball
+			var node = document.getElementById('ball-render-wrapper');
+			domtoimage.toJpeg(node, { quality: 0.95, filter: filter })
+				.then(function (dataUrl) {
+					var img = new Image();
+					img.src = dataUrl;
+					$('.cc-set-preview-item-ball').empty().append(img);
+				});
+
+			// Towel
+			node = document.getElementById('towel-render-wrapper');
+			domtoimage.toJpeg(node, { quality: 0.95 })
+				.then(function (dataUrl) {
+					var img = new Image();
+					img.src = dataUrl;
+					$('.cc-set-preview-item-towel').empty().append(img);
+				});
+
+
+			function filter (node) {
+				if (node.classList && node.classList.contains('cc-preview-texts')) {
+					// Modify the node's style to remove the border
+					node.style.border = 'none';
+				}
+				return true; // Return true to include the node in the output
+			}
+		}
+
+
+		$('#generate-set-preview').on('click', function() {
+			update_set_preview();
+		})
+
+
 
 
 
