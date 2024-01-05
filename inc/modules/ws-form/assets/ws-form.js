@@ -437,7 +437,7 @@
 
 			// Towel
 			node = document.getElementById('towel-render-wrapper');
-			domtoimage.toJpeg(node, { quality: 0.95 })
+			domtoimage.toSvg(node, { })
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
