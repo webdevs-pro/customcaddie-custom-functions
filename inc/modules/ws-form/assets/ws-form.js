@@ -459,13 +459,7 @@
 			var node = document.getElementById('ball-render-wrapper');
 			html2canvas(node, {
 				onclone: function(doc) {
-					console.log('doc', doc);
 					$(doc).find('.cc-preview-texts').css('border', 'none');
-					// if (element.classList && element.classList.contains('cc-preview-texts')) {
-					// 	// Modify the node's style to remove the border
-					// 	element.style.border = 'none';
-					// }
-					// return false; // Return true to include the node in the output
 				}
 		  	}).then(canvas => {
 				$('.cc-set-preview-item-ball').empty().append(canvas);
@@ -477,6 +471,18 @@
 			node = document.getElementById('towel-render-wrapper');
 			html2canvas(node).then(canvas => {
 				$('.cc-set-preview-item-towel').empty().append(canvas);
+			});
+
+
+
+			// Tees
+			node = document.getElementById('tees-render-wrapper');
+			html2canvas(node, {
+				onclone: function(doc) {
+					$(doc).find('.cc-tees-preview-lines').css('border', 'none');
+				}
+				}).then(canvas => {
+				$('.cc-set-preview-item-tees').empty().append(canvas);
 			});
 		}
 
