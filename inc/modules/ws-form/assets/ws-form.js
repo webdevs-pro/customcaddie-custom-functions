@@ -425,33 +425,59 @@
 	
 
 
+		// function update_set_preview() {
+		// 	// Ball
+		// 	var node = document.getElementById('ball-render-wrapper');
+		// 	domtoimage.toJpeg(node, { quality: 0.95, filter: filter })
+		// 		.then(function (dataUrl) {
+		// 			var img = new Image();
+		// 			img.src = dataUrl;
+		// 			$('.cc-set-preview-item-ball').empty().append(img);
+		// 		});
+
+		// 	// Towel
+		// 	node = document.getElementById('towel-render-wrapper');
+		// 	domtoimage.toSvg(node, { })
+		// 		.then(function (dataUrl) {
+		// 			var img = new Image();
+		// 			img.src = dataUrl;
+		// 			$('.cc-set-preview-item-towel').empty().append(img);
+		// 		});
+
+
+		// 	function filter (node) {
+		// 		if (node.classList && node.classList.contains('cc-preview-texts')) {
+		// 			// Modify the node's style to remove the border
+		// 			node.style.border = 'none';
+		// 		}
+		// 		return true; // Return true to include the node in the output
+		// 	}
+		// }
+
 		function update_set_preview() {
 			// Ball
 			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { quality: 0.95, filter: filter })
-				.then(function (dataUrl) {
-					var img = new Image();
-					img.src = dataUrl;
-					$('.cc-set-preview-item-ball').empty().append(img);
-				});
+			html2canvas(node, {
+				onclone: function(doc) {
+					console.log('doc', doc);
+					$(doc).find('.cc-preview-texts').css('border', 'none');
+					// if (element.classList && element.classList.contains('cc-preview-texts')) {
+					// 	// Modify the node's style to remove the border
+					// 	element.style.border = 'none';
+					// }
+					// return false; // Return true to include the node in the output
+				}
+		  	}).then(canvas => {
+				$('.cc-set-preview-item-ball').empty().append(canvas);
+			});
+
+
 
 			// Towel
 			node = document.getElementById('towel-render-wrapper');
-			domtoimage.toSvg(node, { })
-				.then(function (dataUrl) {
-					var img = new Image();
-					img.src = dataUrl;
-					$('.cc-set-preview-item-towel').empty().append(img);
-				});
-
-
-			function filter (node) {
-				if (node.classList && node.classList.contains('cc-preview-texts')) {
-					// Modify the node's style to remove the border
-					node.style.border = 'none';
-				}
-				return true; // Return true to include the node in the output
-			}
+			html2canvas(node).then(canvas => {
+				$('.cc-set-preview-item-towel').empty().append(canvas);
+			});
 		}
 
 
