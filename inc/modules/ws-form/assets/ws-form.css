@@ -380,15 +380,14 @@ input[type="number"].wsf-field:disabled {
    background-position: center;
    position: relative;
 }
-.cc-tees-preview-wrapper:not(.cc-set-preview-item):after {
-   content: '';
+.cc-tees-preview-lines {
    position: absolute;
-   top: 36%;
-   bottom: 21%;
-   left: 0;
-   right: 0;
-   border-top: 3px dotted red;
-   border-bottom: 3px dotted red;
+   left: 34%;
+   right: 21%;
+   top: 0;
+   bottom: 0;
+   border-left: 3px dotted red;
+   border-right: 3px dotted red;
 }
 .cc-tees-name .cc-tees-preview-wrapper .cc-preview-text {
    display: none;
@@ -399,19 +398,18 @@ input[type="number"].wsf-field:disabled {
 
 .cc-tees-preview-wrapper .cc-tees-preview-texts {
    position: absolute;
-   top: 58%;
+   left: 57%;
    transform: translate(-50%, -50%);
-   writing-mode: vertical-lr; 
 }
 
-.cc-tees-preview-wrapper .cc-tees-preview-texts:nth-child(1) {
-   left: 25%;
+.cc-tees-preview-wrapper .cc-tees-preview-texts-1 {
+   top: 26.5%;
 }
-.cc-tees-preview-wrapper .cc-tees-preview-texts:nth-child(2) {
-   left: 49%;
+.cc-tees-preview-wrapper .cc-tees-preview-texts-2 {
+   top: 51%;
 }
-.cc-tees-preview-wrapper .cc-tees-preview-texts:nth-child(3) {
-   left: 73.5%;
+.cc-tees-preview-wrapper .cc-tees-preview-texts-3 {
+   top: 75%;
 }
 
 
