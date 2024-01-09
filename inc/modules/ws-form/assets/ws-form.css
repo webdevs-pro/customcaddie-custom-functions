@@ -140,6 +140,14 @@
    font-weight: 400;
    src: url('./fonts/homemade-apple-v22-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+/* dm-sans-regular - latin */
+@font-face {
+   font-display: swap;
+   font-family: 'DM Sans';
+   font-style: normal;
+   font-weight: 400;
+   src: url('./fonts/dm-sans-v14-latin-regular.woff2') format('woff2');
+}
  
 
 
