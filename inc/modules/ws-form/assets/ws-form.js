@@ -234,6 +234,11 @@
 			$( '#tees-render-wrapper' ).css( 'font-size', value + 'px' );
 		} );
 
+		$( '.cc-tees-custom-text-input' ).on( 'input change', function() {
+			var value = $( this ).val();
+			$( '#tees-render-wrapper .cc-preview-text' ).text( value );
+		} );
+
 
 		/**
 		 *  Makes + and - buttons works for size input.

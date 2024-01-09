@@ -434,8 +434,6 @@ input[type="number"].wsf-field:disabled {
    line-height: 1em;
 }
 .cc-preview-text {
-   /* white-space: nowrap; */
-   font-size: 12px;
    line-height: 1em;
 }
 .cc-ball-preview-wrapper .cc-preview-texts > div {
@@ -508,7 +506,7 @@ input[type="number"].wsf-field:disabled {
 .cc-tees-print-area {
    position: absolute;
    left: 34%;
-   right: 21%;
+   right: 20%;
    top: 0;
    bottom: 0;
    border-left: 3px dotted red;
