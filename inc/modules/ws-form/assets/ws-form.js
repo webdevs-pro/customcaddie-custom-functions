@@ -151,6 +151,8 @@
 			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg_for_towel );
 
 
+
+
 			// /**
 			//  * Set preview
 			//  */
@@ -438,7 +440,7 @@
 		function update_set_preview() {
 			// Ball
 			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { filter: filter})
+			domtoimage.toJpeg(node, { filter: filter, bgcolor: 'white'})
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
@@ -463,6 +465,15 @@
 					$('.cc-set-preview-item-tees').empty().append(img);
 				});
 
+
+			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
+			// Set pin preview icon
+			var svg_for_pin = checked_svg.clone();
+			$( '.cc-set-preview-item-pin .cc-pin-preview-icon' ).empty().append( svg_for_pin );
+
+			// Set marker preview icon
+			var svg_for_pin = checked_svg.clone();
+			$( '.cc-set-preview-item-marker .cc-marker-preview-icon' ).empty().append( svg_for_pin );
 
 
 			function filter (node) {

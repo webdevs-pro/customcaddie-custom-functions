@@ -390,6 +390,11 @@ input[type="number"].wsf-field:disabled {
 
 
 /* Name and signature */
+.cc-ball-preview-wrapper > div {
+   border: 1px solid #D7D7D7;
+   border-radius: 8px;
+   overflow: hidden;
+}
 .cc-preview-wrapper {
    position: relative;
    /* max-width: 267px; */
@@ -400,10 +405,7 @@ input[type="number"].wsf-field:disabled {
    justify-content: center;
    background-size: contain;
    background-repeat: no-repeat;
-   border: 1px solid #D7D7D7;
-   border-radius: 8px;
    text-align: center;
-   overflow: hidden;
 }
 .cc-preview-texts {
    height: 50%;
@@ -495,9 +497,13 @@ input[type="number"].wsf-field:disabled {
 
 
 /* Tees preview */
+.tees-preview-field-wrapper > div {
+   border: 1px solid #D7D7D7;
+   border-radius: 8px;
+   overflow: hidden;
+}
 .cc-tees-preview-wrapper {
    aspect-ratio: 1;
-   border-radius: 8px;
    background-size: cover;
    background-position: center;
    position: relative;
@@ -569,6 +575,30 @@ input[type="number"].wsf-field:disabled {
    object-fit: cover;
 }
 
+
+.cc-preview-icon.cc-pin-preview-icon {
+   position: absolute;
+   top: 29%;
+   width: 37%;
+   height: 37%;
+   left: 47%;
+}
+.cc-preview-icon.cc-pin-preview-icon > svg {
+   height: 100%;
+   width: 100%;
+ }
+
+ .cc-preview-icon.cc-marker-preview-icon {
+   position: absolute;
+   top: 21%;
+   width: 21%;
+   height: 21%;
+   left: 39%;
+}
+.cc-preview-icon.cc-marker-preview-icon > svg {
+   height: 100%;
+   width: 100%;
+ }
 
 .wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields,
 .wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields {
