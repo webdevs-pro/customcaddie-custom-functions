@@ -428,7 +428,7 @@
 		function update_set_preview() {
 			// Ball
 			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { quality: 0.95, filter: filter })
+			domtoimage.toPng(node, { filter: filter})
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
@@ -437,12 +437,22 @@
 
 			// Towel
 			node = document.getElementById('towel-render-wrapper');
-			domtoimage.toSvg(node, { })
+			domtoimage.toPng(node, {})
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
 					$('.cc-set-preview-item-towel').empty().append(img);
 				});
+
+			// Tees
+			node = document.getElementById('tees-render-wrapper');
+			domtoimage.toJpeg(node, { filter: filter})
+				.then(function (dataUrl) {
+					var img = new Image();
+					img.src = dataUrl;
+					$('.cc-set-preview-item-tees').empty().append(img);
+				});
+
 
 
 			function filter (node) {
@@ -450,6 +460,11 @@
 					// Modify the node's style to remove the border
 					node.style.border = 'none';
 				}
+
+				// if (node.classList && node.classList.contains('cc-tees-preview-lines')) {
+				// 	// Modify the node's style to remove the border
+				// 	node.style.border = 'none';
+				// }
 				return true; // Return true to include the node in the output
 			}
 		}

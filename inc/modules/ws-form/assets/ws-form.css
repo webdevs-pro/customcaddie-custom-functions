@@ -454,10 +454,10 @@ input[type="number"].wsf-field:disabled {
 .cc-towel-preview {
    aspect-ratio: 64 / 48;
    border-radius: 8px;
-   max-width: 400px;
    background-size: cover;
    background-position: center;
    position: relative;
+   width: 100%;
 }
 .cc-towel-preview .cc-towel-icon {
    position: absolute;
@@ -481,10 +481,11 @@ input[type="number"].wsf-field:disabled {
 .cc-tees-preview-wrapper {
    aspect-ratio: 1;
    border-radius: 8px;
-   max-width: 400px;
    background-size: cover;
    background-position: center;
    position: relative;
+   width: 100%;
+   
 }
 .cc-tees-preview-lines {
    position: absolute;
