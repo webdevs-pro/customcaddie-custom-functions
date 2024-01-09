@@ -454,37 +454,140 @@
 		// 	}
 		// }
 
-		function update_set_preview() {
-			// Ball
-			var node = document.getElementById('ball-render-wrapper');
-			html2canvas(node, {
-				onclone: function(doc) {
-					$(doc).find('.cc-preview-texts').css('border', 'none');
-				}
-		  	}).then(canvas => {
-				$('.cc-set-preview-item-ball').empty().append(canvas);
+
+
+		// function update_set_preview() {
+		// 	// Ball
+		// 	var node = document.getElementById('ball-render-wrapper');
+		// 	html2canvas(node, {
+		// 		onclone: function(doc) {
+		// 			$(doc).find('.cc-preview-texts').css('border', 'none');
+		// 		}
+		//   	}).then(canvas => {
+		// 		$('.cc-set-preview-item-ball').empty().append(canvas);
+		// 	});
+
+
+
+
+		// 	// Towel
+		// 	node = document.getElementById('towel-render-wrapper');
+		// 	html2canvas(node).then(canvas => {
+		// 		$('.cc-set-preview-item-towel').empty().append(canvas);
+		// 	});
+
+
+
+		// 	// Tees
+		// 	node = document.getElementById('tees-render-wrapper');
+		// 	html2canvas(node, {
+		// 		onclone: function(doc) {
+		// 			$(doc).find('.cc-tees-preview-lines').css('border', 'none');
+		// 		}
+		// 		}).then(canvas => {
+		// 		$('.cc-set-preview-item-tees').empty().append(canvas);
+		// 	});
+		// }
+
+
+		function fetchAndConvertFont(url, onSuccess) {
+			// Fetch the Google Font CSS
+			fetch(url)
+				.then(response => response.text())
+				.then(css => {
+					// Extract the font URL from the CSS (this may need to be adjusted based on the actual CSS structure)
+					const fontUrlMatch = css.match(/url\((.*?)\)/);
+					if (fontUrlMatch && fontUrlMatch[1]) {
+							const fontUrl = fontUrlMatch[1].replace(/"/g, ''); // Remove quotes
+							// Fetch and convert the font file to Base64
+							fetch(fontUrl)
+								.then(response => response.blob())
+								.then(blob => {
+									const reader = new FileReader();
+									reader.readAsDataURL(blob);
+									reader.onloadend = () => {
+											const base64Font = reader.result;
+											// Replace the URL in the @font-face rule with the Base64 string
+											const base64Css = css.replace(fontUrlMatch[0], `url(${base64Font})`);
+											onSuccess(base64Css);
+									};
+								});
+					}
+				})
+				.catch(error => console.error('Error in font conversion:', error));
+	}
+	
+	function injectStyleIntoSVG(svgElement, css) {
+			const styleElement = document.createElement('style');
+			styleElement.textContent = css;
+			svgElement.prepend(styleElement);
+	}
+	
+	function update_set_preview() {
+			const fontUrls = [
+				'https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-',
+				'https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-',
+				'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-'
+			];
+	
+			let loadedFonts = 0;
+			let combinedCSS = '';
+
+	
+			fontUrls.forEach(url => {
+				fetchAndConvertFont(url, base64Css => {
+					combinedCSS += base64Css;
+					loadedFonts++;
+					if (loadedFonts === fontUrls.length) {
+							// Once all fonts are loaded
+							var svgElement = document.querySelector('#ball-render-wrapper svg');
+							if (svgElement) {
+								injectStyleIntoSVG(svgElement, combinedCSS);
+							}
+
+							svgElement = document.querySelector('#towel-render-wrapper svg');
+							if (svgElement) {
+								injectStyleIntoSVG(svgElement, combinedCSS);
+							}
+
+					}
+				});
 			});
 
 
 
-			// Towel
-			node = document.getElementById('towel-render-wrapper');
-			html2canvas(node).then(canvas => {
-				$('.cc-set-preview-item-towel').empty().append(canvas);
-			});
+			// Now call html2canvas
+			setTimeout(function() {
+
+				var node = document.getElementById('ball-render-wrapper');
+				html2canvas(node).then(canvas => {
+					$('.cc-set-preview-item-ball').empty().append(canvas);
+				});
+
+
+				// Towel
+				node = document.getElementById('towel-render-wrapper');
+				html2canvas(node).then(canvas => {
+					$('.cc-set-preview-item-towel').empty().append(canvas);
+				});
 
 
 
-			// Tees
-			node = document.getElementById('tees-render-wrapper');
-			html2canvas(node, {
-				onclone: function(doc) {
-					$(doc).find('.cc-tees-preview-lines').css('border', 'none');
-				}
-				}).then(canvas => {
-				$('.cc-set-preview-item-tees').empty().append(canvas);
-			});
-		}
+				// Tees
+				node = document.getElementById('tees-render-wrapper');
+				html2canvas(node, {
+					onclone: function(doc) {
+						$(doc).find('.cc-tees-preview-lines').css('border', 'none');
+					}
+					}).then(canvas => {
+					$('.cc-set-preview-item-tees').empty().append(canvas);
+				});
+
+			}, 100 );
+
+
+
+	}
 
 
 		$('#generate-set-preview').on('click', function() {

@@ -155,6 +155,8 @@ class CC_Elementor {
       // https://html2canvas.hertzen.com/configuration
 		wp_enqueue_script( 'cc-html2canvas', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/html2canvas.min.js', array( ), CC_PLUGIN_VERSION, true );
 
+		// wp_enqueue_script( 'google-webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', array( ), '1.6.26', true );
+
    }
 
 
