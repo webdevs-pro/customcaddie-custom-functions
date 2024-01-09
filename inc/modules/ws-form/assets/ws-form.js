@@ -440,7 +440,7 @@
 		function update_set_preview() {
 			// Ball
 			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { filter: filter, bgcolor: 'white'})
+			domtoimage.toJpeg(node, { filter: filter})
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
@@ -598,7 +598,8 @@
 	// }
 
 
-		$('#generate-set-preview').on('click', function() {
+		$('#generate-set-preview').on('click', function(e) {
+			e.preventDefault();
 			update_set_preview();
 		})
 
