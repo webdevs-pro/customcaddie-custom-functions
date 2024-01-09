@@ -466,6 +466,11 @@ input[type="number"].wsf-field:disabled {
 
 
 /* Towel preview */
+.cc-towel-render-wrapper > div {
+   border: 1px solid #D7D7D7;
+   border-radius: 8px;
+   overflow: hidden;
+}
 .cc-towel-preview {
    aspect-ratio: 64 / 48;
    border-radius: 8px;
