@@ -290,14 +290,10 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 
 .cc-icon-select .wsf-grid {
    display: grid;
-   grid-template-columns: repeat(5, 20%);
+   grid-template-columns: repeat(5, 1fr);
    gap: 16px;
 }
-@media(min-width: 768px) {
-   .cc-icon-select .wsf-grid {
-      width: 70%;
-   }
-}
+
 .cc-icon-select .wsf-grid .wsf-tile {
    max-width: unset !important;
    aspect-ratio: 1;
