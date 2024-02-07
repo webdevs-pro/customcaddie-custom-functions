@@ -292,6 +292,8 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    gap: 16px;
+   margin-left: 0;
+   margin-right: 0;
 }
 
 .cc-icon-select .wsf-grid .wsf-tile {
