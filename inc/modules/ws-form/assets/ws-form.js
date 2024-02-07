@@ -150,6 +150,10 @@
 			var svg_for_towel = checked_svg.clone();
 			$( '.cc-towel-preview .cc-towel-icon' ).empty().append( svg_for_towel );
 
+			// Set towel preview icon
+			var svg_for_towel = checked_svg.clone();
+			$( '.cc-preview-icon .cc-marker-preview-icon' ).empty().append( svg_for_towel );
+
 
 
 

@@ -612,7 +612,7 @@ input[type="number"].wsf-field:disabled {
 }
 .cc-preview-icon.cc-marker-preview-icon > svg {
    height: 100%;
-   width: 100%;
+   width: 100% !important;
  }
 
 .wsf-grid.wsf-sections fieldset .cc-is-signature .wsf-grid.wsf-fields,
