@@ -366,8 +366,20 @@ input[type="number"].wsf-field:disabled {
 }
 
 
-
-
+#cc-icon-preview {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 8px;
+}
+#cc-icon-preview > div {
+   aspect-ratio: 1;
+   border-radius: 8px;
+   background-size: cover;
+   background-position: center;
+   position: relative;
+   background-color: #f7f7f7;
+   background-blend-mode: darken;
+}
 
 
 
