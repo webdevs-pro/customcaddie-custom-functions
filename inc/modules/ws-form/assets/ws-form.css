@@ -568,12 +568,26 @@ input[type="number"].wsf-field:disabled {
 /* Main preview */
 .generate-set-preview-wrapper {
    display: flex;
-   justify-content: flex-end;
+   justify-content: space-between;
+   padding-top: 30px;
 }
 #generate-set-preview {
    border: none;
    margin-bottom: 20px;
-   line-height: 26px;
+   line-height: 35.5px;
+   font-size: 14px;
+   padding-right: 50px;
+   padding-left: 50px;
+
+}
+#customizer-cancel-button {
+   border: none;
+   margin-bottom: 20px;
+   line-height: 35.5px;
+   background-color: #D8D8D8;
+   color: #9F9F9F;
+   font-size: 14px;
+
 }
 .cc-set-preview-item {
    overflow: hidden;
@@ -782,22 +796,25 @@ input[type="number"].wsf-field:disabled {
 
 
 .cc-margin-top-15 {
-   margin-top: 15px;
+   margin-top: 15px !important;
 }
 .cc-margin-top-20 {
-   margin-top: 20px;
+   margin-top: 20px !important;
 }
 .cc-margin-top-25 {
-   margin-top: 25px;
+   margin-top: 25px !important;
 }
 .cc-margin-top-30 {
-   margin-top: 30px;
+   margin-top: 30px !important;
 }
 .cc-margin-top-35 {
-   margin-top: 35px;
+   margin-top: 35px !important;
+}
+.cc-margin-bottom-35 {
+   margin-bottom: 35px !important;
 }
 .cc-padding-bottom-20 {
-   padding-bottom: 20px;
+   padding-bottom: 20px !important;
 }
 
 
