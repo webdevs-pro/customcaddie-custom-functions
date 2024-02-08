@@ -471,7 +471,14 @@ input[type="number"].wsf-field:disabled {
 .cc-ball-preview-wrapper.cc-custom-text-top .cc-preview-text {
    order: -1;
 }
-
+.cc-ball-elements-checkboxes-wrapper .wsf-label {
+   margin-bottom: 20px !important;
+}
+@media(min-width: 768px) {
+   .cc-ball-elements-checkboxes-wrapper .wsf-inline:not(:last-child) {
+      margin-right: 50px;
+   }
+}
 
 
 
