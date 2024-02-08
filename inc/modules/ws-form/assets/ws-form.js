@@ -4,7 +4,6 @@
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
 		$( '.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
-		var preview_section_visible = false;
 
 
 
@@ -514,13 +513,7 @@
 			}
 
 			var checkInterval = setInterval(function() {
-				if( checkAllTrue( preview_generated ) ) {
-
-					// Run only once
-					if ( ! preview_section_visible ) {
-						$( '.generate-set-preview-wrapper' ).prepend( '<h3>Check Your Set Preview</h3>' );
-					}
-					preview_section_visible = true;
+				if ( checkAllTrue( preview_generated ) ) {
 
 					$( '#generate-set-preview' ).removeClass( 'generation-preview' );
 					$( '.set-preview-section' ).removeClass( 'generation-preview' );
@@ -648,7 +641,7 @@
 
 			$( '#generate-set-preview' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
-			$( '#customizer-cancel-button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
+			$( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
 
 			update_set_preview();
