@@ -3,6 +3,11 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
+		$( '.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
+		var preview_section_visible = false;
+
+
+
 		/**
 		 * This function populates the name placeholders and signature preview with the values ​​entered in the corresponding fields.. 
 		 */
@@ -442,6 +447,13 @@
 
 
 		function update_set_preview() {
+
+			var preview_generated = {
+				'ball': false,
+				'towel': false,
+				'tees': false,
+			}
+
 			// Ball
 			var node = document.getElementById('ball-render-wrapper');
 			domtoimage.toJpeg(node, { filter: filter})
@@ -449,6 +461,7 @@
 					var img = new Image();
 					img.src = dataUrl;
 					$('.cc-set-preview-item-ball').empty().append(img);
+					preview_generated.ball = true;
 				});
 
 			// Towel
@@ -458,6 +471,8 @@
 					var img = new Image();
 					img.src = dataUrl;
 					$('.cc-set-preview-item-towel').empty().append(img);
+					preview_generated.towel = true;
+
 				});
 
 			// Tees
@@ -467,6 +482,7 @@
 					var img = new Image();
 					img.src = dataUrl;
 					$('.cc-set-preview-item-tees').empty().append(img);
+					preview_generated.tees = true;
 				});
 
 
@@ -490,6 +506,32 @@
 				}
 				return true; // Return true to include the node in the output
 			}
+
+
+			// Function to check if all items are true
+			function checkAllTrue( obj ) {
+				return Object.keys( obj ).every( ( key ) => obj[key] === true);
+			}
+
+			var checkInterval = setInterval(function() {
+				if( checkAllTrue( preview_generated ) ) {
+
+					// Run only once
+					if ( ! preview_section_visible ) {
+						$( '.generate-set-preview-wrapper' ).prepend( '<h3>Check Your Set Preview</h3>' );
+					}
+					preview_section_visible = true;
+
+					$( '#generate-set-preview' ).removeClass( 'generation-preview' );
+					$( '.set-preview-section' ).removeClass( 'generation-preview' );
+					$( '.set-preview-section' ).slideDown();
+
+					clearInterval( checkInterval ); // Stop the interval
+				}
+			}, 150);
+
+
+			
 		}
 
 
@@ -601,10 +643,16 @@
 	// 		}, 100 );
 	// }
 
-
 		$('#generate-set-preview').on('click', function(e) {
 			e.preventDefault();
+
+			$( '#generate-set-preview' ).addClass( 'generation-preview' );
+			$( '.set-preview-section' ).addClass( 'generation-preview' );
+			$( '#customizer-cancel-button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
+
+
 			update_set_preview();
+
 		})
 
 

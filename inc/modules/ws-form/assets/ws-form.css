@@ -571,14 +571,15 @@ input[type="number"].wsf-field:disabled {
    justify-content: space-between;
    padding-top: 30px;
 }
-#generate-set-preview {
+#generate-set-preview,
+#cc-add-to-cart-button {
    border: none;
    margin-bottom: 20px;
    line-height: 35.5px;
    font-size: 14px;
    padding-right: 50px;
    padding-left: 50px;
-
+   margin-left: auto;
 }
 #customizer-cancel-button {
    border: none;
@@ -642,9 +643,13 @@ input[type="number"].wsf-field:disabled {
 .wsf-grid.wsf-sections fieldset .cc-is-icon .wsf-grid.wsf-fields .wsf-label-wrapper label {
    padding: 0 !important;
 }
-
-
-
+.cc-add-to-cart-button-wrapper {
+   display: flex;
+   justify-content: space-between;
+}
+.single_add_to_cart_button.button {
+   display: none;
+}
 
 
 
