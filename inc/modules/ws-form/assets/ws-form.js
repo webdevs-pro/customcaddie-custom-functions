@@ -525,6 +525,7 @@
 					$( '#generate-set-preview' ).addClass( 'generated' );
 					$( '.set-preview-section' ).removeClass( 'generation-preview' );
 					$( '#generate-set-preview' ).text( 'Regenerate set preview' );
+					$( '#preview-section-divider' ).addClass( 'visible' );
 					$( '.set-preview-section' ).slideDown();
 
 					clearInterval( checkInterval ); // Stop the interval
@@ -649,6 +650,7 @@
 
 			$( '#generate-set-preview' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
+
 			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
 

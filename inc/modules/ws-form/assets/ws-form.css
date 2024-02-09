@@ -919,3 +919,38 @@ input[type="text"] {
    background-color: #f2f2f2 !important;
    border-color: #E2E2E2 !important;
 }
+
+
+
+
+
+
+
+#preview-section-divider {
+   display: grid;
+   grid-template-rows: 10px 24px 10px;
+   background-color: #f7f8ef;
+   margin-left: -50px;
+   margin-right: -50px;
+   margin-top: 40px;
+}
+#preview-section-divider:not(.visible) {
+   display: none;
+}
+#preview-section-divider .preview-section-divider-top {
+   background-color: #fff;
+   border-bottom-right-radius: 8px;
+   border-bottom-left-radius: 8px;  
+   /* border: 1px solid #d8d8d8; */
+   border-top-width: 0;
+}
+#preview-section-divider .preview-section-divider-middle {
+
+}
+#preview-section-divider .preview-section-divider-bottom {
+   background-color: #fff;
+   border-top-right-radius: 8px;
+   border-top-left-radius: 8px;  
+   /* border: 1px solid #d8d8d8; */
+   border-bottom-width: 0;
+}
