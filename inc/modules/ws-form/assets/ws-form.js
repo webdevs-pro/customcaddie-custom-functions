@@ -5,7 +5,13 @@
 
 		$( '.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
+		// $( '.set-preview-section' ).insertAfter( '.wsf-form-canvas');
 
+		// var add_to_cart_button_text = $( '.single_add_to_cart_button.button' ).text();
+		// $( '#cc-add-to-cart-button' ).text( add_to_cart_button_text );
+		// $( '#cc-add-to-cart-button' )
+
+ 
 
 		/**
 		 * This function populates the name placeholders and signature preview with the values ​​entered in the corresponding fields.. 
@@ -516,7 +522,9 @@
 				if ( checkAllTrue( preview_generated ) ) {
 
 					$( '#generate-set-preview' ).removeClass( 'generation-preview' );
+					$( '#generate-set-preview' ).addClass( 'generated' );
 					$( '.set-preview-section' ).removeClass( 'generation-preview' );
+					$( '#generate-set-preview' ).text( 'Regenerate set preview' );
 					$( '.set-preview-section' ).slideDown();
 
 					clearInterval( checkInterval ); // Stop the interval
@@ -641,7 +649,7 @@
 
 			$( '#generate-set-preview' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
-			$( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
+			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
 
 			update_set_preview();

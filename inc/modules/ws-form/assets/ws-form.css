@@ -291,9 +291,9 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
 .cc-icon-select .wsf-grid {
    display: grid;
    grid-template-columns: repeat(5, 1fr);
-   gap: 16px;
+   gap: 8px;
    margin-left: 0;
-   margin-right: 0;
+   margin-right: 20px;
 }
 
 .cc-icon-select .wsf-grid .wsf-tile {
@@ -581,12 +581,22 @@ input[type="number"].wsf-field:disabled {
 #generate-set-preview,
 #cc-add-to-cart-button {
    border: none;
-   margin-bottom: 20px;
+   /* margin-bottom: 20px; */
    line-height: 35.5px;
    font-size: 14px;
    padding-right: 50px;
    padding-left: 50px;
    margin-left: auto;
+}
+#generate-set-preview.generation-preview {
+   opacity: 0.5;
+   pointer-events: none;
+}
+#generate-set-preview.generated {
+   /* border: 2px solid #86a232; */
+   box-shadow: inset 0 0 0 2px #86a232;
+   color: #86a232;
+   background-color: #f1f2f1;
 }
 #customizer-cancel-button {
    border: none;
@@ -654,9 +664,13 @@ input[type="number"].wsf-field:disabled {
    display: flex;
    justify-content: space-between;
    align-items: flex-start;
+   padding-top: 25px;
+   border-top: 1px solid #D8D8D8;
 }
 .single_add_to_cart_button.button {
    display: none;
+   font-size: 14px !important;
+   margin-left: auto;
 }
 
 
@@ -779,13 +793,14 @@ input[type="number"].wsf-field:disabled {
    border-radius: 8px;
    display: grid;
    grid-template-columns: auto 1fr;
-   column-gap: 12px;
+   column-gap: 16px;
    margin-bottom: 20px;
+   line-height: 24px;
 }
 .cc-ball-printing-area-notice {
-   padding: 16px 24px 16px 16px;
-   background-color: #fbcccc;
-   font-size: 16px;
+   padding: 12px 20px 16px 16px;
+   background-color: #ffefe1;
+   font-size: 14px;
    margin-top: 16px;
 }
 .cc-customizer-notice-wrapper p {
@@ -795,6 +810,7 @@ input[type="number"].wsf-field:disabled {
 
 .single_add_to_cart_button {
    margin-top: 20px;
+   margin-left: auto !important;
    font-size: 16px !important;
    font-weight: 700 !important;
    text-transform: uppercase;
@@ -809,6 +825,9 @@ input[type="number"].wsf-field:disabled {
 
 
 
+.cc-margin-top-10 {
+   margin-top: 10px !important;
+}
 .cc-margin-top-15 {
    margin-top: 15px !important;
 }
@@ -886,3 +905,17 @@ input[type="number"].wsf-field:disabled {
 .cc-towel-preview .cc-towel-icon svg * {
    fill: var( --towel-icon-fill );   
 } */
+
+
+
+
+
+
+
+
+
+
+input[type="text"] {
+   background-color: #f2f2f2 !important;
+   border-color: #E2E2E2 !important;
+}
