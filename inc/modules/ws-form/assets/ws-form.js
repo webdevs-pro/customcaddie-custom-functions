@@ -3,6 +3,9 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
+
+
+
 		$( '.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
 		// Variable to keep track of the current view state
@@ -35,10 +38,13 @@
 
 		function switch_to_mobile() {
 			console.log('Switching to mobile');
+			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode' ).addClass( 'cc-mobile-customizer' );
 		}
 
 		function switch_to_desktop() {
 			console.log('Switching to desktop');
+			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode' ).removeClass( 'cc-mobile-customizer' );
+
 		}
 
 		// Listen for clicks on links with the '#custom' hash
@@ -68,6 +74,30 @@
 
 		function open_customizer_popup() {
 			console.log('Opening customizer popup');
+
+			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode.cc-mobile-customizer' ).addClass( 'opened' );
+			
+			$('.wsf-grid.wsf-sections').each(function() {
+				// Within each parent element, find the first '.cc-mobile-header'
+				var startElement = $(this).find('.cc-mobile-header').first();
+				
+				// Within the same parent, find the last '.cc-mobile-footer'
+				var endElement = $(this).find('.cc-mobile-footer').last();
+				
+				// Get all elements between the start and end elements
+				var elementsToWrap = startElement.nextUntil(endElement);
+				
+				// Wrap these elements with a new div having the class 'cc-mobile-content'
+				elementsToWrap.wrapAll('<div class="cc-mobile-content"></div>');
+			});
+			
+		}	
+
+
+		function close_customizer_popup() {
+			console.log('Closing customizer popup');
+
+			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode.cc-mobile-customizer' ).removeClass( 'opened' );
 			
 		}	
  
