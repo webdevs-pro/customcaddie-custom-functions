@@ -5,12 +5,41 @@
 
 		$( '.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
-		// $( '.set-preview-section' ).insertAfter( '.wsf-form-canvas');
+		// Variable to keep track of the current view state
+		// Initialize as 'desktop' to prevent automatic desktop switch on load
+		var currentViewState = 'desktop';
 
-		// var add_to_cart_button_text = $( '.single_add_to_cart_button.button' ).text();
-		// $( '#cc-add-to-cart-button' ).text( add_to_cart_button_text );
-		// $( '#cc-add-to-cart-button' )
+		// Function to check window width and switch to mobile or desktop view
+		function checkWindowSize() {
+			var width = window.innerWidth;
+			if (width <= 767) {
+				// Call switch_to_mobile only if not already in 'mobile' state
+				if (currentViewState !== 'mobile') {
+						switch_to_mobile();
+						currentViewState = 'mobile';
+				}
+			} else if (width >= 768 && currentViewState === 'mobile') {
+				// This condition is now only true if resizing from mobile to desktop
+				switch_to_desktop();
+				currentViewState = 'desktop';
+			}
+		}
 
+		// Call checkWindowSize on page load
+		checkWindowSize();
+
+		// Call checkWindowSize on window resize
+		$(window).resize(function() {
+			checkWindowSize();
+		});
+
+		function switch_to_mobile() {
+			console.log('Switching to mobile');
+		}
+
+		function switch_to_desktop() {
+			console.log('Switching to desktop');
+		}
  
 
 		/**
