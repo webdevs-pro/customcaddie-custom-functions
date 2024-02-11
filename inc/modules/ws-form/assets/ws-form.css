@@ -954,3 +954,27 @@ input[type="text"] {
    /* border: 1px solid #d8d8d8; */
    border-bottom-width: 0;
 }
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+.wsf-group-tabs.wsf-tabs[role="tablist"] {
+   display: none;
+}
+@media(min-width: 768px) {
+   .wsf-groups > .wsf-group[role="tabpanel"] {
+      display: block !important;
+   }
+   .wsf-field-wrapper[data-type="tab_next"] {
+      display: none;
+   }
+}
+@media(max-width: 768px) {
+
+}
