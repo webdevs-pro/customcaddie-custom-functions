@@ -40,6 +40,36 @@
 		function switch_to_desktop() {
 			console.log('Switching to desktop');
 		}
+
+		// Listen for clicks on links with the '#custom' hash
+		document.addEventListener('click', function(e) {
+			// Find the closest <a> ancestor of the clicked element with the href '#custom'
+			var target = e.target.closest('a[href="#custom"]');
+			
+			// If such an element is found and the current view state is 'mobile'
+			if (target && currentViewState === 'mobile') {
+				// Prevent the default action
+				e.preventDefault();
+
+				// Remove the href attribute to prevent scrolling
+				var href = target.getAttribute('href');
+				target.removeAttribute('href');
+
+				// Open the customizer popup
+				open_customizer_popup();
+
+				// Re-add the href attribute after a brief delay
+				setTimeout(function() {
+					target.setAttribute('href', href);
+				}, 100); // Adjust delay as necessary
+			}
+		}, true); // Use capturing phase
+
+
+		function open_customizer_popup() {
+			console.log('Opening customizer popup');
+			
+		}	
  
 
 		/**
