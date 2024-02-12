@@ -113,7 +113,39 @@
 			});
 			icon_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
 
+
+			var custom_text_font_size_wrapper = $( '.cart.wsf-form.wsf-woocommerce .cc-custom-text-font-size-wrapper ' );
+			custom_text_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-ball-tab-wrapper .cc-mobile-footer-controls' );
+			custom_text_font_size_wrapper.wrapInner('<div class="wsf-grid wsf-fields"></div>');
+			custom_text_font_size_wrapper.removeClass( 'cc-margin-top-30' );
+			custom_text_font_size_wrapper.find('.wsf-grid.wsf-fields > *').wrap('<div class="wsf-tile"></div>');
+			custom_text_font_size_wrapper.find( 'label' ).css( {
+				'padding': '9.5px 0',
+				'margin-bottom': '0',
+				'font-weight': 'bold'
+			} );
+			custom_text_font_size_wrapper.css( {
+				'padding-top': '12px',
+				'padding-bottom': '12px',
+				'margin-bottom': '0',
+				'margin-left': '-10px',
+				'margin-right': '-10px',
+				'width': 'calc( 100% + 20px )',
+			});
+			custom_text_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
+
 		}
+
+		$(document).on('wsf-tab-clicked', function(e, form, form_id, instance_id) {
+			    // Select all elements with class 'cc-mobile-content'
+				 $('.cc-mobile-content').each(function() {
+					// Check if the element has 'overflow-y' set to 'auto'
+					if ($(this).css('overflow-y') === 'auto') {
+						 // Scroll the element to the top
+						 $(this).scrollTop(0);
+					}
+			  });
+		} );
 
 		// Call checkWindowSize on window resize
 		$( window ).resize(function() {
