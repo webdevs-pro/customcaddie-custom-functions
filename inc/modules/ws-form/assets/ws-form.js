@@ -134,6 +134,27 @@
 			});
 			custom_text_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
 
+
+			var tees_text_font_size_wrapper = $( '.cart.wsf-form.wsf-woocommerce .cc-tees-text-font-size-wrapper' );
+			tees_text_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-tees-tab-wrapper .cc-mobile-footer-controls' );
+			tees_text_font_size_wrapper.wrapInner('<div class="wsf-grid wsf-fields"></div>');
+			tees_text_font_size_wrapper.removeClass( 'cc-margin-top-30' );
+			tees_text_font_size_wrapper.find('.wsf-grid.wsf-fields > *').wrap('<div class="wsf-tile"></div>');
+			tees_text_font_size_wrapper.find( 'label' ).css( {
+				'padding': '9.5px 0',
+				'margin-bottom': '0',
+				'font-weight': 'bold'
+			} );
+			tees_text_font_size_wrapper.css( {
+				'padding-top': '12px',
+				'padding-bottom': '12px',
+				'margin-bottom': '0',
+				'margin-left': '-10px',
+				'margin-right': '-10px',
+				'width': 'calc( 100% + 20px )',
+			});
+			tees_text_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
+
 		}
 
 		$(document).on('wsf-tab-clicked', function(e, form, form_id, instance_id) {
