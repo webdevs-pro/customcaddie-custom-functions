@@ -20,32 +20,46 @@
 				if (currentViewState !== 'mobile') {
 						switch_to_mobile();
 						currentViewState = 'mobile';
-				}
-			} else if (width >= 768 && currentViewState === 'mobile') {
-				// This condition is now only true if resizing from mobile to desktop
-				switch_to_desktop();
-				currentViewState = 'desktop';
+				} 
+				// else if (width >= 768 && currentViewState === 'mobile') {
+				// 	// This condition is now only true if resizing from mobile to desktop
+				// 	switch_to_desktop();
+				// 	currentViewState = 'desktop';
+				// }
 			}
 		}
 
 		// Call checkWindowSize on page load
 		checkWindowSize();
 
-		// Call checkWindowSize on window resize
-		$(window).resize(function() {
-			checkWindowSize();
-		});
+		// function switch_to_desktop() {
+		// 	$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode' ).removeClass( 'cc-mobile-customizer' );
+		// }
+
 
 		function switch_to_mobile() {
-			console.log('Switching to mobile');
 			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode' ).addClass( 'cc-mobile-customizer' );
+
+			$('.wsf-grid.wsf-sections').each(function() {
+				// Within each parent element, find the first '.cc-mobile-header'
+				var startElement = $(this).find('.cc-mobile-header').first();
+				
+				// Within the same parent, find the last '.cc-mobile-footer'
+				var endElement = $(this).find('.cc-mobile-footer').last();
+				
+				// Get all elements between the start and end elements
+				var elementsToWrap = startElement.nextUntil(endElement);
+				
+				// Wrap these elements with a new div having the class 'cc-mobile-content'
+				elementsToWrap.wrapAll('<div class="cc-mobile-content"></div>');
+			});
 		}
 
-		function switch_to_desktop() {
-			console.log('Switching to desktop');
-			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode' ).removeClass( 'cc-mobile-customizer' );
+		// Call checkWindowSize on window resize
+		$( window ).resize(function() {
+			checkWindowSize();
+		} );
 
-		}
 
 		// Listen for clicks on links with the '#custom' hash
 		document.addEventListener('click', function(e) {
@@ -73,32 +87,15 @@
 
 
 		function open_customizer_popup() {
-			console.log('Opening customizer popup');
-
 			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode.cc-mobile-customizer' ).addClass( 'opened' );
-			
-			$('.wsf-grid.wsf-sections').each(function() {
-				// Within each parent element, find the first '.cc-mobile-header'
-				var startElement = $(this).find('.cc-mobile-header').first();
-				
-				// Within the same parent, find the last '.cc-mobile-footer'
-				var endElement = $(this).find('.cc-mobile-footer').last();
-				
-				// Get all elements between the start and end elements
-				var elementsToWrap = startElement.nextUntil(endElement);
-				
-				// Wrap these elements with a new div having the class 'cc-mobile-content'
-				elementsToWrap.wrapAll('<div class="cc-mobile-content"></div>');
-			});
-			
 		}	
 
+		$( '.cart.wsf-form.wsf-woocommerce .close-popup' ).on( 'click', function() {
+			close_customizer_popup();
+		} );
 
 		function close_customizer_popup() {
-			console.log('Closing customizer popup');
-
 			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode.cc-mobile-customizer' ).removeClass( 'opened' );
-			
 		}	
  
 
