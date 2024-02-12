@@ -1083,10 +1083,10 @@ input[type="text"] {
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-footer button[data-action="wsf-tab_next"] {
    background-color: var( --e-global-color-accent );
    color: #fff;
-   padding: 6px 30px;
+   padding: 6px 50px;
 }
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-footer button[data-action="wsf-tab_previous"] {
    background-color: #D8D8D8;
    color: #9F9F9F;
-   padding: 6px 15px;
+   padding: 6px 20px;
 }
