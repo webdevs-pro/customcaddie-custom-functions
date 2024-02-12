@@ -849,7 +849,20 @@ input[type="number"].wsf-field:disabled {
 .cc-padding-bottom-20 {
    padding-bottom: 20px !important;
 }
-
+@media(max-width: 768px) {
+   .cc-mobile-margin-top-20 {
+      margin-top: 20px !important;
+   }
+   .cc-mobile-margin-bottom-20 {
+      margin-bottom: 20px !important;
+   }
+   .cc-mobile-margin-top-30 {
+      margin-top: 30px !important;
+   }
+   .cc-mobile-margin-bottom-30 {
+      margin-bottom: 30px !important;
+   }
+}
 
 .cc-set-preview-item {
    aspect-ratio: 1;
@@ -1007,7 +1020,11 @@ input[type="text"] {
    display: grid;
    grid-template-rows: 63px auto 91px;
 }
+.elementor-widget-shortcode.cc-mobile-customizer .wsf-grid.wsf-sections fieldset::after {
+   display: none;
+}
 
+/* Header */
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-header {
    padding: 0;
 }
@@ -1037,7 +1054,6 @@ input[type="text"] {
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-header-inner .step-title {
    font-family: var( --e-global-typography-primary-font-family ), Sans-serif;
    font-size: 20px;
-
 }
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-header-inner button.close-popup {
    background-color: transparent;
@@ -1051,14 +1067,14 @@ input[type="text"] {
    padding: 0;
 }
 
-
+/* Content */
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-content {
    overscroll-behavior: contain;
    overflow-y: auto;
    padding: 0 16px;
 }
 
-
+/* Footer */
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-footer {
    padding: 11px 16px 26px 16px;
    border-top: 1px solid #D8D8D8;
