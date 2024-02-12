@@ -76,7 +76,7 @@
 			signature_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-ball-tab-wrapper .cc-mobile-footer-controls' );
 			signature_font_size_wrapper.wrapInner('<div class="wsf-grid wsf-fields"></div>');
 			signature_font_size_wrapper.removeClass( 'cc-margin-top-30' );
-			signature_font_size_wrapper.wrapInner('<div class="wsf-extra-small-2 wsf-tile wsf-label-wrapper"></div>');
+			signature_font_size_wrapper.find('.wsf-grid.wsf-fields > *').wrap('<div class="wsf-tile"></div>');
 			signature_font_size_wrapper.find( 'label' ).css( {
 				'padding': '9.5px 0',
 				'margin-bottom': '0',
