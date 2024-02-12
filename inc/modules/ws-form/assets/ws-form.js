@@ -52,21 +52,66 @@
 				
 				// Wrap these elements with a new div having the class 'cc-mobile-content'
 				elementsToWrap.wrapAll('<div class="cc-mobile-content"></div>');
+
+				$( '<div class="cc-mobile-footer-controls"></div>' ).insertBefore( endElement );
+
+
 			});
 
 			var icon_font_size_wrapper = $( '.cart.wsf-form.wsf-woocommerce .cc-icon-font-size-wrapper' );
-			icon_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-icon-tab-wrapper .cc-mobile-footer' );
+			icon_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-icon-tab-wrapper .cc-mobile-footer-controls' );
 			icon_font_size_wrapper.removeClass( 'cc-margin-top-30' );
 			icon_font_size_wrapper.css( {
-				'margin-bottom': '12px',
+				'padding-top': '12px',
 				'padding-bottom': '12px',
-				'border-bottom': '1px solid #DBDBDB',
+				'margin-bottom': '0',
 				'margin-left': '-10px',
 				'margin-right': '-10px',
 				'width': 'calc( 100% + 20px )',
-				'max-width': 'calc( 100% + 20px ) !important'
 			});
 			icon_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
+
+
+			var signature_font_size_wrapper = $( '.cart.wsf-form.wsf-woocommerce .cc-signature-font-size-wrapper' );
+			signature_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-ball-tab-wrapper .cc-mobile-footer-controls' );
+			signature_font_size_wrapper.wrapInner('<div class="wsf-grid wsf-fields"></div>');
+			signature_font_size_wrapper.removeClass( 'cc-margin-top-30' );
+			signature_font_size_wrapper.wrapInner('<div class="wsf-extra-small-2 wsf-tile wsf-label-wrapper"></div>');
+			signature_font_size_wrapper.find( 'label' ).css( {
+				'padding': '9.5px 0',
+				'margin-bottom': '0',
+				'font-weight': 'bold'
+			} );
+			signature_font_size_wrapper.css( {
+				'padding-top': '12px',
+				'padding-bottom': '12px',
+				'margin-bottom': '0',
+				'margin-left': '-10px',
+				'margin-right': '-10px',
+				'width': 'calc( 100% + 20px )',
+			});
+			signature_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
+
+
+			var icon_size_wrapper = $( '.cart.wsf-form.wsf-woocommerce .cc-icon-size-wrapper' );
+			icon_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-ball-tab-wrapper .cc-mobile-footer-controls' );
+			icon_size_wrapper.wrapInner('<div class="wsf-grid wsf-fields"></div>');
+			icon_size_wrapper.removeClass( 'cc-margin-top-30' );
+			icon_size_wrapper.find('.wsf-grid.wsf-fields > *').wrap('<div class="wsf-tile"></div>');
+			icon_size_wrapper.find( 'label' ).css( {
+				'padding': '9.5px 0',
+				'margin-bottom': '0',
+				'font-weight': 'bold'
+			} );
+			icon_size_wrapper.css( {
+				'padding-top': '12px',
+				'padding-bottom': '12px',
+				'margin-bottom': '0',
+				'margin-left': '-10px',
+				'margin-right': '-10px',
+				'width': 'calc( 100% + 20px )',
+			});
+			icon_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
 
 		}
 
