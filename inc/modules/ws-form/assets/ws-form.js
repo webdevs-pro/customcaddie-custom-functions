@@ -53,6 +53,21 @@
 				// Wrap these elements with a new div having the class 'cc-mobile-content'
 				elementsToWrap.wrapAll('<div class="cc-mobile-content"></div>');
 			});
+
+			var icon_font_size_wrapper = $( '.cart.wsf-form.wsf-woocommerce .cc-icon-font-size-wrapper' );
+			icon_font_size_wrapper.prependTo( '.cart.wsf-form.wsf-woocommerce .cc-icon-tab-wrapper .cc-mobile-footer' );
+			icon_font_size_wrapper.removeClass( 'cc-margin-top-30' );
+			icon_font_size_wrapper.css( {
+				'margin-bottom': '12px',
+				'padding-bottom': '12px',
+				'border-bottom': '1px solid #DBDBDB',
+				'margin-left': '-10px',
+				'margin-right': '-10px',
+				'width': 'calc( 100% + 20px )',
+				'max-width': 'calc( 100% + 20px ) !important'
+			});
+			icon_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
+
 		}
 
 		// Call checkWindowSize on window resize
