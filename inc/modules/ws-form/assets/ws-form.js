@@ -155,17 +155,29 @@
 			});
 			tees_text_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
 
+
+		$( '.single_add_to_cart_button.button' ).appendTo( '.cart.wsf-form.wsf-woocommerce .cc-preview-tab-wrapper .cc-mobile-footer > .wsf-grid.wsf-fields' );
+		var buttonText = $( '.single_add_to_cart_button.button' ).text();
+		var modifiedText = buttonText.replace( 'Customized ', '' );
+		$( '.single_add_to_cart_button.button' ).text(modifiedText);
+
+
 		}
 
 		$(document).on('wsf-tab-clicked', function(e, form, form_id, instance_id) {
-			    // Select all elements with class 'cc-mobile-content'
-				 $('.cc-mobile-content').each(function() {
-					// Check if the element has 'overflow-y' set to 'auto'
-					if ($(this).css('overflow-y') === 'auto') {
-						 // Scroll the element to the top
-						 $(this).scrollTop(0);
-					}
-			  });
+			console.log('e', e);
+			// Select all elements with class 'cc-mobile-content'
+			$('.cc-mobile-content').each(function() {
+				// Check if the element has 'overflow-y' set to 'auto'
+				if ($(this).css('overflow-y') === 'auto') {
+						// Scroll the element to the top
+						$(this).scrollTop(0);
+				}
+			} );
+		} );
+
+		$( document ).on( 'click', '.cc-preview-back-button', function() {
+			$( '.set-preview-section' ).slideUp();
 		} );
 
 		// Call checkWindowSize on window resize
@@ -654,31 +666,22 @@
 
 			var preview_generated = {
 				'ball': false,
-				'towel': false,
-				'tees': false,
+				'tees': false
 			}
 
+			
 			// Ball
 			var node = document.getElementById('ball-render-wrapper');
 			domtoimage.toJpeg(node, { filter: filter})
-				.then(function (dataUrl) {
-					var img = new Image();
-					img.src = dataUrl;
-					$('.cc-set-preview-item-ball').empty().append(img);
-					preview_generated.ball = true;
-				});
+			.then(function (dataUrl) {
+				var img = new Image();
+				img.src = dataUrl;
+				$('.cc-set-preview-item-ball').empty().append(img);
+				preview_generated.ball = true;
+				// $('.cc-ball-tab-wrapper').hide();
+			});
 
-			// Towel
-			node = document.getElementById('towel-render-wrapper');
-			domtoimage.toJpeg(node, {})
-				.then(function (dataUrl) {
-					var img = new Image();
-					img.src = dataUrl;
-					$('.cc-set-preview-item-towel').empty().append(img);
-					preview_generated.towel = true;
-
-				});
-
+			
 			// Tees
 			node = document.getElementById('tees-render-wrapper');
 			domtoimage.toJpeg(node, { filter: filter})
@@ -718,6 +721,7 @@
 			}
 
 			var checkInterval = setInterval(function() {
+
 				if ( checkAllTrue( preview_generated ) ) {
 
 					$( '#generate-set-preview' ).removeClass( 'generation-preview' );
@@ -741,109 +745,6 @@
 
 
 
-
-
-
-
-
-
-
-	// 	function fetchAndConvertFont(url, onSuccess) {
-	// 		// Fetch the Google Font CSS
-	// 		fetch(url)
-	// 			.then(response => response.text())
-	// 			.then(css => {
-	// 				// Extract the font URL from the CSS (this may need to be adjusted based on the actual CSS structure)
-	// 				const fontUrlMatch = css.match(/url\((.*?)\)/);
-	// 				if (fontUrlMatch && fontUrlMatch[1]) {
-	// 						const fontUrl = fontUrlMatch[1].replace(/"/g, ''); // Remove quotes
-	// 						// Fetch and convert the font file to Base64
-	// 						fetch(fontUrl)
-	// 							.then(response => response.blob())
-	// 							.then(blob => {
-	// 								const reader = new FileReader();
-	// 								reader.readAsDataURL(blob);
-	// 								reader.onloadend = () => {
-	// 										const base64Font = reader.result;
-	// 										// Replace the URL in the @font-face rule with the Base64 string
-	// 										const base64Css = css.replace(fontUrlMatch[0], `url(${base64Font})`);
-	// 										onSuccess(base64Css);
-	// 								};
-	// 							});
-	// 				}
-	// 			})
-	// 			.catch(error => console.error('Error in font conversion:', error));
-	// 	}
-		
-	// 	function injectStyleIntoSVG(svgElement, css) {
-	// 		const styleElement = document.createElement('style');
-	// 		styleElement.textContent = css;
-	// 		svgElement.prepend(styleElement);
-	// 	}
-	
-	// 	function update_set_preview() {
-	// 		const fontUrls = [
-	// 			'https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-',
-	// 			'https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-',
-	// 			'https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-'
-	// 		];
-	
-	// 		let loadedFonts = 0;
-	// 		let combinedCSS = '';
-
-	
-	// 		fontUrls.forEach(url => {
-	// 			fetchAndConvertFont(url, base64Css => {
-	// 				combinedCSS += base64Css;
-	// 				loadedFonts++;
-	// 				if (loadedFonts === fontUrls.length) {
-	// 						// Once all fonts are loaded
-	// 						var svgElement = document.querySelector('#ball-render-wrapper svg');
-	// 						if (svgElement) {
-	// 							injectStyleIntoSVG(svgElement, combinedCSS);
-	// 						}
-
-	// 						svgElement = document.querySelector('#towel-render-wrapper svg');
-	// 						if (svgElement) {
-	// 							injectStyleIntoSVG(svgElement, combinedCSS);
-	// 						}
-
-	// 				}
-	// 			});
-	// 		});
-
-
-
-	// 		// Now call html2canvas
-	// 		setTimeout(function() {
-
-	// 			var node = document.getElementById('ball-render-wrapper');
-	// 			html2canvas(node).then(canvas => {
-	// 				$('.cc-set-preview-item-ball').empty().append(canvas);
-	// 			});
-
-
-	// 			// Towel
-	// 			node = document.getElementById('towel-render-wrapper');
-	// 			html2canvas(node).then(canvas => {
-	// 				$('.cc-set-preview-item-towel').empty().append(canvas);
-	// 			});
-
-
-
-	// 			// Tees
-	// 			node = document.getElementById('tees-render-wrapper');
-	// 			html2canvas(node, {
-	// 				onclone: function(doc) {
-	// 					$(doc).find('.cc-tees-preview-lines').css('border', 'none');
-	// 				}
-	// 				}).then(canvas => {
-	// 				$('.cc-set-preview-item-tees').empty().append(canvas);
-	// 			});
-
-	// 		}, 100 );
-	// }
-
 		$('#generate-set-preview').on('click', function(e) {
 			e.preventDefault();
 
@@ -855,7 +756,23 @@
 
 			update_set_preview();
 
-		})
+		} );
+
+
+		$( document ).on('click', '.cc-mobile-generate-set-preview-button', function(e) {
+			e.preventDefault();
+			setTimeout(function() {
+				$('.cc-ball-tab-wrapper').show();
+				// $('.cc-towel-tab-wrapper').show();
+				$('.cc-tees-tab-wrapper').show();
+
+				setTimeout(function() {
+					update_set_preview();
+				}, 100)
+			}, 100)
+		} );
+
+
 
 
 

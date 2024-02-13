@@ -36,6 +36,12 @@ function cc_custom_woocommerce_product_add_to_cart_text() {
 
 
 
+add_filter( 'woocommerce_add_to_cart_redirect', 'cc_skip_cart_redirect_checkout' );
+function cc_skip_cart_redirect_checkout( $url ) {
+	return wc_get_checkout_url();
+}
+
+
 
 
 
