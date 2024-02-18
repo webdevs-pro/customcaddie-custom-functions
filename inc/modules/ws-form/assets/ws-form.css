@@ -1155,3 +1155,9 @@ input[type="text"] {
 .cc-icon-select input[type=radio].wsf-field.wsf-button + label.wsf-label {
    margin: 0;
 }
+
+.elementor-widget-shortcode.cc-mobile-customizer .wsf-form-post-lock-not-allowed button[data-action="wsf-tab_next"] {
+   background-color: #D8D8D8;
+   color: #9F9F9F;
+   opacity: 0.5;
+}
