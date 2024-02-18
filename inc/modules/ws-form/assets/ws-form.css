@@ -1150,3 +1150,8 @@ input[type="text"] {
 .set-preview-section {
    /* display: block !important; */
 }
+
+
+input[type=radio].wsf-field.wsf-button + label.wsf-label {
+   margin: 0;
+}
