@@ -460,6 +460,7 @@ input[type="number"].wsf-field:disabled {
 }
 .cc-ball-preview-wrapper.cc-ball-preview-show-text .cc-preview-text {
    display: block;
+   white-space: nowrap;
 }
 .cc-preview-icon {
    max-width: 80%;
