@@ -242,7 +242,7 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    width: 100%;
    display: block;
    background-color: #D8D8D8;
-   margin-top: 32px;
+   margin-top: 50px;
 }
 .wsf-grid.wsf-sections fieldset.section-no-divider:after {
    display: none;
@@ -252,9 +252,10 @@ input[value="Homemade Apple - Regular 400"] + label.wsf-label {
    font-size: 24px;
 }
 .wsf-grid.wsf-sections fieldset h3 {
-   margin: 0;
-   font-size: 16px;
-   line-height: 41px;
+   font-family: var( --e-global-typography-primary-font-family ), Sans-serif;
+   font-size: 24px;
+   line-height: 52px;
+   font-weight: normal;
 }
 .wsf-grid.wsf-sections fieldset .wsf-field-wrapper {
    margin-bottom: 0px;
@@ -1161,3 +1162,5 @@ input[type="text"] {
    color: #9F9F9F;
    opacity: 0.5;
 }
+
+
