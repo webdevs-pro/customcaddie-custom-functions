@@ -1149,9 +1149,7 @@ input[type="text"] {
 
 
 
-.set-preview-section {
-   /* display: block !important; */
-}
+
 
 
 .cc-icon-select input[type=radio].wsf-field.wsf-button + label.wsf-label {
@@ -1164,4 +1162,6 @@ input[type="text"] {
    opacity: 0.5;
 }
 
-
+.elementor-widget-shortcode button:focus {
+   outline: none;
+}
