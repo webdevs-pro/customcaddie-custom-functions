@@ -701,6 +701,7 @@ input[type="number"].wsf-field:disabled {
    background-color: #F2F2F2 !important;
    border: 1px solid #E2E2E2;
    border-radius: 8px !important;
+   text-transform: capitalize;
 }
 
 
@@ -1165,3 +1166,4 @@ input[type="text"] {
 .elementor-widget-shortcode button:focus {
    outline: none;
 }
+
