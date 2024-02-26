@@ -2,7 +2,7 @@
 /**
  * Plugin Name: CustomCaddie Custom Functions
  * Plugin URI: https://github.com/webdevs-pro/customcaddie-custom-functions
- * Version: 1.76
+ * Version: 1.77
  * Description: A place for custom functions for customcaddie.co website
  * Author: Alex Ishchenko
  * Author URI: https://website.cv.ua
@@ -63,3 +63,13 @@ function empty_cart_before_add_new( $passed, $product_id, $quantity ) {
     }
     return $passed;
 }
+
+
+
+add_filter( 'hello_elementor_viewport_content', function( $viewport_content ) {
+	return 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+} );
+
+add_filter( 'elementor/template/viewport_tag', function( $meta_tag, $context ) {
+	return '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">';
+}, 10, 2 );
