@@ -694,15 +694,18 @@
 
 			// Tees
 			$('.cc-tees-tab-wrapper').show();
-			node = document.getElementById('tees-render-wrapper');
+			setTimeout( function() {
+							node = document.getElementById('tees-render-wrapper');
 			domtoimage.toJpeg(node, { filter: filter})
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
 					$('.cc-set-preview-item-tees').empty().append(img);
 					preview_generated.tees = true;
-					$('.cc-tees-tab-wrapper').hide();
+					// $('.cc-tees-tab-wrapper').hide();
 				});
+			}, 100 );
+
 			
 			// Ball
 			$('.cc-ball-tab-wrapper').show();
