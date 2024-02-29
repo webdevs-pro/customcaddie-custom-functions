@@ -372,7 +372,10 @@ input[type="number"].wsf-field:disabled {
    grid-template-columns: 1fr 1fr;
    gap: 8px;
 }
-#cc-icon-preview svg {
+#cc-icon-preview .cc-pin-preview-icon svg {
+   width: 100% !important;
+}
+#cc-icon-preview .cc-preview-texts svg {
    width: 100% !important;
 }
 #cc-icon-preview > div {
