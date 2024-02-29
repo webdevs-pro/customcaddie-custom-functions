@@ -488,7 +488,7 @@
 			var min = parseInt( $input.attr( 'min' ), 10 ) || 0;
 
 			if ( value > min ) {
-				if ( $input.hasClass( 'cc-icon-font-size' ) ) {
+				if ( $input.is( '.cc-icon-font-size, .cc-icon-size' ) ) {
 					$input.val( value - 2 ).trigger( 'change' );
 				} else {
 					$input.val( value - 1 ).trigger( 'change' );
@@ -502,7 +502,7 @@
 			var max = parseInt( $input.attr( 'max' ), 10 ) || Infinity;
 
 			if ( value < max ) {
-				if ( $input.hasClass( 'cc-icon-font-size' ) ) {
+				if ( $input.is( '.cc-icon-font-size, .cc-icon-size' ) ) {
 					$input.val( value + 2 ).trigger( 'change' );
 				} else {
 					$input.val( value + 1 ).trigger( 'change' );
