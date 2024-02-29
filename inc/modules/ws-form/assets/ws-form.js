@@ -651,7 +651,7 @@
 		 * Set custom text on load
 		 */
 		function set_custom_text_to_ball() {
-			var text = $( '.cc-custom-text-input' ).val();
+			var text = $( '.cc-custom-text-input' ).val() || 'Your Text Here';
 
 			$( '.cc-preview-wrapper .cc-preview-text' ).text( text );
 		}
