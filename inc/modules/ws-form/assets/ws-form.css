@@ -1172,3 +1172,13 @@ input[type="text"] {
 .elementor-widget-shortcode button:focus {
    outline: none;
 }
+
+
+.cc-preview-tab-wrapper .cc-mobile-content {
+   background-image: url('/wp-admin/images/spinner.gif');
+   background-repeat: no-repeat;
+   background-position: center;;
+}
+.cc-preview-tab-wrapper .set-preview-section {
+   background-color: #fff;
+}
