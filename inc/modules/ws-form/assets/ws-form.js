@@ -489,10 +489,16 @@
 
 			if ( value > min ) {
 				if ( $input.is( '.cc-icon-font-size, .cc-icon-size' ) ) {
-					$input.val( value - 2 ).trigger( 'change' );
+					value = value - 2;
 				} else {
-					$input.val( value - 1 ).trigger( 'change' );
+					value = value - 1;
 				}
+
+				if ( value < min ) {
+					value = min;
+				}
+
+				$input.val( value ).trigger( 'change' );
 			}
 		} );
 
@@ -503,10 +509,16 @@
 
 			if ( value < max ) {
 				if ( $input.is( '.cc-icon-font-size, .cc-icon-size' ) ) {
-					$input.val( value + 2 ).trigger( 'change' );
+					value = value + 2;
 				} else {
-					$input.val( value + 1 ).trigger( 'change' );
+					value = value + 1;
 				}
+
+				if ( value > max ) {
+					value = max;
+				}
+
+				$input.val( value ).trigger( 'change' );
 			}
 		} );
 
