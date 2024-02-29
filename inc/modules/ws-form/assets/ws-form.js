@@ -700,6 +700,7 @@
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
+					alert(img.src)
 					$('.cc-set-preview-item-tees').empty().append(img);
 					preview_generated.tees = true;
 					$('.cc-tees-tab-wrapper').hide();
