@@ -359,13 +359,15 @@
 			var svg_for_ball = checked_svg.clone();
 
 			// Get ball preview icon width
-			var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width')|| '80%';
+			// var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width') || '80%';
+			var ball_icon_width = $( '.cc-icon-size.cc-font-size' ).val();
 
 			// Update ball preview icon
 			$( '.cc-preview-wrapper .cc-preview-icon' ).empty().append( svg_for_ball );
 
 			// Set ball preview icon width
-			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width', ball_icon_width);
+			$( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width', ball_icon_width + '%');
+
 
 
 			// Set towel preview icon
