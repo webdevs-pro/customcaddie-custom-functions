@@ -678,20 +678,6 @@
 				'tees': false
 			}
 
-			
-			// Ball
-			$('.cc-ball-tab-wrapper').show();
-			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { filter: filter})
-			.then(function (dataUrl) {
-				var img = new Image();
-				img.src = dataUrl;
-				$('.cc-set-preview-item-ball').empty().append(img);
-				preview_generated.ball = true;
-				$('.cc-ball-tab-wrapper').hide();
-			});
-
-			
 			// Tees
 			$('.cc-tees-tab-wrapper').show();
 			node = document.getElementById('tees-render-wrapper');
@@ -703,6 +689,21 @@
 					preview_generated.tees = true;
 					$('.cc-tees-tab-wrapper').hide();
 				});
+			
+			// Ball
+			$('.cc-ball-tab-wrapper').show();
+			var node = document.getElementById('ball-render-wrapper');
+			domtoimage.toJpeg(node, { filter: filter})
+				.then(function (dataUrl) {
+					var img = new Image();
+					img.src = dataUrl;
+					$('.cc-set-preview-item-ball').empty().append(img);
+					preview_generated.ball = true;
+					$('.cc-ball-tab-wrapper').hide();
+				});
+
+			
+
 
 
 			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
