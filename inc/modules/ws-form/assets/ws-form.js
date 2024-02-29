@@ -680,6 +680,7 @@
 
 			
 			// Ball
+			$('.cc-ball-tab-wrapper').show();
 			var node = document.getElementById('ball-render-wrapper');
 			domtoimage.toJpeg(node, { filter: filter})
 			.then(function (dataUrl) {
@@ -687,11 +688,12 @@
 				img.src = dataUrl;
 				$('.cc-set-preview-item-ball').empty().append(img);
 				preview_generated.ball = true;
-				// $('.cc-ball-tab-wrapper').hide();
+				$('.cc-ball-tab-wrapper').hide();
 			});
 
 			
 			// Tees
+			$('.cc-tees-tab-wrapper').show();
 			node = document.getElementById('tees-render-wrapper');
 			domtoimage.toJpeg(node, { filter: filter})
 				.then(function (dataUrl) {
@@ -699,6 +701,7 @@
 					img.src = dataUrl;
 					$('.cc-set-preview-item-tees').empty().append(img);
 					preview_generated.tees = true;
+					$('.cc-tees-tab-wrapper').hide();
 				});
 
 
@@ -771,9 +774,8 @@
 		$( document ).on('click', '.cc-mobile-generate-set-preview-button', function(e) {
 			e.preventDefault();
 			setTimeout(function() {
-				$('.cc-ball-tab-wrapper').show();
-				// $('.cc-towel-tab-wrapper').show();
-				$('.cc-tees-tab-wrapper').show();
+				// $('.cc-ball-tab-wrapper').show();
+				// $('.cc-tees-tab-wrapper').show();
 
 				setTimeout(function() {
 					update_set_preview();
