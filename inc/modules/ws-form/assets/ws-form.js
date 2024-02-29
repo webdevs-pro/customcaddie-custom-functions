@@ -215,7 +215,8 @@
 			$( '.cart.wsf-form.wsf-woocommerce' ).closest( '.elementor-widget-shortcode.cc-mobile-customizer' ).addClass( 'opened' );
 		}	
 
-		$( '.cart.wsf-form.wsf-woocommerce .close-popup' ).on( 'click', function() {
+		$( '.cart.wsf-form.wsf-woocommerce .close-popup' ).on( 'click', function(e) {
+			e.preventDefault();
 			close_customizer_popup();
 		} );
 
