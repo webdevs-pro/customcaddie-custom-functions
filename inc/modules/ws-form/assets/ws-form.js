@@ -695,29 +695,33 @@
 			// Tees
 			$('.cc-tees-tab-wrapper').show();
 			setTimeout( function() {
-							node = document.getElementById('tees-render-wrapper');
-			domtoimage.toJpeg(node, { filter: filter})
+				node = document.getElementById('tees-render-wrapper');
+				domtoimage.toJpeg(node, { filter: filter})
 				.then(function (dataUrl) {
 					var img = new Image();
 					img.src = dataUrl;
 					$('.cc-set-preview-item-tees').empty().append(img);
 					preview_generated.tees = true;
-					// $('.cc-tees-tab-wrapper').hide();
-				});
+					$('.cc-tees-tab-wrapper').hide();
+
+					setTimeout(function() {
+						$('.cc-ball-tab-wrapper').show();
+						var node = document.getElementById('ball-render-wrapper');
+						domtoimage.toJpeg(node, { filter: filter})
+							.then(function (dataUrl) {
+								var img = new Image();
+								img.src = dataUrl;
+								$('.cc-set-preview-item-ball').empty().append(img);
+								preview_generated.ball = true;
+								$('.cc-ball-tab-wrapper').hide();
+							});
+					}, 100)
+				} );
 			}, 100 );
 
 			
 			// Ball
-			$('.cc-ball-tab-wrapper').show();
-			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { filter: filter})
-				.then(function (dataUrl) {
-					var img = new Image();
-					img.src = dataUrl;
-					$('.cc-set-preview-item-ball').empty().append(img);
-					preview_generated.ball = true;
-					$('.cc-ball-tab-wrapper').hide();
-				});
+
 
 			
 
