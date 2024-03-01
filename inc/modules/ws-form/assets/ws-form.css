@@ -1101,16 +1101,10 @@ input[type="text"] {
 
 /* Footer */
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-footer {
-   padding: 11px 16px 11px 16px;
+   padding: 11px 16px 22px 16px;
    border-top: 1px solid #D8D8D8;
 }
 
-@supports (padding-bottom: env(safe-area-inset-bottom)) {
-   .cc-mobile-footer {
-       /* Override for iOS 11+ devices */
-       padding-bottom: env(safe-area-inset-bottom) !important;
-   }
-}
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-footer:after {
    display: none;
 }
