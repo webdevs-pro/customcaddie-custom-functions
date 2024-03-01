@@ -1108,7 +1108,7 @@ input[type="text"] {
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
    .cc-mobile-footer {
        /* Override for iOS 11+ devices */
-       padding-bottom: env(safe-area-inset-bottom);
+       padding-bottom: env(safe-area-inset-bottom) !important;
    }
 }
 .elementor-widget-shortcode.cc-mobile-customizer .cc-mobile-footer:after {
