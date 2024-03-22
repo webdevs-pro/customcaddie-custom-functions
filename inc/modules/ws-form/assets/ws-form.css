@@ -657,6 +657,7 @@ input[type="number"].wsf-field:disabled {
    padding: 2px 12px;
    border-radius: 8px 0px 8px 0px;
    background-color: #E7ECD6;
+   color: #3E4952;
 }
 .cc-set-preview-item {
    overflow: hidden;
