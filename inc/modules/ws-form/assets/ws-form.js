@@ -784,7 +784,7 @@
 					$( '#generate-set-preview' ).removeClass( 'generation-preview' );
 					$( '#generate-set-preview' ).addClass( 'generated' );
 					$( '.set-preview-section' ).removeClass( 'generation-preview' );
-					$( '#generate-set-preview' ).text( 'Regenerate set preview' );
+					$( '#generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
 					$( '#preview-section-divider' ).addClass( 'visible' );
 					$( '.set-preview-section' ).slideDown();
 

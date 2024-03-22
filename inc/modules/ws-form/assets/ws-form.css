@@ -595,10 +595,31 @@ input[type="number"].wsf-field:disabled {
    padding-right: 50px;
    padding-left: 50px;
    margin-left: auto;
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 #generate-set-preview.generation-preview {
    opacity: 0.5;
    pointer-events: none;
+}
+#generate-set-preview.generation-preview span.cc-loader {
+/* #generate-set-preview span.cc-loader { */
+   display: block;
+   height: 13px;
+   width: 13px;
+   border-radius: 100%;
+   border: 2px solid transparent;
+   border-top-color: #5f7324;
+   animation: cc-spinner-rotate 1s infinite linear;
+}
+@keyframes cc-spinner-rotate {
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
 }
 #generate-set-preview.generated {
    /* border: 2px solid #86a232; */
@@ -615,21 +636,45 @@ input[type="number"].wsf-field:disabled {
    font-size: 14px;
 
 }
+.cc-set-preview-item-wrapper {
+   position: relative;
+}
+/* .cc-set-preview-item-wrapper > div {
+   border-radius: 8px;
+   background-color: #f7f7f7;
+   aspect-ratio: 1 / 1.3;
+   display: flex;
+   align-items: center;
+} */
+.cc-set-preview-item-wrapper .cc-quantity-badge {
+   position: absolute;
+   top: 0;
+   left: 10px;
+   z-index: 2;
+   font-size: 16px;
+   font-weight: 700;
+   line-height: 22px;
+   padding: 2px 12px;
+   border-radius: 8px 0px 8px 0px;
+   background-color: #E7ECD6;
+}
 .cc-set-preview-item {
    overflow: hidden;
    display: flex; /* For html2canvas */
 }
 .cc-set-preview-item > img {
-   object-fit: cover;
+   object-fit: contain;
    width: 100%;
    height: 100%;
 }
 .cc-set-preview-item > canvas {
    width: 100% !important;
    height: 100% !important;
-   object-fit: cover;
+   object-fit: contain;
 }
+.cc-set-preview-item-wrapper.cc-set-preview-towel-item-wrapper .cc-set-preview-item {
 
+}
 
 .cc-preview-icon.cc-pin-preview-icon {
    position: absolute;
@@ -890,14 +935,18 @@ input[type="number"].wsf-field:disabled {
 }
 
 .cc-set-preview-item {
-   aspect-ratio: 1;
+   aspect-ratio: 1 / 1.4;
    border-radius: 8px;
    max-width: 400px;
-   background-size: cover;
+   background-size: contain;
    background-position: center;
    position: relative;
    background-color: #f7f7f7;
    background-blend-mode: darken;
+   background-repeat: no-repeat;
+}
+.cc-set-preview-item-wrapper.cc-set-preview-towel-item-wrapper .cc-set-preview-item {
+   background-size: cover;
 }
 
 /* .cc-set-preview-item.cc-towel-preview .cc-towel-icon {
