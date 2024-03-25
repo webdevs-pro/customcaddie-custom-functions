@@ -69,3 +69,29 @@ function override_template_part($template, $slug, $name) {
 }
 
 
+/**
+ * Shortcode to display the time since the post was published in a human-readable format.
+ *
+ * @return string Human-readable time difference.
+ */
+function cc_custom_post_time_shortcode() {
+	global $post;
+
+	if ( is_a( $post, 'WP_Post' ) ) {
+		 // Get the UNIX timestamp of when the post was published.
+		 $post_time = get_the_time( 'U', $post->ID );
+
+		 // Get the current UNIX timestamp.
+		 $current_time = current_time( 'timestamp' );
+
+		 // Calculate the difference and sanitize the output.
+		 $time_diff = human_time_diff( $post_time, $current_time ) . ' ago';
+
+		 return esc_html( $time_diff );
+	}
+
+	return ''; // Return an empty string if not in a post context.
+}
+
+// Register the shortcode with WordPress.
+add_shortcode( 'cc_hr_post_time', 'cc_custom_post_time_shortcode' );
