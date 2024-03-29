@@ -16,7 +16,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple:wght@400&display=swap'); */
 
 
- 
+/* https://gwfh.mranftl.com/fonts */
 
 
 /* lora-700 - latin */
@@ -43,7 +43,19 @@
    font-weight: 400;
    src: url('./fonts/courier-prime-v9-latin-regular.woff2') format('woff2');
 }
+/* pridi-700 - latin */
+@font-face {
+   font-display: swap;
+   font-family: 'Pridi';
+   font-style: normal;
+   font-weight: 700;
+   src: url('./fonts/pridi-v13-latin-700.woff2') format('woff2');
+ }
  
+
+
+
+
 /* dancing-script-700 - latin */
 @font-face {
    font-display: swap;
