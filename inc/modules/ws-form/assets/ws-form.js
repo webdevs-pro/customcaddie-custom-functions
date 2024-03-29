@@ -488,11 +488,7 @@
 			var min = parseInt( $input.attr( 'min' ), 10 ) || 0;
 
 			if ( value > min ) {
-				if ( $input.is( '.cc-icon-font-size, .cc-icon-size' ) ) {
-					value = value - 2;
-				} else {
-					value = value - 1;
-				}
+				value = value - 1;
 
 				if ( value < min ) {
 					value = min;
@@ -508,11 +504,7 @@
 			var max = parseInt( $input.attr( 'max' ), 10 ) || Infinity;
 
 			if ( value < max ) {
-				if ( $input.is( '.cc-icon-font-size, .cc-icon-size' ) ) {
-					value = value + 2;
-				} else {
-					value = value + 1;
-				}
+				value = value + 1;
 
 				if ( value > max ) {
 					value = max;
