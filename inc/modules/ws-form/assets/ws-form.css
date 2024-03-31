@@ -629,6 +629,7 @@ input[type="number"].wsf-field:disabled {
    padding-top: 30px;
 }
 .generate-set-preview,
+button.add-to-cart,
 #cc-add-to-cart-button {
    border: none;
    /* margin-bottom: 20px; */
@@ -1324,4 +1325,10 @@ button.show-customizer {
    display: flex;
    align-items: center;
    gap: 10px;
+}
+.cc-precustomize-section [data-name] {
+   display: flex;
+}
+.cc-precustomize-section button.add-to-cart {
+   margin-left: 24px;
 }
