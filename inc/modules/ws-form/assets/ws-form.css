@@ -641,9 +641,7 @@ input[type="number"].wsf-field:disabled {
    align-items: center;
    gap: 10px;
 }
-#generate-set-preview {
-   margin-left: 24px;
-}
+
 #generate-set-preview.generation-preview {
    opacity: 0.5;
    pointer-events: none;
@@ -1304,6 +1302,10 @@ input[type="text"] {
    }
    .wsf-form:not(.desktop-customizer-enabled) .wsf-group.cc-tees-tab-wrapper {
       display: none !important;
+   }
+
+   .wsf-form.desktop-customizer-enabled #generate-set-preview {
+      margin-left: 24px;
    }
 }
 #show-customizer {
