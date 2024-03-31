@@ -628,7 +628,7 @@ input[type="number"].wsf-field:disabled {
    justify-content: space-between;
    padding-top: 30px;
 }
-#generate-set-preview,
+.generate-set-preview,
 #cc-add-to-cart-button {
    border: none;
    /* margin-bottom: 20px; */
@@ -642,12 +642,12 @@ input[type="number"].wsf-field:disabled {
    gap: 10px;
 }
 
-#generate-set-preview.generation-preview {
+.generate-set-preview.generation-preview {
    opacity: 0.5;
    pointer-events: none;
 }
-#generate-set-preview.generation-preview span.cc-loader {
-/* #generate-set-preview span.cc-loader { */
+.generate-set-preview.generation-preview span.cc-loader {
+/* .generate-set-preview span.cc-loader { */
    display: block;
    height: 13px;
    width: 13px;
@@ -664,7 +664,7 @@ input[type="number"].wsf-field:disabled {
       transform: rotate(360deg);
    }
 }
-.wsf-form.desktop-customizer-enabled #generate-set-preview.generated {
+.wsf-form.desktop-customizer-enabled .generate-set-preview.generated {
    /* border: 2px solid #86a232; */
    box-shadow: inset 0 0 0 2px #86a232;
    color: #86a232;
@@ -1304,7 +1304,7 @@ input[type="text"] {
       display: none !important;
    }
 
-   .wsf-form.desktop-customizer-enabled #generate-set-preview {
+   .wsf-form.desktop-customizer-enabled .generate-set-preview {
       margin-left: 24px;
    }
 }
