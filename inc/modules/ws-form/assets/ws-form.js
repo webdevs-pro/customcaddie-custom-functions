@@ -6,7 +6,11 @@
 
 
 
-		$( '.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
+		$('.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper');
+
+		var $addToCartClone = $('.single_add_to_cart_button.button' ).clone();
+		$('.cc-precustomize-section [data-name]').append($addToCartClone);
+
 
 		// Variable to keep track of the current view state
 		// Initialize as 'desktop' to prevent automatic desktop switch on load
