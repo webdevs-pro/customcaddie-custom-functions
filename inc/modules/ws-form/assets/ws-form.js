@@ -9,7 +9,12 @@
 		$('.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper');
 
 		var $addToCartClone = $('.single_add_to_cart_button.button' ).clone();
+		$addToCartClone.css({
+			'margin-left': '24px',
+			'display': 'none',
+		});
 		$('.cc-precustomize-section [data-name]').append($addToCartClone);
+
 
 
 		// Variable to keep track of the current view state
@@ -810,7 +815,7 @@
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
 
 			$('.cc-precustomize-section button.show-customizer').show();
-			$('.cc-precustomize-section button.add-to-cart').show();
+			$('.cc-precustomize-section button.single_add_to_cart_button').show();
 			$('.cc-precustomize-section button.generate-set-preview').hide();
 			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
