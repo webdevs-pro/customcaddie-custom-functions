@@ -773,10 +773,10 @@
 
 				if ( checkAllTrue( preview_generated ) ) {
 
-					$( '.generate-set-preview' ).removeClass( 'generation-preview' );
-					$( '.generate-set-preview' ).addClass( 'generated' );
+					$( '#generate-set-preview' ).removeClass( 'generation-preview' );
+					$( '#generate-set-preview' ).addClass( 'generated' );
 					$( '.set-preview-section' ).removeClass( 'generation-preview' );
-					$( '.generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
+					$( '#generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
 					$( '#preview-section-divider' ).addClass( 'visible' );
 					$( '.set-preview-section' ).slideDown();
 
@@ -794,10 +794,10 @@
 
 
 
-		$('.generate-set-preview').on('click', function(e) {
+		$('#generate-set-preview').on('click', function(e) {
 			e.preventDefault();
 
-			$( '.generate-set-preview' ).addClass( 'generation-preview' );
+			$( '#generate-set-preview' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
 
 			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
