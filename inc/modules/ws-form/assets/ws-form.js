@@ -789,8 +789,9 @@
 		}
 
 
-		$('#show-customizer').on('click', function() {
+		$('.show-customizer').on('click', function() {
 			$(this).closest('.wsf-form').addClass('desktop-customizer-enabled');
+			$('.cc-precustomize-section').hide();
 		})
 
 
