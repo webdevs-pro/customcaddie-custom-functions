@@ -803,7 +803,10 @@
 			$( '.generate-set-preview' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
-			$('#show-customizer').show();
+
+			$('.cc-precustomize-section button.show-customizer').show();
+			$('.cc-precustomize-section button.add-to-cart').show();
+			$('.cc-precustomize-section button.generate-set-preview').hide();
 			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
 
