@@ -789,6 +789,9 @@
 		}
 
 
+		$('#show-customizer').on('click', function() {
+			$(this).closest('.wsf-form').addClass('desktop-customizer-enabled');
+		})
 
 
 
