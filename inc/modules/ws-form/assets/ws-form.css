@@ -641,6 +641,9 @@ input[type="number"].wsf-field:disabled {
    align-items: center;
    gap: 10px;
 }
+#generate-set-preview {
+   margin-left: 24px;
+}
 #generate-set-preview.generation-preview {
    opacity: 0.5;
    pointer-events: none;
@@ -1291,19 +1294,20 @@ input[type="text"] {
 
 @media(min-width: 768px) {
    .wsf-form:not(.desktop-customizer-enabled) .wsf-group.cc-icon-tab-wrapper {
-      display: none;
+      display: none !important;
    }
    .wsf-form:not(.desktop-customizer-enabled) .wsf-group.cc-ball-tab-wrapper {
-      display: none;
+      display: none !important;
    }
    .wsf-form:not(.desktop-customizer-enabled) .wsf-group.cc-towel-tab-wrapper {
-      display: none;
+      display: none !important;
    }
    .wsf-form:not(.desktop-customizer-enabled) .wsf-group.cc-tees-tab-wrapper {
-      display: none;
+      display: none !important;
    }
 }
 #show-customizer {
+   border: none;
    box-shadow: inset 0 0 0 2px #86a232;
    color: #86a232;
    background-color: #f1f2f1;

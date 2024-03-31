@@ -802,7 +802,8 @@
 
 			$( '#generate-set-preview' ).addClass( 'generation-preview' );
 			$( '.set-preview-section' ).addClass( 'generation-preview' );
-
+			$( '.set-preview-section' ).addClass( 'generation-preview' );
+			$('#show-customizer').show();
 			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
 
 
