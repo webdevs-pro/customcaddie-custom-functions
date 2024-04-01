@@ -6,14 +6,9 @@
 
 
 
-		$('.single_add_to_cart_button.button' ).appendTo( '.set-preview-section .cc-add-to-cart-button-wrapper');
+		$('.single_add_to_cart_button.button' ).appendTo( '.cc-add-to-cart-button-wrapper').hide();
 
-		var $addToCartClone = $('.single_add_to_cart_button.button' ).clone();
-		$addToCartClone.css({
-			'margin-left': '24px',
-			'display': 'none',
-		});
-		$('.cc-precustomize-section [data-name]').append($addToCartClone);
+
 
 
 
@@ -30,11 +25,20 @@
 						switch_to_mobile();
 						currentViewState = 'mobile';
 				} 
-				// else if (width >= 768 && currentViewState === 'mobile') {
-				// 	// This condition is now only true if resizing from mobile to desktop
-				// 	switch_to_desktop();
-				// 	currentViewState = 'desktop';
-				// }
+			} else {
+				var startElement = $('.wsf-groups').find('.cc-icon-tab-wrapper');
+				var endElement = $('.wsf-groups').find('.cc-tees-tab-wrapper');
+				
+				// Get all elements between the start and end elements, including them
+				var elementsToWrap = startElement.nextUntil(endElement).add(startElement).add(endElement);
+				
+				// Check if the elements are not already wrapped to prevent double wrapping
+				if (!startElement.parent().hasClass('cc-customizer-sections')) {
+					elementsToWrap.wrapAll('<div class="cc-customizer-sections"></div>');
+					
+					// Apply CSS to the wrapped elements
+					elementsToWrap.css('display', 'block');
+				}
 			}
 		}
 
@@ -358,6 +362,7 @@
 
 
 		update_preview_icons();
+
 		function update_preview_icons() {
 			// Get selected icon SVG
 			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
@@ -368,7 +373,6 @@
 			var svg_for_ball = checked_svg.clone();
 
 			// Get ball preview icon width
-			// var ball_icon_width = $( '.cc-preview-wrapper .cc-preview-icon svg' ).css('width') || '80%';
 			var ball_icon_width = $( '.cc-icon-size.cc-font-size' ).val();
 
 			// Update ball preview icon
@@ -386,41 +390,6 @@
 			// Set towel preview icon
 			var svg_for_towel = checked_svg.clone();
 			$( '.cc-preview-icon .cc-marker-preview-icon' ).empty().append( svg_for_towel );
-
-
-
-
-			// /**
-			//  * Set preview
-			//  */
-			// // Marker preview
-			// var svg_for_marker = checked_svg.clone();
-			// $( '.cc-set-preview-item.cc-marker-preview .cc-preview-icon' ).empty().append( svg_for_marker );
-
-			// // Ball preview
-			// // Setting up MutationObserver to observe changes in the iframe's content
-
-			// var observer = new MutationObserver( function( mutations ) {
-
-			// 	// console.log('mutations', mutations);
-
-			// 	var ball_preview_elements = $( '.cc-ball-preview-wrapper .cc-preview-texts' ).clone();
-			// 	var ball_preview_wrapper = $( '.cc-ball-preview-wrapper' );
-			// 	if ( ! $( ball_preview_wrapper ).hasClass( 'cc-ball-preview-show-icon' ) ) {
-			// 		$( ball_preview_elements ).find( '.cc-preview-icon' ).hide();
-			// 	}
-			// 	if ( ! $( ball_preview_wrapper ).hasClass( 'cc-ball-preview-show-signature' ) ) {
-			// 		$( ball_preview_elements ).find( '.cc-preview-signature' ).hide();
-			// 	}
-			// 	if ( ! $( ball_preview_wrapper ).hasClass( 'cc-ball-preview-show-text' ) ) {
-			// 		$( ball_preview_elements ).find( '.cc-preview-text' ).hide();
-			// 	}
-
-			// 	$( '.cc-set-preview-item.cc-ball-preview' ).empty().append( ball_preview_elements );
-			// });
-			// var config = { attributes: true, childList: true, characterData: true, subtree: true };
-			// observer.observe( $( '.cc-ball-preview-wrapper' )[0], config );
-
 
 
 		}
@@ -688,67 +657,6 @@
 
 		function update_set_preview() {
 
-			var preview_generated = {
-				'ball': false,
-				'tees': false
-			}
-
-			// Tees
-			// $('.cc-tees-tab-wrapper').show();
-			// setTimeout( function() {
-			// 	node = document.getElementById('tees-render-wrapper');
-			// 	domtoimage.toPng(node, { filter: filter, quality: 1 })
-			// 	.then(function (dataUrl) {
-			// 		var img = new Image();
-			// 		img.src = dataUrl;
-			// 		$('.cc-set-preview-item-tees').empty().append(img);
-			// 		preview_generated.tees = true;
-			// 		$('.cc-tees-tab-wrapper').hide();
-
-			// 		setTimeout(function() {
-			// 			$('.cc-ball-tab-wrapper').show();
-			// 			var node = document.getElementById('ball-render-wrapper');
-			// 			domtoimage.toJpeg(node, { filter: filter})
-			// 				.then(function (dataUrl) {
-			// 					var img = new Image();
-			// 					img.src = dataUrl;
-			// 					$('.cc-set-preview-item-ball').empty().append(img);
-			// 					preview_generated.ball = true;
-			// 					$('.cc-ball-tab-wrapper').hide();
-			// 				});
-			// 		}, 100)
-			// 	} );
-			// }, 100 );
-			// $('.cc-tees-tab-wrapper').show();
-
-
-			var node = document.getElementById('ball-render-wrapper');
-			domtoimage.toJpeg(node, { filter: filter})
-			.then(function (dataUrl) {
-				var img = new Image();
-				img.src = dataUrl;
-				$('.cc-set-preview-item-ball').empty().append(img);
-				preview_generated.ball = true;
-			});
-
-			node = document.getElementById('tees-render-wrapper');
-			domtoimage.toPng(node, { filter: filter, quality: 1 })
-			.then(function (dataUrl) {
-				var img = new Image();
-				img.src = dataUrl;
-				$('.cc-set-preview-item-tees').empty().append(img);
-				preview_generated.tees = true;
-			} );
-
-
-
-
-			
-			// Ball
-
-
-			
-
 
 
 			var checked_svg = $( '.cc-icon-select input:checked' ).closest( '.wsf-tile' ).find( 'label svg' );
@@ -761,48 +669,24 @@
 			$( '.cc-set-preview-item-marker .cc-marker-preview-icon' ).empty().append( svg_for_pin );
 
 
-			function filter (node) {
-				if (node.classList && node.classList.contains('cc-ball-print-area')) {
-					return false;
-				}
-
-				if (node.classList && node.classList.contains('cc-tees-print-area')) {
-					return false;
-				}
-				return true; // Return true to include the node in the output
-			}
 
 
-			// Function to check if all items are true
-			function checkAllTrue( obj ) {
-				return Object.keys( obj ).every( ( key ) => obj[key] === true);
-			}
 
-			var checkInterval = setInterval(function() {
+			$( '.generate-set-preview' ).removeClass( 'generation-preview' );
+			$( '.generate-set-preview' ).addClass( 'generated' );
+			$( '.set-preview-section' ).removeClass( 'generation-preview' );
+			$( '.generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
+			$( '#preview-section-divider' ).addClass( 'visible' );
+			$( '.set-preview-section' ).slideDown();
 
-				if ( checkAllTrue( preview_generated ) ) {
-
-					$( '.generate-set-preview' ).removeClass( 'generation-preview' );
-					$( '.generate-set-preview' ).addClass( 'generated' );
-					$( '.set-preview-section' ).removeClass( 'generation-preview' );
-					$( '.generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
-					$( '#preview-section-divider' ).addClass( 'visible' );
-					$( '.set-preview-section' ).slideDown();
-
-					clearInterval( checkInterval ); // Stop the interval
-				}
-			}, 150);
-
-
-			
 		}
 
 
-		$('.show-customizer').on('click', function() {
-			$(this).closest('.wsf-form').addClass('desktop-customizer-enabled');
-			$('.cc-precustomize-section').hide();
-		})
 
+		$('.customize-set').on('click', function() {
+			$('.cc-customizer-sections').slideDown();
+			$(this).hide();
+		})
 
 
 
@@ -810,15 +694,9 @@
 		$('.generate-set-preview').on('click', function(e) {
 			e.preventDefault();
 
-			$( '.generate-set-preview' ).addClass( 'generation-preview' );
-			$( '.set-preview-section' ).addClass( 'generation-preview' );
-			$( '.set-preview-section' ).addClass( 'generation-preview' );
-
-			$('.cc-precustomize-section button.show-customizer').show();
-			$('.cc-precustomize-section button.single_add_to_cart_button').show();
-			$('.cc-precustomize-section button.generate-set-preview').hide();
-			// $( '#customizer-cancel-button' ).prependTo( '.set-preview-section .cc-add-to-cart-button-wrapper' );
-
+			$(this).hide();
+			$('button.single_add_to_cart_button').show();
+			$('.customize-set').show();
 
 			update_set_preview();
 
