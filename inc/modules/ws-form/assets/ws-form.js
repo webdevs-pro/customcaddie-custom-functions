@@ -405,6 +405,22 @@
 		} )
 
 
+		// $( '.cc-icon-size-wrapper input' ).on( 'change', function() {
+		// 	var inputValue = $(this).val();
+		// 	// Loop through each element you want to resize
+		// 	$('.cc-ball-preview-wrapper').each(function() {
+		// 		var $this = $(this); // Current element
+		// 		var previewWrapperWidth = $this.width();
+
+		// 		var modifier = 20;
+		// 		var newWidth = previewWrapperWidth / modifier * inputValue;
+
+		// 		// Set the new font size
+		// 		$this.find('.cc-preview-icon svg').css( 'width', newWidth + '%' );
+		// 	});
+		// });
+
+
 		/**
 		 * Change icon letters font size.
 		 */
@@ -427,15 +443,45 @@
 			$( '.cc-preview-wrapper .cc-preview-name' ).css( 'font-size', value + 'px' );
 		} );
 
+		// $( '.cc-signature-font-size' ).on( 'change', function() {
+		// 	var value = $( this ).val();
+		// 	$( '.cc-preview-wrapper .cc-preview-signature' ).css( 'font-size', value + 'px' );
+		// } );
+
 		$( '.cc-signature-font-size' ).on( 'change', function() {
-			var value = $( this ).val();
-			$( '.cc-preview-wrapper .cc-preview-signature' ).css( 'font-size', value + 'px' );
-		} );
+			var inputValue = $(this).val();
+			// Loop through each element you want to resize
+			$('.cc-ball-preview-wrapper').each(function() {
+				var $this = $(this); // Current element
+				var previewWrapperWidth = $this.width();
+
+				var modifier = 277;
+				var newFontSize = previewWrapperWidth / modifier * inputValue;
+
+				// Set the new font size
+				$this.find('.cc-preview-signature').css('font-size', newFontSize + 'px');
+			});
+		});
+
+		// $( '.cc-custom-text-font-size' ).on( 'change', function() {
+		// 	var value = $( this ).val();
+		// 	$( '.cc-preview-wrapper .cc-preview-text' ).css( 'font-size', value + 'px' );
+		// } );
 
 		$( '.cc-custom-text-font-size' ).on( 'change', function() {
-			var value = $( this ).val();
-			$( '.cc-preview-wrapper .cc-preview-text' ).css( 'font-size', value + 'px' );
-		} );
+			var inputValue = $(this).val();
+			// Loop through each element you want to resize
+			$('.cc-ball-preview-wrapper').each(function() {
+				var $this = $(this); // Current element
+				var previewWrapperWidth = $this.width();
+
+				var modifier = 277;
+				var newFontSize = previewWrapperWidth / modifier * inputValue;
+
+				// Set the new font size
+				$this.find('.cc-preview-text').css('font-size', newFontSize + 'px');
+			});
+		});
 
 		$( '.cc-tees-text-font-size' ).on( 'change', function() {
 			var value = $( this ).val();
@@ -552,11 +598,12 @@
 					} );
 					break;
 
-				case 'Shadows Into Light - Regular 400':
+				case 'Jimmy Script Bold 700':
 					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Shadows Into Light", cursive'
+						'font-family': '"Jimmy Script", cursive'
 					} );
 					break;
+
 
 				case 'Satisfy - Regular 400':
 					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
@@ -564,53 +611,6 @@
 					} );
 					break;
 
-				case 'Indie Flower - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Indie Flower", cursive'
-					} );
-					break;
-
-				case 'Great Vibes - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Great Vibes", cursive'
-					} );
-					break;
-
-				case 'Zeyada - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Zeyada", cursive'
-					} );
-					break;
-
-				case 'Sacramento - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Sacramento", cursive'
-					} );
-					break;
-
-				case 'Cookie - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Cookie", cursive'
-					} );
-					break;
-
-				case 'Allura - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Allura", cursive'
-					} );
-					break;
-
-				case 'Alex Brush - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Alex Brush", cursive'
-					} );
-					break;
-
-				case 'Homemade Apple - Regular 400':
-					$( '.cc-preview-wrapper .cc-preview-signature' ).css( {
-						'font-family': '"Homemade Apple", cursive'
-					} );
-					break;
 			}
 		}
 
