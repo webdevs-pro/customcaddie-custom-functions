@@ -1342,4 +1342,8 @@ button.show-customizer {
    .wsf-section.set-preview-section[style="display: none;"] {
       display: block !important;
    }
+   .added_to_cart.wc-forward {
+      font-size: 14px;
+      padding: 6px 16px 6px 16px;
+   }
 }
