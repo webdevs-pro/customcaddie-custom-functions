@@ -148,8 +148,11 @@ class CC_Elementor {
    public function register_frontend_scripts() {
 		wp_register_script( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
 		wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
-		wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
-		wp_enqueue_script( 'cc-custom-js', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/cc-custom.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
+      wp_enqueue_script( 'cc-custom-js', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/cc-custom.js', array( 'jquery' ), CC_PLUGIN_VERSION, true );
+
+      // https://github.com/tsayen/dom-to-image
+		// wp_enqueue_script( 'cc-dom2image', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/dom-to-image.min.js', array( ), CC_PLUGIN_VERSION, true );
+
 
    }
 
@@ -168,3 +171,14 @@ class CC_Elementor {
 }
 new CC_Elementor();
 
+
+
+// function cc_add_crossorigin_to_google_fonts( $html, $handle ) {
+
+//    if ( $handle === 'cc-google-fonts' || $handle === 'google-fonts' ) {
+//       $html = str_replace( "rel='stylesheet'", "rel='stylesheet' crossorigin='anonymous'", $html );
+//       return $html;
+//    }
+//    return $html;
+// }
+// add_filter( 'style_loader_tag', 'cc_add_crossorigin_to_google_fonts', 10, 2 );
