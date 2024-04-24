@@ -815,11 +815,11 @@
 
 
 		$( document.body ).on( 'wc_cart_button_updated', function(event, $button) {
-			console.log('$button', $button);
 			$('.single_add_to_cart_button.added').hide();
 			$('.added_to_cart.wc-forward').hide();
 			$('.customize-set').hide();
 			$button.after( '<a href="/store-checkout" class="added_to_cart wc-forward" title="Go To Checkout Page">Added. Go to check out</a>' );
+			$('.single_add_to_cart_button.added').remove();
 		} );
 
 	});
