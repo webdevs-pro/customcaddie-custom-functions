@@ -148,39 +148,9 @@ class CC_Elementor {
    public function register_frontend_scripts() {
 		wp_register_script( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
 		wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
+		wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'cc-custom-js', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/cc-custom.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
 
-      // https://github.com/tsayen/dom-to-image
-		wp_enqueue_script( 'cc-dom2image', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/dom-to-image.min.js', array( ), CC_PLUGIN_VERSION, true );
-
-      // https://github.com/bubkoo/html-to-image
-		// wp_enqueue_script( 'cc-html-to-image', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/html-to-image.js', array( ), CC_PLUGIN_VERSION, true );
-
-      // https://html2canvas.hertzen.com/configuration
-		// wp_enqueue_script( 'cc-html2canvas', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/html2canvas.min.js', array( ), CC_PLUGIN_VERSION, true );
-
-      // $google_fonts_url = 'https://fonts.googleapis.com/css2?' .
-      // 'family=Lora:wght@700' .
-      // '&family=Vina+Sans' .
-      // '&family=Courier+Prime' .
-      // '&family=Dancing+Script:wght@700' .
-      // '&family=Caveat' .
-      // '&family=Shadows+Into+Light:wght@400' .
-      // '&family=Satisfy:wght@400' .
-      // '&family=Indie+Flower:wght@400' .
-      // '&family=Great+Vibes:wght@400' .
-      // '&family=Zeyada:wght@400' .
-      // '&family=Sacramento:wght@400' .
-      // '&family=Cookie:wght@400' .
-      // '&family=Allura:wght@400' .
-      // '&family=Alex+Brush:wght@400' .
-      // '&family=Homemade+Apple:wght@400&display=swap';
-
-      // wp_enqueue_style( 
-      //    'cc-google-fonts', 
-      //    $google_fonts_url, 
-      //    array(), 
-      //    null 
-      // );
    }
 
 
@@ -198,14 +168,3 @@ class CC_Elementor {
 }
 new CC_Elementor();
 
-
-
-// function cc_add_crossorigin_to_google_fonts( $html, $handle ) {
-
-//    if ( $handle === 'cc-google-fonts' || $handle === 'google-fonts' ) {
-//       $html = str_replace( "rel='stylesheet'", "rel='stylesheet' crossorigin='anonymous'", $html );
-//       return $html;
-//    }
-//    return $html;
-// }
-// add_filter( 'style_loader_tag', 'cc_add_crossorigin_to_google_fonts', 10, 2 );
