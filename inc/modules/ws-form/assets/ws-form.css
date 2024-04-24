@@ -141,7 +141,15 @@
    src: url('./fonts/dm-sans-v14-latin-regular.woff2') format('woff2');
 }
  
-
+/* solway-regular - latin */
+@font-face {
+   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+   font-family: 'Solway';
+   font-style: normal;
+   font-weight: 400;
+   src: url('./fonts/solway-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+ }
+ 
 
 
 input[value="Jimmy Script Bold 700"] + label.wsf-label {
@@ -370,7 +378,8 @@ input[type="number"].wsf-field:disabled {
 
 
 
-.cc-set-preview-item-wrapper.cc-ball-preview-wrapper > div {
+.cc-set-preview-item-wrapper.cc-ball-preview-wrapper > div,
+.cc-set-preview-item-wrapper.cc-tees-preview-wrapper > div {
    border: none;
    border-radius: 0;
    overflow: hidden;
@@ -389,12 +398,16 @@ input[type="number"].wsf-field:disabled {
 .cc-set-preview-item-wrapper.cc-ball-preview-wrapper .cc-preview-text {
    font-size: 7.71119px;
 }
+.cc-set-preview-item-wrapper.cc-tees-preview-wrapper .cc-tees-preview-texts {
+   font-size: 7.71119px;
+}
 
 .cc-set-preview-item-wrapper.cc-ball-preview-wrapper .cc-ball-print-area {
    display: none;
 }
 
-.cc-set-preview-item-wrapper.cc-ball-preview-wrapper .cc-preview-wrapper {
+.cc-set-preview-item-wrapper.cc-ball-preview-wrapper .cc-preview-wrapper,
+.cc-set-preview-item-wrapper.cc-tees-preview-wrapper .cc-tees-preview-wrapper {
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
@@ -542,7 +555,7 @@ input[type="number"].wsf-field:disabled {
    border-left: 3px dotted red;
    border-right: 3px dotted red;
 }
-#tees-render-wrapper {
+.tees-render-wrapper {
    font-size: 12px; 
 }
 .cc-tees-name .cc-tees-preview-wrapper .cc-preview-text {
@@ -555,7 +568,9 @@ input[type="number"].wsf-field:disabled {
 .cc-tees-preview-wrapper .cc-tees-preview-texts {
    position: absolute;
    left: 57%;
+   top: 50.7%;
    transform: translate(-50%, -50%);
+   font-family: 'Solway', sans-serif;
 }
 
 .cc-tees-preview-wrapper .cc-tees-preview-texts-1 {
@@ -1316,4 +1331,15 @@ button.show-customizer {
 
 .cc-preview-texts .cc-preview-text {
    font-family: 'Garet Book';
+}
+
+
+@media(max-width: 767px) {
+   .wsf-group[style="display: none;"] {
+      visibility: hidden;
+      display: block !important;
+   }
+   .wsf-section.set-preview-section[style="display: none;"] {
+      display: block !important;
+   }
 }

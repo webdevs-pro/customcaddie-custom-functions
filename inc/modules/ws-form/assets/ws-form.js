@@ -178,7 +178,7 @@
 		}
 
 		$(document).on('wsf-tab-clicked', function(e, form, form_id, instance_id) {
-			console.log('e', e);
+
 			// Select all elements with class 'cc-mobile-content'
 			$('.cc-mobile-content').each(function() {
 				// Check if the element has 'overflow-y' set to 'auto'
@@ -190,7 +190,7 @@
 		} );
 
 		$( document ).on( 'click', '.cc-preview-back-button', function() {
-			$( '.set-preview-section' ).slideUp();
+			// $( '.set-preview-section' ).slideUp();
 		} );
 
 		// Call checkWindowSize on window resize
@@ -455,6 +455,8 @@
 				var $this = $(this); // Current element
 				var previewWrapperWidth = $this.width();
 
+				console.log('previewWrapperWidth', previewWrapperWidth);
+
 				var modifier = 277;
 				var newFontSize = previewWrapperWidth / modifier * inputValue;
 
@@ -462,6 +464,8 @@
 				$this.find('.cc-preview-signature').css('font-size', newFontSize + 'px');
 			});
 		});
+
+		
 
 		// $( '.cc-custom-text-font-size' ).on( 'change', function() {
 		// 	var value = $( this ).val();
@@ -483,14 +487,29 @@
 			});
 		});
 
+		// $( '.cc-tees-text-font-size' ).on( 'change', function() {
+		// 	var value = $( this ).val();
+		// 	$( '.tees-render-wrapper' ).css( 'font-size', value + 'px' );
+		// } );
+
 		$( '.cc-tees-text-font-size' ).on( 'change', function() {
-			var value = $( this ).val();
-			$( '#tees-render-wrapper' ).css( 'font-size', value + 'px' );
-		} );
+			var inputValue = $(this).val();
+			// Loop through each element you want to resize
+			$('.cc-tees-preview-wrapper').each(function() {
+				var $this = $(this); // Current element
+				var previewWrapperWidth = $this.width();
+
+				var modifier = 277;
+				var newFontSize = previewWrapperWidth / modifier * inputValue;
+
+				// Set the new font size
+				$this.find('.cc-tees-preview-texts').css('font-size', newFontSize + 'px');
+			});
+		});
 
 		$( '.cc-tees-custom-text-input' ).on( 'input change', function() {
 			var value = $( this ).val();
-			$( '#tees-render-wrapper .cc-preview-text' ).text( value );
+			$( '.tees-render-wrapper .cc-preview-text' ).text( value );
 		} );
 
 
@@ -677,7 +696,7 @@
 			$( '.set-preview-section' ).removeClass( 'generation-preview' );
 			$( '.generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
 			$( '#preview-section-divider' ).addClass( 'visible' );
-			$( '.set-preview-section' ).slideDown();
+			// $( '.set-preview-section' ).slideDown();
 
 		}
 
@@ -707,8 +726,10 @@
 		$( document ).on('click', '.cc-mobile-generate-set-preview-button', function(e) {
 			e.preventDefault();
 			setTimeout(function() {
-				$('.cc-ball-tab-wrapper').show();
-				$('.cc-tees-tab-wrapper').show();
+				// $('.cc-ball-tab-wrapper').show();
+				// $('.cc-tees-tab-wrapper').show();
+
+				$('button.single_add_to_cart_button').show();
 
 				setTimeout(function() {
 					update_set_preview();
