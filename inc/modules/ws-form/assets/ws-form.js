@@ -697,6 +697,7 @@
 			$( '.generate-set-preview' ).html( 'Regenerate set preview<span class="cc-loader"></span>' );
 			$( '#preview-section-divider' ).addClass( 'visible' );
 			// $( '.set-preview-section' ).slideDown();
+			$( '.set-preview-section' ).slideDown();
 
 		}
 
