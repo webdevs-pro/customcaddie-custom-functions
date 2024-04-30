@@ -270,6 +270,9 @@
 			$( '.cc-preview-wrapper .cc-preview-signature' ).text( full_name );
 
 			$( '.cc-tees-preview-wrapper .cc-preview-name' ).text( first_name + ' ' + last_name );
+			setTimeout(function() {
+				adjustSvgTextFontSize();
+			})
 		}
 
 		/**
@@ -822,6 +825,78 @@
 			$button.after( '<a href="/store-checkout" class="added_to_cart wc-forward" title="Go To Checkout Page">Added. Go to check out</a>' );
 			$('.single_add_to_cart_button.added').remove();
 		} );
+
+
+
+
+
+
+
+
+
+	// function adjustSvgTextFontSize() {
+	// 	$('.cc-icon text').each(function() {
+	// 			var textElement = $(this);
+	// 			var maxWidth = textElement.data('max-text-width');
+	// 			var fontSize = parseFloat(textElement.css('font-size'));
+
+	// 			console.log('maxWidth', maxWidth);
+	// 			console.log('fontSize', fontSize);
+
+	// 			// Adjust font size to fit within the maximum width
+	// 			while (textElement.get(0).getComputedTextLength() > maxWidth && fontSize > 0) {
+	// 				fontSize -= 0.5;  // Decrease font size by 0.5px increments
+	// 				textElement.css('font-size', fontSize + 'px');
+	// 			}
+	// 	});
+	// }
+
+
+
+	function adjustSvgTextFontSize() {
+		$('.cc-icon text').each(function() {
+				var textElement = $(this);
+				var maxWidth = textElement.attr('data-max-text-width');
+
+				// Store the original font size if it's not already stored
+				if (!textElement.data('original-font-size')) {
+					textElement.data('original-font-size', parseFloat(textElement.css('font-size')));
+				}
+
+				var originalFontSize = parseFloat(textElement.data('original-font-size'));
+				var fontSize = parseFloat(textElement.css('font-size'));
+
+				// Attempt to increase font size first if less than original
+				if (textElement.get(0).getComputedTextLength() < maxWidth && fontSize < originalFontSize) {
+					while (textElement.get(0).getComputedTextLength() < maxWidth && fontSize < originalFontSize) {
+						fontSize += 0.5;
+						textElement.css('font-size', fontSize + 'px');
+					}
+					// Step back once if we overshoot the maxWidth
+					if (textElement.get(0).getComputedTextLength() > maxWidth) {
+						fontSize -= 0.5;
+						textElement.css('font-size', fontSize + 'px');
+					}
+				} 
+
+				// Then reduce font size if necessary
+				if (textElement.get(0).getComputedTextLength() > maxWidth) {
+					while (textElement.get(0).getComputedTextLength() > maxWidth && fontSize > 0) {
+						fontSize -= 0.5;
+						textElement.css('font-size', fontSize + 'px');
+					}
+				}
+
+		});
+	}
+  
+  
+  
+  
+  
+
+  
+  
 
 	});
 } )( jQuery );
