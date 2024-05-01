@@ -347,12 +347,18 @@
 
 			// Set font size input value from selected SVG icon
 			var font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-letter' ).attr( 'font-size' );
+
 			if ( typeof font_size === 'undefined' ) {
-				font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).attr( 'font-size' );
+				// font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).attr( 'font-size' );
+				font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).css( 'font-size' );
 			}
 			if ( typeof font_size === 'undefined' ) {
-				font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size' );
+				// font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size' );
+				font_size = $( this ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).css( 'font-size' );
 			}
+			
+			font_size = parseInt(font_size, 10);
+
 			$( '.cc-icon-font-size' ).val( font_size );
 
 			// Set ball preview icon
@@ -434,8 +440,8 @@
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-first-letter' ).attr( 'font-size', value );
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-middle-letter' ).attr( 'font-size', value );
 			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-letter' ).attr( 'font-size', value );
-			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).attr( 'font-size', value );
-			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size', value );
+			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-first-name-letters' ).attr( 'font-size', value ).css('font-size', value + 'px');
+			$( checked_input ).closest( '.wsf-tile' ).find( '.cc-last-name-letters' ).attr( 'font-size', value ).css('font-size', value + 'px');
 
 			// Set ball preview icon
 			update_preview_icons();
@@ -457,8 +463,6 @@
 			$('.cc-ball-preview-wrapper').each(function() {
 				var $this = $(this); // Current element
 				var previewWrapperWidth = $this.width();
-
-				console.log('previewWrapperWidth', previewWrapperWidth);
 
 				var modifier = 277;
 				var newFontSize = previewWrapperWidth / modifier * inputValue;
