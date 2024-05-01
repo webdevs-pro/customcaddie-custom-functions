@@ -891,7 +891,11 @@
 	}
   
   
-  
+	$('.cc-is-icon.cc-radio-choose input').on('change', function() {
+		setTimeout(function() {
+			adjustSvgTextFontSize();
+		});
+	});
   
   
 
