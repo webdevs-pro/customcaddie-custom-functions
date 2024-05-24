@@ -151,8 +151,13 @@ class CC_Elementor {
       wp_enqueue_script( 'cc-custom-js', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/cc-custom.js', array( 'jquery' ), CC_PLUGIN_VERSION, true );
 
       // https://github.com/tsayen/dom-to-image
-		// wp_enqueue_script( 'cc-dom2image', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/dom-to-image.min.js', array( ), CC_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'cc-dom2image', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/dom-to-image.min.js', array( ), CC_PLUGIN_VERSION, true );
 
+      // https://github.com/bubkoo/html-to-image
+		// wp_enqueue_script( 'cc-html-to-image', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/html-to-image.js', array( ), CC_PLUGIN_VERSION, true );
+
+      // https://html2canvas.hertzen.com/configuration
+		// wp_enqueue_script( 'cc-html2canvas', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/html2canvas.min.js', array( ), CC_PLUGIN_VERSION, true );
 
    }
 

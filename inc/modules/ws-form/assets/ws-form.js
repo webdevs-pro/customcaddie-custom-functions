@@ -706,8 +706,250 @@
 			// $( '.set-preview-section' ).slideDown();
 			$( '.set-preview-section' ).slideDown();
 
+
+
+
 		}
 
+
+
+
+		// $('.cc-set-preview-item-wrapper').on('click', function() {
+	
+		// 	var $imagesWrapper = $('#cc-preview-images-wrapper');
+
+		// 	if (! $imagesWrapper.length) {
+		// 		$('body').append('<div id="cc-preview-images-wrapper"></div>');
+		// 		$imagesWrapper = $('#cc-preview-images-wrapper');
+		// 	}
+
+		// 	var peviewWrappers = $(this).parent().find('.cc-set-preview-item-wrapper');
+
+		// 	$.each(peviewWrappers, function(index, previewWrapper) {
+
+		// 		var node = $(previewWrapper).children('div')[0];
+
+		// 		var scale = 3;
+		// 		domtoimage.toBlob(node, {
+		// 			width: node.clientWidth*scale,
+		// 			height: node.clientHeight*scale,
+		// 			style: {
+		// 				'transform': 'scale('+scale+')',
+		// 				'transform-origin': 'top left'
+		// 			},
+		// 			filter: filter
+		// 		})
+		// 			.then(function (blob) {
+		// 				console.log('index', index);
+
+		// 				var selector = '.swiper-slide[data-swiper-slide-index="' + index + '"] img';
+		// 				console.log('selector', selector);
+						
+		// 				var imgElement = $('#elementor-lightbox-slideshow-preview-lightbox').find(selector);
+
+		// 				  console.log('imgElement', imgElement);
+		  
+		// 				  $.each(imgElement, function() {
+		// 						$(this).attr('src', URL.createObjectURL(blob) + '#.png');
+		// 				  });
+		// 			})
+		// 			.catch(function (error) {
+		// 				console.error('oops, something went wrong!', error);
+		// 			});
+
+		// 	});
+				
+
+		// 		 function filter(node) {
+		// 			if (node.classList) return !node.classList.contains("cc-quantity-badge");
+		// 			return true;
+		// 		}
+		// });
+
+		
+
+
+
+
+
+
+
+
+
+
+	$('.cc-set-preview-item-wrapper').on('click', function() {
+		var itemIndex = $(this).parent().children('.cc-set-preview-item-wrapper').index(this);
+		$('#cc-preview-images-wrapper a').eq(itemIndex).trigger('click');
+
+		var swiper;
+
+		var intervalId = setInterval(function() {
+			swiper = $('#elementor-lightbox-slideshow-preview-lightbox').find('.swiper').data('swiper');
+			if (swiper) {
+				clearInterval(intervalId);
+			}
+		}, 100);
+
+		var previewWrappers = $(this).parent().find('.cc-set-preview-item-wrapper');
+
+
+
+		$.each(previewWrappers, function(index, previewWrapper) {
+				var node = $(previewWrapper).children('div')[0];
+				var scale = 4;
+
+				domtoimage.toBlob(node, {
+					width: node.clientWidth * scale,
+					height: node.clientHeight * scale,
+					style: {
+						'transform': 'scale(' + scale + ')',
+						'transform-origin': 'top left',
+						'border-radius': '8px',
+						'overflow': 'hidden'
+					},
+					filter: filter
+				})
+				.then(function(blob) {
+					var blobUrl = URL.createObjectURL(blob) + '#' + index + '.png';
+
+					// var placeholders = $('#cc-preview-images-wrapper a');
+					// var placeholder = $(placeholders).eq(index);
+
+					// placeholder.attr('href', blobUrl); // Add a file extension
+
+					
+
+					var imgElement = swiper.slides.find('[data-swiper-slide-index="' + index + '"] img');
+
+					$.each(imgElement, function() {
+						this.src = blobUrl;
+					});
+
+					swiper.on('slideChange', function() {
+						var imgElement = swiper.slides.find('[data-swiper-slide-index="' + index + '"] img');
+
+						$.each(imgElement, function() {
+							this.src = blobUrl;
+						});
+					})
+
+
+
+					// var imgElement = $('#elementor-lightbox-slideshow-preview-lightbox').find('.swiper-slide[data-swiper-slide-index="' + index + '"] img');
+					
+					// // console.log('imgElement', imgElement);
+					
+					// $.each(imgElement, function() {
+					// 	console.log('index: ' + index + ' ', blobUrl);
+					// 	console.log('imgElement', imgElement);
+					// 	$(this).attr('src', blobUrl);
+					// });
+
+				})
+				.catch(function(error) {
+					console.error('oops, something went wrong!', error);
+				});
+
+		});
+
+		function filter(node) {
+				if (node.classList) return !node.classList.contains("cc-quantity-badge");
+				return true;
+		}
+	});
+  
+	  
+
+
+
+// $('.cc-set-preview-item-wrapper').on('click', function() {
+// 	var itemIndex = $(this).parent().children('.cc-set-preview-item-wrapper').index(this);
+
+// 	$('#cc-preview-images-wrapper a').eq(itemIndex).trigger('click');
+
+// 	var previewWrappers = $(this).parent().find('.cc-set-preview-item-wrapper');
+// 	var promises = [];
+
+// 	// Adjust the order to start from the clicked item
+// 	var orderedWrappers = [];
+// 	for (var i = itemIndex; i < previewWrappers.length; i++) {
+// 		orderedWrappers.push(previewWrappers[i]);
+// 	}
+// 	for (var j = 0; j < itemIndex; j++) {
+// 		orderedWrappers.push(previewWrappers[j]);
+// 	}
+
+// 	orderedWrappers.forEach(function(previewWrapper, index) {
+// 		var node = $(previewWrapper).children('div')[0];
+// 		var scale = 3;
+
+// 		var promise = domtoimage.toBlob(node, {
+// 			width: node.clientWidth * scale,
+// 			height: node.clientHeight * scale,
+// 			style: {
+// 					'transform': 'scale(' + scale + ')',
+// 					'transform-origin': 'top left'
+// 			},
+// 			filter: filter
+// 		})
+// 		.then(function(blob) {
+// 			return URL.createObjectURL(blob);
+// 		})
+// 		.catch(function(error) {
+// 			console.error('oops, something went wrong!', error);
+// 		});
+
+// 		promises.push(promise);
+// 	});
+
+// 	Promise.all(promises).then(function(images) {
+
+// 		console.log('images', images.length);
+
+// 		var placeholders = $('#cc-preview-images-wrapper a');
+		
+// 		images.forEach(function(blobUrl, index) {
+// 			var placeholderIndex = (itemIndex + index) % placeholders.length;
+
+// 			console.log('placeholderIndex', placeholderIndex);
+
+// 			var placeholder = $(placeholders).eq(placeholderIndex);
+
+// 			placeholder.attr('href', blobUrl + '#.png'); // Add a file extension
+
+// 			var slideshowPreviewLightbox = $('#elementor-lightbox-slideshow-preview-lightbox');
+
+// 			console.log('slideshowPreviewLightbox', slideshowPreviewLightbox);
+				
+
+// 			var imgElement = slideshowPreviewLightbox.find('.swiper-slide[data-swiper-slide-index="' + index + '"] img');
+
+// 			console.log('imgElement', imgElement);
+
+// 			imgElement.attr('src', blobUrl);
+
+// 		});
+
+
+
+// 	});
+
+// 	function filter(node) {
+// 		if (node.classList) return !node.classList.contains("cc-quantity-badge");
+// 		return true;
+// 	}
+// });
+
+
+
+
+
+
+		
+
+
+
+		
 
 
 		$('.customize-set').on('click', function(e) {
