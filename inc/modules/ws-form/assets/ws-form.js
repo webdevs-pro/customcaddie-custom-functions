@@ -779,83 +779,84 @@
 
 	$('.cc-set-preview-item-wrapper').on('click', function() {
 		var itemIndex = $(this).parent().children('.cc-set-preview-item-wrapper').index(this);
-		$('#cc-preview-images-wrapper a').eq(itemIndex).trigger('click');
-
-		var swiper;
-
-		var intervalId = setInterval(function() {
-			swiper = $('#elementor-lightbox-slideshow-preview-lightbox').find('.swiper').data('swiper');
-			if (swiper) {
-				clearInterval(intervalId);
-			}
-		}, 100);
 
 		var previewWrappers = $(this).parent().find('.cc-set-preview-item-wrapper');
+		var $previewSwiperWrapper = $('#cc-main-preview-lightbox-wrapper');
 
 
 
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		
 		$.each(previewWrappers, function(index, previewWrapper) {
-				var node = $(previewWrapper).children('div')[0];
-				var scale = 4;
+			var previewItemClone = $(previewWrapper).clone();
+			var width = $(previewWrapper).width();
+			var height = $(previewWrapper).height();
+		
+			// Calculate scale to fit within 80% of the window's width or height while maintaining proportions
+			var maxScaleWidth = 0.8 * windowWidth / width;
+			var maxScaleHeight = 0.8 * windowHeight / height;
+			var scale = Math.min(maxScaleWidth, maxScaleHeight); // Use the smaller scale to fit within both dimensions
+		
+			previewItemClone.width(width);
+			previewItemClone.height(height);
+		
+			previewItemClone.css({
+				'transform': 'scale(' + scale + ')'
+			});
+		
+			previewItemClone.removeClass('wsf-extra-small-10 wsf-small-4 wsf-tile wsf-field-wrapper cc-padding-bottom-20');
 
-				domtoimage.toBlob(node, {
-					width: node.clientWidth * scale,
-					height: node.clientHeight * scale,
-					style: {
-						'transform': 'scale(' + scale + ')',
-						'transform-origin': 'top left',
-						'border-radius': '8px',
-						'overflow': 'hidden'
-					},
-					filter: filter
-				})
-				.then(function(blob) {
-					var blobUrl = URL.createObjectURL(blob) + '#' + index + '.png';
-
-					// var placeholders = $('#cc-preview-images-wrapper a');
-					// var placeholder = $(placeholders).eq(index);
-
-					// placeholder.attr('href', blobUrl); // Add a file extension
-
-					
-
-					var imgElement = swiper.slides.find('[data-swiper-slide-index="' + index + '"] img');
-
-					$.each(imgElement, function() {
-						this.src = blobUrl;
-					});
-
-					swiper.on('slideChange', function() {
-						var imgElement = swiper.slides.find('[data-swiper-slide-index="' + index + '"] img');
-
-						$.each(imgElement, function() {
-							this.src = blobUrl;
-						});
-					})
-
-
-
-					// var imgElement = $('#elementor-lightbox-slideshow-preview-lightbox').find('.swiper-slide[data-swiper-slide-index="' + index + '"] img');
-					
-					// // console.log('imgElement', imgElement);
-					
-					// $.each(imgElement, function() {
-					// 	console.log('index: ' + index + ' ', blobUrl);
-					// 	console.log('imgElement', imgElement);
-					// 	$(this).attr('src', blobUrl);
-					// });
-
-				})
-				.catch(function(error) {
-					console.error('oops, something went wrong!', error);
-				});
-
+			previewItemClone.find('.cc-quantity-badge').remove();
+		
+			// Append the cloned element to the target container
+			$previewSwiperWrapper.find('.swiper-slide .swiper-slide-inner').eq(index).empty().append(previewItemClone);
 		});
 
-		function filter(node) {
-				if (node.classList) return !node.classList.contains("cc-quantity-badge");
-				return true;
+
+
+
+		var sliderElement = $previewSwiperWrapper.find('.swiper-slider-container');
+		var swiperSlider;
+
+		var previewSliderConfig = {
+			loop: true,
+			initialSlide: itemIndex,
+			navigation: {
+				prevEl: $previewSwiperWrapper.find('.cc-swiper-prev')[0],
+				nextEl: $previewSwiperWrapper.find('.cc-swiper-next')[0],
+			},
+			pagination: {
+				el: $previewSwiperWrapper.find('.cc-swiper-fraction')[0],
+				type: 'fraction',
+			},
+		};
+
+		if ('undefined' === typeof Swiper) { // Improved Asset Loading enabled
+			var asyncSwiper = elementorFrontend.utils.swiper;
+;
+			new asyncSwiper(sliderElement[0], previewSliderConfig).then(function (newSwiperSliderInstance) {
+				swiperSlider = newSwiperSliderInstance;
+			});
+		} else { // Improved Asset Loading disabled
+			swiperSlider = new Swiper(sliderElement[0], previewSliderConfig);
 		}
+
+		setTimeout(function() {
+			$previewSwiperWrapper.fadeIn(200);
+		}, 100)
+
+		// Ensure the event handler is only attached once by removing any previous handlers
+		$previewSwiperWrapper.off('click', '.cc-swiper-close').on('click', '.cc-swiper-close', function() {
+			$previewSwiperWrapper.fadeOut(200, function() {
+				if (swiperSlider) {
+					swiperSlider.destroy();
+					swiperSlider = null; // Clear the swiperSlider reference
+				}
+				$previewSwiperWrapper.find('.swiper-slide .swiper-slide-inner').empty();
+			});
+		});
+		
 	});
   
 	  
