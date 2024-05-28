@@ -3,7 +3,7 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
-
+		var customizerOpened = false;
 
 
 		$('.single_add_to_cart_button.button' ).appendTo( '.cc-add-to-cart-button-wrapper').hide();
@@ -305,6 +305,10 @@
 			} else if ( value.length >= 3 ) {
 				middle_letter = value[1];
 				last_letter = value[2];
+			}
+
+			if (! customizerOpened && value.length >= 3) {
+				$(document).find('input[value="3 letters V12"]').trigger('click');
 			}
 
 			$( '.cc-first-letter' ).text( first_letter );
@@ -1002,6 +1006,7 @@
 			e.preventDefault();
 			$('.cc-customizer-sections').slideDown();
 			$(this).hide();
+			customizerOpened = true;
 		})
 
 
