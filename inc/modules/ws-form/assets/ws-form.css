@@ -1482,7 +1482,9 @@ body.admin-bar #cc-icon-preview-lightbox-wrapper {
 
 
 
-
+#cc-icon-preview-lightbox .cc-preview-texts svg {
+   width: 100% !important;
+ }
 
 
 
