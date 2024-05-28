@@ -659,10 +659,13 @@ button.add-to-cart,
    display: flex;
    align-items: center;
 } */
+.cc-set-preview-item-wrapper > div {
+   position: relative;
+}
 .cc-set-preview-item-wrapper .cc-quantity-badge {
    position: absolute;
    top: 0;
-   left: 10px;
+   left: 0;
    z-index: 2;
    font-size: 16px;
    font-weight: 700;

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: CustomCaddie Custom Functions
  * Plugin URI: https://github.com/webdevs-pro/customcaddie-custom-functions
- * Version: 1.137
+ * Version: 1.138
  * Description: A place for custom functions for customcaddie.co website
  * Author: Alex Ishchenko
  * Author URI: https://website.cv.ua
@@ -56,7 +56,7 @@ new CC_Plugin();
 
 
 
-// add_filter( 'woocommerce_add_to_cart_validation', 'empty_cart_before_add_new', 10, 3 );
+add_filter( 'woocommerce_add_to_cart_validation', 'empty_cart_before_add_new', 10, 3 );
 function empty_cart_before_add_new( $passed, $product_id, $quantity ) {
     if ( $passed ) {
         WC()->cart->empty_cart();
