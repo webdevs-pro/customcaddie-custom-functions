@@ -80,6 +80,59 @@ class CC_WS_Form {
 
 
 
+		<div id="cc-icon-preview-lightbox-wrapper">
+			<div id="cc-icon-preview-lightbox">
+				<?php
+				$swiper_container_classes = array(
+					'swiper-slider-container',
+					'cc-icon-preview-slider',
+				);
+
+				if ( \Elementor\Plugin::$instance->experiments->is_feature_active( 'e_swiper_latest' ) ) {
+					$swiper_container_classes[] = 'swiper';
+				} else {
+					$swiper_container_classes[] = 'swiper-container';
+				}
+				?>
+
+				<div class="<?php echo implode( ' ', $swiper_container_classes ); ?>">
+					<div class="swiper-wrapper">
+
+						<div class="swiper-slide">
+							<div class="swiper-slide-inner">
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="swiper-slide-inner">
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="swiper-slide-inner">
+							</div>
+						</div>
+
+						<div class="swiper-slide">
+							<div class="swiper-slide-inner">
+							</div>
+						</div>
+
+					</div>
+
+					<div class="cc-swiper-fraction"></div>
+					<div class="cc-swiper-close"><i class="eicon-close"></i></div>
+
+					<div class="cc-swiper-prev cc-swiper-nav-button"><i class="eicon-chevron-left" aria-hidden="true"></i></div>
+					<div class="cc-swiper-next cc-swiper-nav-button"><i class="eicon-chevron-right" aria-hidden="true"></i></div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
 
 
 
