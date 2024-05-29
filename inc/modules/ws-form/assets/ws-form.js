@@ -31,8 +31,26 @@
 			if (width <= 767) {
 				// Call switch_to_mobile only if not already in 'mobile' state
 				if (currentViewState !== 'mobile') {
+
+					
+					if($('body').hasClass('single-product') === false) {
 						switch_to_mobile();
 						currentViewState = 'mobile';
+					} else {
+						var startElement = $('.wsf-groups').find('.cc-icon-tab-wrapper');
+						var endElement = $('.wsf-groups').find('.cc-tees-tab-wrapper');
+						
+						// Get all elements between the start and end elements, including them
+						var elementsToWrap = startElement.nextUntil(endElement).add(startElement).add(endElement);
+						
+						// Check if the elements are not already wrapped to prevent double wrapping
+						if (!startElement.parent().hasClass('cc-customizer-sections')) {
+							elementsToWrap.wrapAll('<div class="cc-customizer-sections"></div>');
+							
+							// Apply CSS to the wrapped elements
+							elementsToWrap.css('display', 'block');
+						}
+					}
 				} 
 			} else {
 				var startElement = $('.wsf-groups').find('.cc-icon-tab-wrapper');
