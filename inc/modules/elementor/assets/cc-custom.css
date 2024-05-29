@@ -34,7 +34,7 @@ body.woocommerce-cart .button.cc-edit-customization {
 
 
 
-body.woocommerce-cart .elementor-menu-cart__product-name a:after {
+.elementor-menu-cart__product-name a:after {
    content: 'Edit Customization';
    display: inline-flex;
    font-size: 14px;

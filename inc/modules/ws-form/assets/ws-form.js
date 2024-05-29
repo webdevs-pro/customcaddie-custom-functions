@@ -3,6 +3,10 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
+		setTimeout(function(){
+			$('.cc-initials-field').trigger('input');
+		})
+
 		var customizerOpened = false;
 
 
