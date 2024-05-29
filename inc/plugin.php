@@ -123,3 +123,4 @@ function cc_redirect_single_product_to_cart() {
 	}
 }
 add_action( 'template_redirect', 'cc_redirect_single_product_to_cart' );
+

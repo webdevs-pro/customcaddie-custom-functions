@@ -34,15 +34,15 @@
 
 
 
-   if ($('body').hasClass('woocommerce-cart')) {
+    if ($('body').hasClass('woocommerce-cart')) {
 
-    // $('button[name="update_cart"]').remove();
+        // $('button[name="update_cart"]').remove();
 
-    var editUrl = $('td.product-name a').attr('href');
+        var editUrl = $('td.product-name a').attr('href');
 
-    $('td.actions').append('<a class="button cc-edit-customization" href="' + editUrl + '">Edit Customization</a>');
+        $('td.actions').append('<a class="button cc-edit-customization" href="' + editUrl + '">Edit Customization</a>');
+    }
 
 
 
-   }
 } )( jQuery );

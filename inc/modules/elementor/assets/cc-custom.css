@@ -31,3 +31,16 @@ body.woocommerce-cart .button.cc-edit-customization {
    color: var( --e-global-color-accent ) !important;
    padding: .88rem 2rem;
 }
+
+
+
+body.woocommerce-cart .elementor-menu-cart__product-name a:after {
+   content: 'Edit Customization';
+   display: inline-flex;
+   font-size: 14px;
+   line-height: 1em;
+   /* padding: 2px 6px; */
+   color: var( --e-global-color-accent );
+   /* background-color: #F1F2F1; */
+   text-decoration: underline;
+}
