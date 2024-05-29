@@ -29,4 +29,20 @@
 
    // Bind resize event on window
    $(window).resize(adjustCartContainer);
+
+
+
+
+
+   if ($('body').hasClass('woocommerce-cart')) {
+
+    // $('button[name="update_cart"]').remove();
+
+    var editUrl = $('td.product-name a').attr('href');
+
+    $('td.actions').append('<a class="button cc-edit-customization" href="' + editUrl + '">Edit Customization</a>');
+
+
+
+   }
 } )( jQuery );

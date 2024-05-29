@@ -6,8 +6,13 @@
 		var customizerOpened = false;
 
 
-		$('.single_add_to_cart_button.button' ).appendTo( '.cc-add-to-cart-button-wrapper').hide();
+		// $('.single_add_to_cart_button.button' ).appendTo( '.cc-add-to-cart-button-wrapper').hide();
 
+		var addToCartButtonText = $('.single_add_to_cart_button.button').text();
+		$('.single_add_to_cart_button.button' ).remove(); // Remove original button
+
+		$('.cc-add-to-cart-button').appendTo( '.cc-add-to-cart-button-wrapper').hide();
+		$('.cc-add-to-cart-button').find('button').text(addToCartButtonText);
 
 
 
@@ -169,10 +174,10 @@
 			tees_text_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
 
 
-		$( '.single_add_to_cart_button.button' ).appendTo( '.cart.wsf-form.wsf-woocommerce .cc-preview-tab-wrapper .cc-mobile-footer > .wsf-grid.wsf-fields' );
-		var buttonText = $( '.single_add_to_cart_button.button' ).text();
+		$( '.cc-add-to-cart-button-wrapper button' ).appendTo( '.cart.wsf-form.wsf-woocommerce .cc-preview-tab-wrapper .cc-mobile-footer > .wsf-grid.wsf-fields' );
+		var buttonText = $( '.cc-add-to-cart-button-wrapper button' ).text();
 		var modifiedText = buttonText.replace( 'Customized ', '' );
-		$( '.single_add_to_cart_button.button' ).text(modifiedText);
+		$( '.cc-add-to-cart-button-wrapper button' ).text(modifiedText);
 
 
 		}
@@ -937,7 +942,8 @@
 			e.preventDefault();
 
 			$(this).hide();
-			$('button.single_add_to_cart_button').show();
+			// $('button.single_add_to_cart_button').show();
+			$('.cc-add-to-cart-button').show();
 			$('.customize-set').show();
 
 			update_set_preview();

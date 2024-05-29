@@ -21,14 +21,18 @@ add_filter( 'woocommerce_product_single_add_to_cart_text', 'cc_custom_woocommerc
 function cc_custom_woocommerce_product_add_to_cart_text() {
 	global $product;
 
+	if ( is_product() && isset( $_GET['wsf_cart_item_key'] ) ) {
+		return 'Update My Set And Go To Checkout';
+	}
+
 	// Get the raw price
-	$price = wc_get_price_to_display($product);
+	$price = wc_get_price_to_display( $product );
 
 	// Format the price with your currency settings
 	$formatted_price = wc_price($price);
 
 	// Remove HTML tags to get plain text
-	$plain_price_text = wp_strip_all_tags($formatted_price);
+	$plain_price_text = wp_strip_all_tags( $formatted_price );
 
 	return "Get my Customized Set for " . $plain_price_text;
 }
@@ -95,3 +99,27 @@ function cc_custom_post_time_shortcode() {
 
 // Register the shortcode with WordPress.
 add_shortcode( 'cc_hr_post_time', 'cc_custom_post_time_shortcode' );
+
+
+
+
+function cc_add_body_class_if_wsf_cart_item_key( $classes ) {
+	if ( isset( $_GET['wsf_cart_item_key'] ) ) {
+		$classes[] = 'cc-cart-item-edit';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'cc_add_body_class_if_wsf_cart_item_key' );
+
+
+
+function cc_redirect_single_product_to_cart() {
+	// Check if we are on a single product page and the 'wsf_cart_item_key' URL argument is not present
+	if ( is_product() && ! isset( $_GET['wsf_cart_item_key'] ) ) {
+		// Redirect to the cart page
+		// wp_safe_redirect( wc_get_cart_url() );
+		wp_safe_redirect( wc_get_checkout_url() );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'cc_redirect_single_product_to_cart' );

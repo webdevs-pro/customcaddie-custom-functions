@@ -1,0 +1,33 @@
+body.cc-cart-item-edit .generate-set-preview {
+   display: none;
+}
+body.cc-cart-item-edit .cc-customizer-sections {
+   display: block;
+}
+body.cc-cart-item-edit .set-preview-section {
+   display: block !important;
+}
+body.cc-cart-item-edit .cc-add-to-cart-button-wrapper > div {
+   display: block !important;
+   margin-bottom: 30px !important;
+}
+body.cc-cart-item-edit .cc-add-to-cart-button-wrapper button {
+   margin: 0 !important;
+}
+
+body.woocommerce-cart.woocommerce-page .quantity {
+   display: none !important;
+}
+
+body.woocommerce-page dl.variation {
+   display: none;
+}
+
+body.woocommerce-cart .elementor-widget-woocommerce-cart .woocommerce table.shop_table.cart .actions .button[name="update_cart"] {
+   display: none !important;
+}
+
+body.woocommerce-cart .button.cc-edit-customization {
+   color: var( --e-global-color-accent ) !important;
+   padding: .88rem 2rem;
+}

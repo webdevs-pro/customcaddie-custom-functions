@@ -146,8 +146,8 @@ class CC_Elementor {
     * @return void
     */
    public function register_frontend_scripts() {
-		wp_register_script( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
-		wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
+		// wp_register_script( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
+		// wp_register_script( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.js', array( 'jquery', 'elementor-frontend' ), CC_PLUGIN_VERSION, true );
       wp_enqueue_script( 'cc-custom-js', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/cc-custom.js', array( 'jquery' ), CC_PLUGIN_VERSION, true );
    }
 
@@ -160,8 +160,9 @@ class CC_Elementor {
     */
    public function register_frontend_styles() {
       wp_register_style( 'cc-comparison-table', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/comparison-table.css', array(), CC_PLUGIN_VERSION ); 
-      wp_register_style( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.css', array(), CC_PLUGIN_VERSION ); 
-      wp_register_style( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.css', array(), CC_PLUGIN_VERSION ); 
+      wp_enqueue_style( 'cc-custom-css', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/cc-custom.css', array(), CC_PLUGIN_VERSION ); 
+      // wp_register_style( 'cc-popups-placeholder', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/popups-placeholder.css', array(), CC_PLUGIN_VERSION ); 
+      // wp_register_style( 'cc-product-iframe', CC_PLUGIN_DIR_URL . 'inc/modules/elementor/assets/product-iframe.css', array(), CC_PLUGIN_VERSION ); 
    }
 }
 new CC_Elementor();
