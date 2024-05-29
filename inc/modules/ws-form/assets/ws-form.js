@@ -3,6 +3,8 @@
 	// Create wsf-rendered event handler
 	$(document).on('wsf-rendered', function(e, form, form_id, instance_id) {
 
+
+
 		setTimeout(function(){
 			$('.cc-initials-field').trigger('input');
 		})
@@ -16,7 +18,7 @@
 		$('.single_add_to_cart_button.button' ).remove(); // Remove original button
 
 		$('.cc-add-to-cart-button').appendTo( '.cc-add-to-cart-button-wrapper').hide();
-		$('.cc-add-to-cart-button').find('button').text(addToCartButtonText);
+		$('.cc-add-to-cart-button').find('button').text(addToCartButtonText).css('width', 'auto');
 
 
 
@@ -178,10 +180,14 @@
 			tees_text_font_size_wrapper[0].style.setProperty( 'max-width', 'calc(100% + 20px)', 'important' );
 
 
-		$( '.cc-add-to-cart-button-wrapper button' ).appendTo( '.cart.wsf-form.wsf-woocommerce .cc-preview-tab-wrapper .cc-mobile-footer > .wsf-grid.wsf-fields' );
-		var buttonText = $( '.cc-add-to-cart-button-wrapper button' ).text();
-		var modifiedText = buttonText.replace( 'Customized ', '' );
-		$( '.cc-add-to-cart-button-wrapper button' ).text(modifiedText);
+			$( '.cc-add-to-cart-button-wrapper button' ).appendTo( '.cart.wsf-form.wsf-woocommerce .cc-preview-tab-wrapper .cc-mobile-footer > .wsf-grid.wsf-fields' );
+			var buttonText = $( '.cc-add-to-cart-button-wrapper button' ).text();
+			var modifiedText = buttonText.replace( 'Customized ', '' );
+			$( '.cc-add-to-cart-button-wrapper button' ).text(modifiedText);
+
+			if ($('body').hasClass('single-product')) {
+				open_customizer_popup();
+			}
 
 
 		}

@@ -22,7 +22,7 @@ function cc_custom_woocommerce_product_add_to_cart_text() {
 	global $product;
 
 	if ( is_product() && isset( $_GET['wsf_cart_item_key'] ) ) {
-		return 'Update My Set And Go To Checkout';
+		return 'Update Set';
 	}
 
 	// Get the raw price
@@ -122,5 +122,13 @@ function cc_redirect_single_product_to_cart() {
 		exit;
 	}
 }
-add_action( 'template_redirect', 'cc_redirect_single_product_to_cart' );
+// add_action( 'template_redirect', 'cc_redirect_single_product_to_cart' );
 
+
+
+function custom_add_to_cart_redirect($url) {
+	$url = wc_get_checkout_url();
+
+	return $url;
+}
+add_filter('woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect');

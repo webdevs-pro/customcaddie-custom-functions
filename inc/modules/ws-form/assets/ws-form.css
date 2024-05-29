@@ -1352,6 +1352,20 @@ button.show-customizer {
       font-size: 14px;
       padding: 6px 16px 6px 16px;
    }
+
+   body.single-product:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #FFFFFF;
+   }
+
+   body.single-product .cc-mobile-header-inner .close-popup {
+      display: none !important;
+   }
 }
 
 
