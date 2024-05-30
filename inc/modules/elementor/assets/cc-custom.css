@@ -30,6 +30,11 @@ body.woocommerce-cart .elementor-widget-woocommerce-cart .woocommerce table.shop
 body.woocommerce-cart .button.cc-edit-customization {
    color: var( --e-global-color-accent ) !important;
    padding: .88rem 2rem;
+   border: 2px solid var( --e-global-color-accent );
+   border-radius: 8px;
+   text-transform: uppercase;
+   text-align: center;
+   letter-spacing: 1px;
 }
 
 
