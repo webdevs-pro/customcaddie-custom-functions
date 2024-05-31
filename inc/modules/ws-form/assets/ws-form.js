@@ -7,6 +7,7 @@
 
 		setTimeout(function(){
 			$('.cc-initials-field').trigger('input');
+			$('.cc-tees-custom-text-input').trigger('input');
 		})
 
 		var customizerOpened = false;
