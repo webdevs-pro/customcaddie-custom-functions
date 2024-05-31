@@ -220,8 +220,16 @@ body.woocommerce-cart .button.cc-edit-customization {
    border-radius: 0;
 }
 
+.cc-cart-preview-elements-wrapper .cc-tees-preview-wrapper .cc-tees-preview-texts {
+   font-size: calc( var( --tees-font-size )  * 0.4 );
+}
 
-
+.cc-cart-preview-elements-wrapper .cc-set-preview-towel-item-wrapper .cc-towel-preview {
+   background-size: cover;
+}
+.cc-cart-preview-elements-wrapper .cc-set-preview-towel-item-wrapper .cc-towel-preview svg {
+   fill: #FFFFFF;
+}
 
 
 
@@ -660,6 +668,12 @@ input[type="number"].wsf-field:disabled {
    display: none;
 }
 .cc-tees-custom-text .cc-tees-preview-wrapper .cc-preview-name {
+   display: none;
+}
+.cc-tees-preview-wrapper.cc-tees-name .cc-preview-text {
+   display: none;
+}
+.cc-tees-preview-wrapper.cc-tees-custom-text .cc-preview-name {
    display: none;
 }
 

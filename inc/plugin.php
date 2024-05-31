@@ -156,7 +156,7 @@ add_action( 'woocommerce_after_cart_table', function() {
 			$middle_name                = $cart_item['wsf_submit']->meta['field_83']['value'] ?? '';
 			$last_name                  = $cart_item['wsf_submit']->meta['field_84']['value'] ?? '';
 			$ball_elements              = $cart_item['wsf_submit']->meta['field_158']['value'] ?? '';
-			$ball_custom_text             = $cart_item['wsf_submit']->meta['field_159']['value'] ?? '';
+			$ball_custom_text           = $cart_item['wsf_submit']->meta['field_159']['value'] ?? '';
 			$ball_custom_text_position  = $cart_item['wsf_submit']->meta['field_161']['value'] ?? '';
 			$ball_custom_text_font_size = $cart_item['wsf_submit']->meta['field_107']['value'] ?? '';
 			$ball_signature_font_size   = $cart_item['wsf_submit']->meta['field_112']['value'] ?? '';
@@ -221,6 +221,101 @@ add_action( 'woocommerce_after_cart_table', function() {
 					<div class="cc-preview-icon" style="width: <?php echo $ball_icon_size; ?>%;"><?php echo $svg; ?></div>
 					<div class="cc-preview-signature" style="<?php echo $font; ?> --signature-font-size: <?php echo $ball_signature_font_size; ?>px;"><?php echo implode( ' ', $name_arr ); ?></div>
 					<div class="cc-preview-text" style="--custom-text-font-size: <?php echo $ball_custom_text_font_size; ?>px;"><?php echo $ball_custom_text; ?></div>
+				</div>
+			</div>
+			<?php
+
+
+			// Ball marker
+			$ball_marker_preview_classes = array(
+				'cc-preview-wrapper',
+				'cc-set-preview-item-pin',
+			);
+			?>
+			<div class="<?php echo implode( ' ', $ball_marker_preview_classes ); ?>" style="background-image: url(/wp-content/uploads/2023/12/Pin_clean.jpg)">
+				<div class="cc-preview-icon cc-pin-preview-icon"><?php echo $svg; ?></div>
+			</div>
+			<?php
+
+
+			// Divot tool
+			$divot_tool_preview_classes = array(
+				'cc-preview-wrapper',
+				'cc-set-preview-item-marker',
+			);
+			?>
+			<div class="<?php echo implode( ' ', $divot_tool_preview_classes ); ?>" style="background-image: url(/wp-content/uploads/2023/12/Marker_clean.jpg)">
+				<div class="cc-preview-icon cc-marker-preview-icon"><?php echo $svg; ?></div>
+			</div>
+			<?php
+
+
+			// Tees
+			$tees_text_type   = $cart_item['wsf_submit']->meta['field_184']['value'] ?? '';
+			$tees_custom_text = $cart_item['wsf_submit']->meta['field_175']['value'] ?? '';
+			$tees_font_size   = $cart_item['wsf_submit']->meta['field_180']['value'] ?? '';
+			$tees_preview_classes = array(
+				'cc-preview-wrapper',
+				'cc-tees-preview-wrapper',
+			);
+
+			if ( in_array( 'Use Name', $tees_text_type ) ) {
+				$tees_preview_classes[] = 'cc-tees-name';
+			}
+			if ( in_array( 'Use Custom Text', $tees_text_type ) ) {
+				$tees_preview_classes[] = 'cc-tees-custom-text';
+			}
+
+
+			?>
+			<div class="<?php echo implode( ' ', $tees_preview_classes ); ?>" style="background-image: url(/wp-content/uploads/2024/04/tees_clean_single.jpg)">
+				<div class="cc-tees-preview-texts" style="--tees-font-size: <?php echo $tees_font_size; ?>px;">
+					<div class="cc-preview-name"><?php echo $first_name . ' ' . $last_name; ?></div>
+					<div class="cc-preview-text"><?php echo $tees_custom_text; ?></div>
+				</div>
+			</div>
+			<?php
+
+
+			// Towel
+			$towel_preview_classes = array(
+				'cc-preview-wrapper',
+				'cc-set-preview-towel-item-wrapper',
+			);
+			$towel_color_name = $cart_item['wsf_submit']->meta['field_97']['value'] ?? '';
+
+
+
+			switch ( $towel_color_name[0] ) {
+				case 'Blue':
+					$towel_url = "/wp-content/uploads/2023/12/Blue_no_logo.jpg";
+					break;
+
+				case 'Red':
+					$towel_url = "/wp-content/uploads/2023/12/Red_no_logo.jpg";
+					break;
+
+				case 'Black':
+					$towel_url = "/wp-content/uploads/2023/12/Black_no_logo.jpg";
+					break;
+
+				case 'Black':
+					$towel_url = "/wp-content/uploads/2023/12/Black_no_logo.jpg";
+					break;
+
+				case 'Navy':
+					$towel_url = "/wp-content/uploads/2023/12/Navy_no_logo.jpg";
+					break;
+
+				default:
+					$towel_url = "/wp-content/uploads/2023/12/Blue_no_logo.jpg";
+					break;
+
+			}
+			?>
+			<div class="<?php echo implode( ' ', $towel_preview_classes ); ?>" >
+				<div class="cc-set-preview-item cc-towel-preview" style="background-image: url(<?php echo $towel_url; ?>);">
+					<div class="cc-towel-icon"><?php echo $svg; ?></div>
 				</div>
 			</div>
 			<?php
