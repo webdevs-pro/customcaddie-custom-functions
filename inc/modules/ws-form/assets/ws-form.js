@@ -419,6 +419,14 @@
 			var svg_for_towel = checked_svg.clone();
 			$( '.cc-preview-icon .cc-marker-preview-icon' ).empty().append( svg_for_towel );
 
+			// Set SVG to text input
+			var svg_to_store = checked_svg.clone();
+
+			// Serialize the cloned SVG to string
+			var serializedSvg = new XMLSerializer().serializeToString(svg_to_store[0]);
+
+			$( '.cc-svg-store-input' ).val( serializedSvg );
+
 
 		}
 

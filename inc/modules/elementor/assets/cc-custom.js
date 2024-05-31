@@ -46,3 +46,29 @@
 
 
 } )( jQuery );
+
+
+
+var elementToWrap = document.querySelector('.cc-cart-preview-elements-wrapper');
+
+// Create the new <tr> and <td> elements
+var newTr = document.createElement('tr');
+var newTd = document.createElement('td');
+
+// Style the <tr> and <td> to display as block elements
+newTr.style.display = 'block';
+newTd.style.display = 'block';
+
+// Append the original div to the new <td>
+newTd.appendChild(elementToWrap);
+
+// Append the new <td> to the new <tr>
+newTr.appendChild(newTd);
+
+// Select the reference node after which the new element will be inserted
+var referenceNode = document.querySelector('tr.woocommerce-cart-form__cart-item');
+
+// Insert the new <tr> after the reference node
+if (referenceNode && referenceNode.parentNode) {
+    referenceNode.parentNode.insertBefore(newTr, referenceNode.nextSibling);
+}

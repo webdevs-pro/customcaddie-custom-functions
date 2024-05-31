@@ -132,3 +132,107 @@ function custom_add_to_cart_redirect($url) {
 	return $url;
 }
 add_filter('woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect');
+
+
+
+
+
+
+
+function get_woocommerce_cart_items() {
+	$cart_items = array();
+	foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+		error_log( "cart_item\n" . print_r( $cart_item, true ) . "\n" );
+		 $product = $cart_item['data'];
+		 $cart_items[] = array(
+			  'product_id'    => $product->get_id(),
+			  'product_name'  => $product->get_name(),
+			  'quantity'      => $cart_item['quantity'],
+			  'line_total'    => $cart_item['line_total'],
+		 );
+	}
+	return $cart_items;
+}
+
+// add_action( 'template_redirect', 'log_cart_items' );
+
+function log_cart_items() {
+	// Ensure WooCommerce is available
+	if ( class_exists( 'WooCommerce' ) && WC()->cart ) {
+		 // Usage example
+		 $cart_items = get_woocommerce_cart_items();
+		 error_log( "cart_items\n" . print_r( $cart_items, true ) . "\n" );
+	}
+}
+
+add_action( 'woocommerce_after_cart_table', function() {
+	$cart_items = array();
+
+	echo '<div class="cc-cart-preview-elements-wrapper">';
+
+		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+			// error_log( "cart_item\n" . print_r( $cart_item, true ) . "\n" );
+
+			// Ball
+			$svg                        = $cart_item['wsf_submit']->meta['field_256']['value'] ?? '';
+			$first_name                 = $cart_item['wsf_submit']->meta['field_82']['value'] ?? '';
+			$middle_name                = $cart_item['wsf_submit']->meta['field_83']['value'] ?? '';
+			$last_name                  = $cart_item['wsf_submit']->meta['field_84']['value'] ?? '';
+			$ball_elements              = $cart_item['wsf_submit']->meta['field_158']['value'] ?? '';
+			$ball_signature             = $cart_item['wsf_submit']->meta['field_159']['value'] ?? '';
+			$ball_custom_text_position  = $cart_item['wsf_submit']->meta['field_161']['value'] ?? '';
+			$ball_custom_text_font_size = $cart_item['wsf_submit']->meta['field_107']['value'] ?? '';
+			$ball_signature_font_size   = $cart_item['wsf_submit']->meta['field_112']['value'] ?? '';
+			$ball_signature_font_type   = $cart_item['wsf_submit']->meta['field_101']['value'] ?? '';
+			$ball_icon_size             = $cart_item['wsf_submit']->meta['field_127']['value'] ?? '';
+
+			$name_arr = [];
+			if ( $first_name ) {
+				$name_arr[] = $first_name;
+			}
+			if ( $first_name ) {
+				$name_arr[] = $middle_name;
+			}
+			if ( $first_name ) {
+				$name_arr[] = $last_name;
+			}
+
+			$ball_preview_classes = array(
+				'cc-preview-wrapper',
+				'cc-ball-preview-wrapper',
+			);
+
+			if ( in_array( 'Signature', $ball_elements ) ) {
+				$ball_preview_classes[] = 'cc-ball-preview-show-signature';
+			}
+			if ( in_array( 'Custom Text', $ball_elements ) ) {
+				$ball_preview_classes[] = 'cc-ball-preview-show-text';
+			}
+			if ( in_array( 'Icon', $ball_elements ) ) {
+				$ball_preview_classes[] = 'cc-ball-preview-show-icon';
+			}
+
+			$font = '';
+			switch ( $ball_signature_font_type[0] ) {
+				case 'Jimmy Script Bold 700':
+					$font = "font-family: 'Jimmy Script', cursive;";
+					break;
+
+			}
+
+			error_log( "ball_signature_font_type\n" . print_r( $ball_signature_font_type, true ) . "\n" );
+			error_log( "font\n" . print_r( $font, true ) . "\n" );
+
+			?>
+			<div class="<?php echo implode( ' ', $ball_preview_classes ); ?>" style="background-image: url(/wp-content/uploads/2024/01/ball_gray_bg.jpg)">
+				<div class="cc-preview-texts">
+					<div class="cc-preview-icon"></div>
+					<div class="cc-preview-signature" style="<?php echo $font; ?> --signature-font-size: <?php echo $ball_signature_font_size; ?>px;"><?php echo implode( ' ', $name_arr ); ?></div>
+					<div class="cc-preview-text"></div>
+				</div>
+			</div>
+			<?php
+		}
+
+	echo '</div>';
+} );
