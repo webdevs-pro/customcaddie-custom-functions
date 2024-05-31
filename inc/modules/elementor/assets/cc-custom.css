@@ -210,7 +210,12 @@ body.woocommerce-cart .button.cc-edit-customization {
 .cc-cart-preview-elements-wrapper .cc-ball-preview-wrapper .cc-preview-signature {
    font-size: calc( var( --signature-font-size )  * 0.4 );
 }
+.cc-cart-preview-elements-wrapper .cc-ball-preview-wrapper .cc-preview-text {
+   font-size: calc( var( --custom-text-font-size )  * 0.4 );
+}
 .cc-cart-preview-elements-wrapper .cc-ball-preview-wrapper .cc-preview-texts {
+   height: auto;
+   aspect-ratio: 1;
    border: none;
    border-radius: 0;
 }

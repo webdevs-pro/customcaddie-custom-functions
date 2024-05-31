@@ -179,7 +179,7 @@ add_action( 'woocommerce_after_cart_table', function() {
 			$middle_name                = $cart_item['wsf_submit']->meta['field_83']['value'] ?? '';
 			$last_name                  = $cart_item['wsf_submit']->meta['field_84']['value'] ?? '';
 			$ball_elements              = $cart_item['wsf_submit']->meta['field_158']['value'] ?? '';
-			$ball_signature             = $cart_item['wsf_submit']->meta['field_159']['value'] ?? '';
+			$ball_custom_text             = $cart_item['wsf_submit']->meta['field_159']['value'] ?? '';
 			$ball_custom_text_position  = $cart_item['wsf_submit']->meta['field_161']['value'] ?? '';
 			$ball_custom_text_font_size = $cart_item['wsf_submit']->meta['field_107']['value'] ?? '';
 			$ball_signature_font_size   = $cart_item['wsf_submit']->meta['field_112']['value'] ?? '';
@@ -212,23 +212,38 @@ add_action( 'woocommerce_after_cart_table', function() {
 				$ball_preview_classes[] = 'cc-ball-preview-show-icon';
 			}
 
+			if ( in_array( 'Bottom', $ball_custom_text_position ) ) {
+				$ball_preview_classes[] = 'cc-custom-text-bottom';
+			}
+			if ( in_array( 'Top', $ball_custom_text_position ) ) {
+				$ball_preview_classes[] = 'cc-custom-text-top';
+			}
+
 			$font = '';
 			switch ( $ball_signature_font_type[0] ) {
 				case 'Jimmy Script Bold 700':
 					$font = "font-family: 'Jimmy Script', cursive;";
 					break;
 
-			}
+				case 'Dancing Script - Bold 700':
+					$font = "font-family: 'Dancing Script', cursive;";
+					break;
 
-			error_log( "ball_signature_font_type\n" . print_r( $ball_signature_font_type, true ) . "\n" );
-			error_log( "font\n" . print_r( $font, true ) . "\n" );
+				case 'Caveat - Regular 400':
+					$font = "font-family: 'Caveat', cursive;";
+					break;
+
+				case 'Satisfy - Regular 400':
+					$font = "font-family: 'Satisfy', cursive;";
+					break;
+			}
 
 			?>
 			<div class="<?php echo implode( ' ', $ball_preview_classes ); ?>" style="background-image: url(/wp-content/uploads/2024/01/ball_gray_bg.jpg)">
 				<div class="cc-preview-texts">
-					<div class="cc-preview-icon"></div>
+					<div class="cc-preview-icon" style="width: <?php echo $ball_icon_size; ?>%;"><?php echo $svg; ?></div>
 					<div class="cc-preview-signature" style="<?php echo $font; ?> --signature-font-size: <?php echo $ball_signature_font_size; ?>px;"><?php echo implode( ' ', $name_arr ); ?></div>
-					<div class="cc-preview-text"></div>
+					<div class="cc-preview-text" style="--custom-text-font-size: <?php echo $ball_custom_text_font_size; ?>px;"><?php echo $ball_custom_text; ?></div>
 				</div>
 			</div>
 			<?php
