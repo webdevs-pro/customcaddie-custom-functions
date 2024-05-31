@@ -544,6 +544,9 @@
 
 		$( '.cc-tees-custom-text-input' ).on( 'input change', function() {
 			var value = $( this ).val();
+			if (value == '') {
+				value = 'Your Text Here';
+			}
 			$( '.tees-render-wrapper .cc-preview-text' ).text( value );
 		} );
 
