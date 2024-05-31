@@ -117,8 +117,8 @@ function cc_redirect_single_product_to_cart() {
 	// Check if we are on a single product page and the 'wsf_cart_item_key' URL argument is not present
 	if ( is_product() && ! isset( $_GET['wsf_cart_item_key'] ) ) {
 		// Redirect to the cart page
-		// wp_safe_redirect( wc_get_cart_url() );
-		wp_safe_redirect( wc_get_checkout_url() );
+		wp_safe_redirect( wc_get_cart_url() );
+		// wp_safe_redirect( wc_get_checkout_url() );
 		exit;
 	}
 }
@@ -127,7 +127,7 @@ function cc_redirect_single_product_to_cart() {
 
 
 function custom_add_to_cart_redirect($url) {
-	$url = wc_get_checkout_url();
+	$url = wc_get_cart_url();
 
 	return $url;
 }
@@ -139,31 +139,8 @@ add_filter('woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect');
 
 
 
-function get_woocommerce_cart_items() {
-	$cart_items = array();
-	foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-		error_log( "cart_item\n" . print_r( $cart_item, true ) . "\n" );
-		 $product = $cart_item['data'];
-		 $cart_items[] = array(
-			  'product_id'    => $product->get_id(),
-			  'product_name'  => $product->get_name(),
-			  'quantity'      => $cart_item['quantity'],
-			  'line_total'    => $cart_item['line_total'],
-		 );
-	}
-	return $cart_items;
-}
 
-// add_action( 'template_redirect', 'log_cart_items' );
 
-function log_cart_items() {
-	// Ensure WooCommerce is available
-	if ( class_exists( 'WooCommerce' ) && WC()->cart ) {
-		 // Usage example
-		 $cart_items = get_woocommerce_cart_items();
-		 error_log( "cart_items\n" . print_r( $cart_items, true ) . "\n" );
-	}
-}
 
 add_action( 'woocommerce_after_cart_table', function() {
 	$cart_items = array();
