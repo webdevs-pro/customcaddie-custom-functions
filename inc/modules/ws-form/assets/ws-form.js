@@ -393,7 +393,9 @@
 		} );
 
 
-
+		$('.cc-add-to-cart-button').on('click', function() {
+			update_preview_icons();
+		});
 
 
 
@@ -433,7 +435,8 @@
 			// Serialize the cloned SVG to string
 			var serializedSvg = new XMLSerializer().serializeToString(svg_to_store[0]);
 
-			$( '.cc-svg-store-input' ).val( serializedSvg );
+			console.log('BOOM', serializedSvg);
+			$( '.cc-svg-store-input' ).val(serializedSvg);
 		}
 
 
