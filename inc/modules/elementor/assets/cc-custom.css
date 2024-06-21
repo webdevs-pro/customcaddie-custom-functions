@@ -1617,4 +1617,34 @@ body.admin-bar #cc-icon-preview-lightbox-wrapper {
 
 #cc-icon-preview-lightbox .cc-preview-texts svg {
    width: 100% !important;
- }
+}
+
+
+.cc-mobile-customize-button-wrapper {
+   padding: 10px 24px 32px 24px !important;
+   margin: 0 10px 30px 10px !important;
+   gap: 8px;
+   border-radius: 8px;
+   background-color: #f8f9f3;
+   width: auto !important;
+}
+.cc-mobile-customize-button-wrapper h4 {
+   text-align: center;
+   font-size: 18px !important;
+   margin: 0;
+   font-family: var( --e-global-typography-primary-font-family ), Sans-serif;
+}
+.cc-mobile-customize-button-wrapper p {
+   text-align: center;
+   font-size: 12px;
+   font-family: "DM Sans", Sans-serif;
+}
+.cc-mobile-customize-button-wrapper button {
+   border: 2px solid #86A232 !important;
+   border-radius: 8px !important;
+   background-color: #eaece6 !important;
+   color: #86A232 !important;
+   font-size: 14px !important;
+   font-weight: 700 !important;
+   letter-spacing: 1.5px;
+}
