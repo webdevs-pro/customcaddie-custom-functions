@@ -34,7 +34,7 @@ function cc_custom_woocommerce_product_add_to_cart_text() {
 	// Remove HTML tags to get plain text
 	$plain_price_text = wp_strip_all_tags( $formatted_price );
 
-	return "Get my Customized Set for " . $plain_price_text;
+	return 'Add Set to Cart (' . $plain_price_text . ')';
 }
 
 

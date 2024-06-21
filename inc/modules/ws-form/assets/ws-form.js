@@ -18,8 +18,15 @@
 		var addToCartButtonText = $('.single_add_to_cart_button.button').text();
 		$('.single_add_to_cart_button.button' ).remove(); // Remove original button
 
+
 		$('.cc-add-to-cart-button').appendTo( '.cc-add-to-cart-button-wrapper').hide();
 		$('.cc-add-to-cart-button').find('button').text(addToCartButtonText).css('width', 'auto');
+
+		var $addToCartButton = $('.cc-add-to-cart-button').clone();
+		$addToCartButton.css('display', 'block')
+		$('.cc-mobile-add-to-cart-wrapper > div').append($addToCartButton);
+
+
 
 
 
@@ -427,8 +434,6 @@
 			var serializedSvg = new XMLSerializer().serializeToString(svg_to_store[0]);
 
 			$( '.cc-svg-store-input' ).val( serializedSvg );
-
-
 		}
 
 

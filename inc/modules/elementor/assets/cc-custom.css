@@ -1200,6 +1200,14 @@ input[type="text"] {
    .cc-mobile-hidden {
       display: none;
    }
+
+   .cc-mobile-footer .wsf-button {
+      font-size: 12px;
+      line-height: 28px !important;
+   }
+   .cc-mobile-add-to-cart-wrapper {
+      padding-right: 0 !important;
+   }
 }
 
 .elementor-widget-shortcode.cc-mobile-customizer {
